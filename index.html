@@ -1,0 +1,1587 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#29B6F0">
+<style>body{margin:0}</style>
+</head>
+<body>
+<title>Kehadiran Peperiksaan JMTi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: friendly "sticker-book" app — chunky outlined cards with a hard drop shadow, a mascot matric card that reacts to each scan, pill tabs on desktop and an app-style bottom bar on phones. */
+:root{
+  --bg:#FFF6D9; --dots:#FFE3A1; --blob1:#FFD3E1; --blob2:#C9F1FF; --blob3:#D4F8E4;
+  --surface:#FFFFFF; --surface-2:#FFF8E8; --outline:#2D2350; --line-soft:#F3E3C2;
+  --ink:#2D2350; --ink-2:#5F5680; --ink-3:#958CB0;
+  --primary:#29B6F0; --primary-ink:#0B2540; --primary-soft:#D6F4FF; --primary-deep:#0A78AE;
+  --sky:#1FB6E8; --sky-soft:#D6F4FF; --mint:#2FCB86; --violet:#8B6CFF; --violet-soft:#ECE6FF;
+  --sun:#FFC53A; --sun-soft:#FFF0C2; --pink:#FF8FB0;
+  --ok:#14965A; --ok-soft:#D5F7E5; --ok-mid:#44DB95;
+  --warn:#C26A00; --warn-soft:#FFEBC4; --warn-mid:#FFB23F;
+  --bad:#E0334D; --bad-soft:#FFE0E5; --bad-mid:#FF7088;
+  --card:#FFFFFF; --card-band:#1FB6E8;
+  --f-display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --r:20px; --r-sm:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1D1838; --dots:#2A2350; --blob1:#3A1F45; --blob2:#16324A; --blob3:#173A33;
+  --surface:#262048; --surface-2:#2F2858; --outline:#0C0920; --line-soft:#3B3368;
+  --ink:#FFF7EC; --ink-2:#CFC6EA; --ink-3:#9D93C4;
+  --primary:#5AD3FF; --primary-ink:#06283A; --primary-soft:#173F58; --primary-deep:#8BE0FF;
+  --sky:#5AD3FF; --sky-soft:#173F58; --mint:#5BE6A6; --violet:#A994FF; --violet-soft:#352C66;
+  --sun:#FFD25E; --sun-soft:#463A17; --pink:#FF9DBA;
+  --ok:#5BE6A6; --ok-soft:#173E30; --ok-mid:#5BE6A6;
+  --warn:#FFC05E; --warn-soft:#45330F; --warn-mid:#FFC05E;
+  --bad:#FF7E93; --bad-soft:#4A1C2A; --bad-mid:#FF7E93;
+  --card:#FFFDF6; --card-band:#38C3F2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1D1838; --dots:#2A2350; --blob1:#3A1F45; --blob2:#16324A; --blob3:#173A33;
+  --surface:#262048; --surface-2:#2F2858; --outline:#0C0920; --line-soft:#3B3368;
+  --ink:#FFF7EC; --ink-2:#CFC6EA; --ink-3:#9D93C4;
+  --primary:#5AD3FF; --primary-ink:#06283A; --primary-soft:#173F58; --primary-deep:#8BE0FF;
+  --sky:#5AD3FF; --sky-soft:#173F58; --mint:#5BE6A6; --violet:#A994FF; --violet-soft:#352C66;
+  --sun:#FFD25E; --sun-soft:#463A17; --pink:#FF9DBA;
+  --ok:#5BE6A6; --ok-soft:#173E30; --ok-mid:#5BE6A6;
+  --warn:#FFC05E; --warn-soft:#45330F; --warn-mid:#FFC05E;
+  --bad:#FF7E93; --bad-soft:#4A1C2A; --bad-mid:#FF7E93;
+  --card:#FFFDF6; --card-band:#38C3F2; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{height:100%}
+body{background-color:var(--bg);background-image:radial-gradient(var(--dots) 1.6px,transparent 1.7px),radial-gradient(circle at 8% 12%,var(--blob1) 0,transparent 32%),radial-gradient(circle at 92% 30%,var(--blob2) 0,transparent 30%),radial-gradient(circle at 30% 95%,var(--blob3) 0,transparent 34%);background-size:22px 22px,100% 100%,100% 100%,100% 100%;background-attachment:scroll,fixed,fixed,fixed;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;min-height:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.92em}
+.muted{color:var(--ink-2)} .faint{color:var(--ink-3)}
+h1,h2,h3{margin:0;text-wrap:balance;font-family:var(--f-display);font-weight:700;line-height:1.15}
+.label{font-size:13px;color:var(--ink-2);font-weight:700}
+svg.ic{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* mascot */
+.mascot{display:block;flex:none}
+.mascot .body{fill:var(--card);stroke:var(--outline);stroke-width:4}
+.mascot .band{fill:var(--card-band)}
+.mascot .face{fill:none;stroke:#24305A;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.mascot .eye{fill:#24305A}
+.mascot .cheek{fill:var(--pink);opacity:.75}
+.mascot .bars{fill:#24305A}
+.mascot .arm{fill:none;stroke:var(--outline);stroke-width:4;stroke-linecap:round}
+.mascot .extra{fill:var(--sun);stroke:var(--outline);stroke-width:3}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface)}
+header.top::after{content:"";display:block;height:10px;background:var(--primary);border-top:2px solid var(--outline);border-bottom:2px solid var(--outline)}
+.top-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 240px}
+.brand h1{font-size:23px;font-weight:800;letter-spacing:-.01em}
+.brand p{margin:0;font-size:13px;color:var(--ink-3);font-weight:600}
+.top-ctl{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.field-inline{display:flex;flex-direction:column;gap:3px}
+.field-inline .label{font-size:12px;padding-left:4px}
+select,input[type=text],input[type=password],input[type=date],input[type=time],input[type=search],input[type=number]{background:var(--surface);border:2px solid var(--line-soft);border-radius:12px;padding:9px 12px;min-width:0;width:100%;font-weight:600}
+select:focus,input:focus{border-color:var(--sky);outline:none;box-shadow:0 0 0 4px var(--sky-soft)}
+button:focus-visible,a:focus-visible,label.btn:focus-within{outline:3px solid var(--primary);outline-offset:2px}
+#sesiPick{max-width:280px}
+.userbox{display:flex;align-items:center;gap:10px;background:var(--surface-2);border:2px solid var(--line-soft);border-radius:999px;padding:5px 6px 5px 14px;min-width:0}
+.userbox b{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+.role-pill{font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;background:var(--ok-soft);color:var(--ok);white-space:nowrap}
+.role-admin .role-pill{background:var(--violet-soft);color:var(--violet)}
+.role-pengawas .admin-only{display:none!important}
+body.logged-out header.top,body.logged-out nav.bottom,body.logged-out main{display:none!important}
+body:not(.logged-out) #login{display:none!important}
+.login{min-height:100%;display:flex;align-items:center;justify-content:center;padding:32px max(16px,env(safe-area-inset-left,0px)) 32px max(16px,env(safe-area-inset-right,0px))}
+.login .card{width:100%;max-width:460px;background:var(--surface);border:2px solid var(--outline);border-radius:26px;box-shadow:0 7px 0 var(--outline);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.login .hello{display:flex;align-items:center;gap:14px}
+.login h1{font-size:28px;font-weight:800}
+.login .hello p{margin:0;color:var(--ink-2);font-weight:600}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.roles button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px;border-radius:18px;border:2px solid var(--line-soft);background:var(--surface-2);cursor:pointer}
+.roles button b{font-family:var(--f-display);font-size:19px;font-weight:800;display:flex;align-items:center;gap:7px}
+.roles button small{color:var(--ink-2);font-weight:600;font-size:13px;line-height:1.35}
+.roles button[aria-pressed=true]{border-color:var(--outline);background:var(--primary-soft);box-shadow:0 4px 0 var(--outline)}
+.login form{display:flex;flex-direction:column;gap:12px}
+.login label{display:flex;flex-direction:column;gap:5px;font-weight:700;color:var(--ink-2);font-size:14px}
+.login input{font-size:17px;padding:12px 14px}
+.login .err{color:var(--bad);font-weight:700;margin:0;min-height:1.4em}
+.conn{display:flex;gap:8px;align-items:flex-start;font-size:14px;font-weight:700;border-radius:14px;padding:10px 12px;margin:0;border:2px solid transparent}
+.conn .dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex:none;background:currentColor}
+.conn.ok{background:var(--ok-soft);color:var(--ok)} .conn.bad{background:var(--bad-soft);color:var(--bad);border-color:var(--bad-mid)} .conn.warn{background:var(--warn-soft);color:var(--warn);border-color:var(--warn-mid)}
+.conn span{color:var(--ink)} .conn b{display:block}
+.mode-banner{margin:0 0 4px;display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-radius:16px;border:2px solid var(--bad-mid);background:var(--bad-soft);color:var(--ink);font-weight:600}
+.mode-banner b{color:var(--bad);display:block;font-size:16px}
+.mode-banner.warn{border-color:var(--warn-mid);background:var(--warn-soft)} .mode-banner.warn b{color:var(--warn)}
+.sync{font-size:12.5px;color:var(--ink-3);font-weight:700}
+.login .lalai{font-size:13.5px;background:var(--sun-soft);border:2px dashed var(--warn-mid);border-radius:14px;padding:10px 12px;margin:0;font-weight:600}
+.login .btn.primary{padding:13px;font-size:17px}
+.perms{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.perms li{display:flex;gap:8px;align-items:flex-start;font-weight:600}
+.perms .ic{width:20px;height:20px;color:var(--ok);margin-top:2px}
+.perms .no .ic{color:var(--bad)}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap;border:2px solid var(--line-soft)}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--ink-3)}
+.chip.live{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.chip.live .dot{background:var(--ok);box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 30%,transparent)}
+nav.tabs{display:flex;gap:8px;padding-block:0 12px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;text-decoration:none;color:var(--ink-2);font-weight:800;border-radius:999px;white-space:nowrap;border:2px solid transparent}
+nav.tabs a:hover{background:var(--surface-2);color:var(--ink)}
+nav.tabs a[aria-current=page]{background:var(--primary);color:var(--primary-ink);border-color:var(--outline);box-shadow:0 3px 0 var(--outline)}
+nav.bottom{display:none}
+@media (max-width:760px){
+  nav.tabs.topnav{display:none}
+  header.top{position:static}
+  .chip{padding:5px 10px;font-size:12px}
+  nav.bottom{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--surface);border-top:2px solid var(--outline);justify-content:space-around;gap:0;
+    padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  nav.bottom a{flex-direction:column;gap:2px;padding:6px 4px;font-size:11.5px;flex:1;justify-content:center;border-radius:14px;min-width:0}
+  nav.bottom a[aria-current=page]{box-shadow:none}
+  main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
+  .brand h1{font-size:20px}
+  .top-ctl{width:100%}
+  .top-ctl .field-inline{flex:1 1 140px}
+  #sesiPick{max-width:none;width:100%}
+  .userbox{flex:1 1 100%}
+  .userbox b{max-width:none;flex:1}
+}
+
+main{padding-block:22px 56px}
+.view{display:flex;flex-direction:column;gap:20px}
+.panel{background:var(--surface);border:2px solid var(--outline);border-radius:var(--r);box-shadow:0 5px 0 var(--outline)}
+.panel-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 18px;border-bottom:2px dashed var(--line-soft);background:linear-gradient(90deg,var(--surface-2),var(--surface));border-radius:18px 18px 0 0}
+.panel-h h2{font-size:20px;display:flex;align-items:center;gap:8px}
+.panel-h h2 .ic{color:var(--violet)}
+.panel-b{padding:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:2px solid var(--outline);background:var(--surface);border-radius:var(--r-sm);padding:9px 16px;cursor:pointer;font-weight:800;white-space:nowrap;box-shadow:0 3px 0 var(--outline);transition:transform .08s,box-shadow .08s;color:var(--ink)}
+.btn:hover{background:var(--surface-2)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--outline)}
+.btn.primary{background:var(--primary);color:var(--primary-ink)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.sun{background:var(--sun);color:#24305A}
+.btn.green{background:var(--ok-mid);color:#0D2A19}
+.btn.danger{color:var(--bad)}
+.btn.sm{padding:5px 11px;font-size:14px;border-radius:11px;box-shadow:0 2px 0 var(--outline)}
+.btn.sm:active{transform:translateY(1px);box-shadow:0 1px 0 var(--outline)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn .ic{width:19px;height:19px}
+.icon-btn{padding:8px 13px;border-radius:999px;font-size:14px}
+@media (max-width:760px){.icon-btn span{display:none}.icon-btn{padding:7px}}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
+@media (max-width:760px){.steps{grid-template-columns:1fr;gap:8px}}
+.steps li{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line-soft);border-radius:16px;padding:10px 14px;min-width:0}
+.steps .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:18px;background:var(--sun-soft);color:var(--warn);border:2px solid var(--sun);flex:none}
+.steps b{display:block;font-weight:800;line-height:1.2}
+.steps small{display:block;color:var(--ink-2);font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.steps li.done{border-color:var(--ok-mid);background:var(--ok-soft)}
+.steps li.done .num{background:var(--ok-mid);border-color:var(--ok-mid);color:#0D2A19}
+.steps li.now{border-color:var(--sky);background:var(--sky-soft)}
+.steps li.now .num{background:var(--sky);border-color:var(--sky);color:#06283A}
+
+/* session strip */
+.strip{display:flex;gap:20px;flex-wrap:wrap;align-items:center;padding:18px}
+.strip .who{flex:1 1 300px;min-width:0}
+.strip .code{display:inline-block;font-weight:800;font-size:13px;color:var(--ink);background:var(--sun);border:2px solid var(--outline);padding:2px 10px;border-radius:999px}
+.strip h2{font-size:30px;font-weight:800;margin-top:4px}
+.strip .meta{display:flex;gap:8px 16px;flex-wrap:wrap;color:var(--ink-2);font-size:14.5px;margin-top:4px;font-weight:600}
+.strip .meta span{display:inline-flex;align-items:center;gap:5px}
+.strip .meta .ic{width:17px;height:17px;color:var(--ink-3)}
+.tally{display:flex;gap:10px;flex-wrap:wrap}
+.tally > div{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:96px;padding:10px 12px;border-radius:16px;background:var(--violet-soft);border:2px solid var(--outline);box-shadow:0 3px 0 var(--outline)}
+@media (max-width:560px){.tally{width:100%;flex-wrap:nowrap}.tally > div{flex:1;min-width:0}}
+.tally b{font-family:var(--f-display);font-size:36px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.tally span{font-size:12.5px;font-weight:700;color:var(--ink-2);text-align:center}
+.tally .ok{background:var(--ok-soft)} .tally .ok b{color:var(--ok)}
+.tally .bad{background:var(--bad-soft)} .tally .bad b{color:var(--bad)}
+.progress{display:flex;align-items:center;gap:12px;padding:0 18px 18px}
+.meter{flex:1;height:18px;background:var(--surface-2);border:2px solid var(--outline);border-radius:999px;overflow:hidden}
+.meter i{display:block;height:100%;background-color:var(--ok-mid);background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.28) 0 8px,transparent 8px 16px);border-radius:999px;transition:width .5s}
+.progress b{font-family:var(--f-display);font-size:20px;font-weight:800;min-width:52px;text-align:right}
+
+/* scan desk */
+.desk{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.desk{grid-template-columns:1fr}}
+.scan-title{font-family:var(--f-display);font-size:21px;font-weight:700;display:flex;align-items:center;gap:8px}
+.scan-in{position:relative;margin-top:10px}
+.scan-in input{font-family:var(--f-mono);font-size:24px;letter-spacing:.05em;padding:16px 18px 16px 58px;border:3px solid var(--sky);border-radius:18px;text-transform:uppercase;background:var(--surface-2)}
+.scan-in input:focus{background:var(--surface)}
+.scan-in .ic{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:28px;height:28px;color:var(--sky)}
+.scan-in .pulse{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:800;color:var(--ok);display:flex;align-items:center;gap:6px}
+.scan-in .pulse i{width:10px;height:10px;border-radius:50%;background:var(--ok);animation:blink 1.4s infinite}
+.scan-in input:not(:focus) ~ .pulse{color:var(--ink-3)}
+.scan-in input:not(:focus) ~ .pulse i{background:var(--ink-3);animation:none}
+@keyframes blink{50%{opacity:.25}}
+.hint{font-size:14px;color:var(--ink-2);margin:10px 0 0}
+.result{margin-top:16px;border-radius:18px;padding:16px 18px;border:2px solid var(--line-soft);background:var(--surface-2);display:flex;gap:16px;align-items:center;min-height:150px}
+.result .txt{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.result .status{font-family:var(--f-display);font-size:34px;font-weight:800;line-height:1.05}
+.result .name{font-size:19px;font-weight:800}
+.result .sub{font-size:14.5px;color:var(--ink-2);font-weight:600}
+.result .bc{background:#fff;border-radius:10px;padding:4px 6px;max-width:170px;margin-top:6px;border:2px solid var(--line-soft);align-self:flex-start}
+.result .bc svg{display:block;max-width:100%;height:auto}
+.result.idle .status{color:var(--ink-2);font-size:26px}
+.result.ok{background:var(--ok-soft);border-color:var(--ok-mid)} .result.ok .status{color:var(--ok)}
+.result.warn{background:var(--warn-soft);border-color:var(--warn-mid)} .result.warn .status{color:var(--warn)}
+.result.bad{background:var(--bad-soft);border-color:var(--bad-mid)} .result.bad .status{color:var(--bad)}
+.result.flash .mascot{animation:hop .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes hop{0%{transform:translateY(8px) scale(.9)}100%{transform:none}}
+@media (prefers-reduced-motion:reduce){.result.flash .mascot{animation:none}.meter i{transition:none}.scan-in .pulse i{animation:none}}
+@media (max-width:520px){.result{flex-direction:column;align-items:flex-start}.result .status{font-size:30px}}
+
+.cam-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.cam-count{font-weight:800;font-size:14px;background:var(--ok-soft);color:var(--ok);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.cam{position:relative;border-radius:18px;overflow:hidden;background:#0D1226;border:3px solid var(--outline);aspect-ratio:4/3;max-width:100%}
+#camVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#0D1226}
+.cam-guide{position:absolute;left:7%;right:7%;top:24%;bottom:24%;border:3px dashed rgba(255,255,255,.85);border-radius:14px;box-shadow:0 0 0 999px rgba(13,18,38,.35);z-index:2;pointer-events:none}
+.cam-guide i{position:absolute;left:4%;right:4%;top:50%;height:2px;background:#FF5B6E;box-shadow:0 0 8px #FF5B6E;animation:sweep 1.8s ease-in-out infinite alternate}
+@keyframes sweep{from{transform:translateY(-38px)}to{transform:translateY(38px)}}
+@media (prefers-reduced-motion:reduce){.cam-guide i{animation:none}}
+.cam-off{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;color:#EEF2FF;background:radial-gradient(circle at 50% 35%,#24305A,#0D1226)}
+.cam-off p{margin:0;font-weight:700;max-width:34ch;color:#C9D2F0}
+.cam-off .btn{font-size:18px;padding:13px 22px}
+.cam-tools{position:absolute;right:10px;top:10px;display:flex;gap:8px;z-index:3}
+.cam-tools .btn{background:rgba(255,255,255,.92);color:#24305A}
+.cam-live{position:absolute;left:10px;bottom:10px;z-index:3;display:flex;align-items:center;gap:6px;background:rgba(13,18,38,.7);color:#fff;font-size:12.5px;font-weight:800;padding:4px 10px;border-radius:999px}
+.cam-live i{width:9px;height:9px;border-radius:50%;background:#44DB95;animation:blink 1.4s infinite}
+.cam-note{position:absolute;left:10px;right:10px;bottom:10px;z-index:4;padding:10px 14px;border-radius:14px;border:2px solid var(--outline);font-weight:800;font-size:16px;display:flex;flex-direction:column;line-height:1.25;box-shadow:0 3px 0 var(--outline)}
+.cam-note small{font-weight:700;font-size:13px;opacity:.85}
+.cam-note.ok{background:#D5F7E5;color:#0E6B3E} .cam-note.warn{background:#FFEBC4;color:#8A4B00} .cam-note.bad{background:#FFE0E5;color:#A3182E}
+.cam.hit{border-color:var(--ok-mid);box-shadow:0 0 0 5px var(--ok-soft)}
+.cam.miss{border-color:var(--bad-mid);box-shadow:0 0 0 5px var(--bad-soft)}
+.cam.dup{border-color:var(--warn-mid);box-shadow:0 0 0 5px var(--warn-soft)}
+details.manual{margin-top:12px;border:2px dashed var(--line-soft);border-radius:14px;padding:8px 12px}
+details.manual summary{cursor:pointer;font-weight:800;color:var(--ink-2);font-size:14.5px}
+details.manual form{display:flex;gap:8px;margin-top:10px}
+details.manual input{font-family:var(--f-mono);text-transform:uppercase}
+@media (max-width:760px){
+  #v-imbas .desk{order:2} #v-imbas .strip-panel{order:3}
+  #v-imbas .steps.alldone{display:none}
+}
+.feed{list-style:none;margin:0;padding:6px 0}
+.feed li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:9px 18px;font-size:15px}
+.feed .t{font-family:var(--f-mono);font-size:13px;color:var(--ink-3);background:var(--surface-2);padding:2px 8px;border-radius:8px}
+.feed .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:800;padding:3px 11px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.info{background:var(--primary-soft);color:var(--primary-deep)}
+.pill.ok::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.bad::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+
+.seg{display:inline-flex;background:var(--surface-2);border-radius:999px;padding:3px;gap:2px;border:2px solid var(--line-soft)}
+.seg button{border:0;background:transparent;padding:5px 13px;cursor:pointer;font-size:14px;font-weight:800;color:var(--ink-2);border-radius:999px}
+.seg button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 1px 0 var(--line-soft),0 0 0 2px var(--outline)}
+.roster{list-style:none;margin:0;padding:4px 0;max-height:600px;overflow:auto}
+.roster li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 12px;align-items:center;padding:10px 18px;border-top:1px solid var(--line-soft)}
+.roster li:first-child{border-top:0}
+.roster .av{grid-row:1/span 2;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px;background:var(--primary-soft);color:var(--primary);border:2px solid currentColor}
+.roster li:nth-child(4n+2) .av{background:var(--sky-soft);color:var(--sky)}
+.roster li:nth-child(4n+3) .av{background:var(--violet-soft);color:var(--violet)}
+.roster li:nth-child(4n) .av{background:var(--sun-soft);color:var(--warn)}
+.roster li.is-hadir .av{background:var(--ok-soft);color:var(--ok)}
+.roster .n{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.roster .m{font-size:13px;color:var(--ink-3);grid-column:2}
+.roster .r{display:flex;gap:8px;align-items:center;grid-row:1/span 2;grid-column:3}
+@media (max-width:520px){.roster .r .pill{display:none}}
+
+/* tables */
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:11px 14px;border-top:1px solid var(--line-soft);vertical-align:middle}
+th{font-size:13px;color:var(--ink-2);font-weight:800;border-top:0;background:var(--surface-2);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:hover{background:var(--surface-2)}
+.bar{display:flex;align-items:center;gap:10px;min-width:150px}
+.bar span{flex:1;height:12px;background:var(--surface-2);border-radius:999px;overflow:hidden;border:1.5px solid var(--line-soft)}
+.bar span i{display:block;height:100%;background:var(--ok-mid);border-radius:999px}
+.bar b{font-weight:800;font-size:14px;width:44px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{padding:16px 18px;display:flex;flex-direction:column;gap:2px}
+.kpi .k-ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--sky-soft);color:var(--sky);margin-bottom:6px;border:2px solid var(--outline)}
+.kpi b{display:block;font-family:var(--f-display);font-size:42px;font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums}
+.kpi .faint{font-size:13.5px;font-weight:600}
+.kpi.ok .k-ic{background:var(--ok-soft);color:var(--ok)} .kpi.ok b{color:var(--ok)}
+.kpi.bad .k-ic{background:var(--bad-soft);color:var(--bad)} .kpi.bad b{color:var(--bad)}
+.kpi.acc .k-ic{background:var(--sun);color:#2D2350}
+.kpi.ok .k-ic{background:var(--ok-mid);color:#0B2E1C}
+.kpi.bad .k-ic{background:var(--bad-mid);color:#3A0A14}
+.kpi:not(.ok):not(.bad):not(.acc) .k-ic{background:var(--sky);color:#06283A}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.hist{display:flex;align-items:flex-end;gap:6px;height:170px;padding-top:8px}
+.hist div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;height:100%;justify-content:flex-end}
+.hist i{display:block;width:100%;max-width:44px;background:var(--sky);border:2px solid var(--outline);border-radius:10px 10px 4px 4px;min-height:4px}
+.hist small{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3)}
+.hist em{font-style:normal;font-size:13px;font-weight:800;color:var(--ink)}
+
+/* forms */
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.form label{display:flex;flex-direction:column;gap:5px;font-size:14px;color:var(--ink-2);font-weight:700}
+.form .full{grid-column:1/-1}
+.picks{display:flex;flex-wrap:wrap;gap:8px}
+.pick{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:2px solid var(--line-soft);border-radius:999px;background:var(--surface);cursor:pointer;font-weight:700;font-size:14px;color:var(--ink)}
+.form label.pick{flex-direction:row;align-items:center;gap:8px;color:var(--ink);font-size:14px}
+.pick input{width:18px;height:18px;accent-color:var(--primary);margin:0}
+.pick small{color:var(--ink-3);font-weight:700}
+.pick:has(input:checked){border-color:var(--outline);background:var(--primary-soft);box-shadow:0 2px 0 var(--outline)}
+.pick.ulang:has(input:checked){background:var(--warn-soft)}
+.pickbox{border:2px dashed var(--line-soft);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.pickbox .ttl{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--ink-2);font-weight:800;font-size:14px}
+.ulang-list{max-height:230px;overflow:auto}
+.pill.ulang{background:var(--warn-soft);color:var(--warn)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.sesi-list{display:flex;flex-direction:column;gap:12px;padding:16px}
+.sesi-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;border:2px solid var(--line-soft);border-radius:16px;background:var(--surface)}
+.sesi-item .date{width:58px;text-align:center;border-radius:12px;overflow:hidden;border:2px solid var(--outline);background:var(--surface)}
+.sesi-item .date small{display:block;background:var(--primary);color:var(--primary-ink);font-weight:800;font-size:11.5px;padding:1px 0;text-transform:uppercase}
+.sesi-item .date b{display:block;font-family:var(--f-display);font-size:24px;font-weight:800;line-height:1.3;color:var(--ink)}
+.sesi-item h3{font-size:18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sesi-item .meta{font-size:14px;color:var(--ink-2);display:flex;gap:4px 14px;flex-wrap:wrap;font-weight:600}
+.sesi-item.active{border-color:var(--sky);background:var(--sky-soft)}
+@media (max-width:640px){.sesi-item{grid-template-columns:auto minmax(0,1fr)}.sesi-item .row{grid-column:1/-1}}
+
+.empty{padding:26px 16px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;align-items:center;gap:6px}
+.empty b{display:block;color:var(--ink);font-size:17px;font-family:var(--f-display)}
+.note{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:15px;padding:12px 16px;border-radius:16px;background:var(--sun-soft);border:2px dashed var(--warn-mid);color:var(--ink);font-weight:600}
+.howto{font-size:14px;color:var(--ink-2);margin:0;font-weight:600}
+
+/* modal + toast */
+.modal{position:fixed;inset:0;background:rgba(18,24,49,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal .box{background:var(--surface);border:2px solid var(--outline);box-shadow:0 6px 0 var(--outline);border-radius:22px;padding:24px;max-width:420px;width:100%;display:flex;flex-direction:column;gap:12px;text-align:center;align-items:center}
+.modal h3{font-size:22px}
+.modal .bcbox{background:#fff;border-radius:12px;padding:14px;border:2px solid var(--line-soft)}
+.modal .bcbox svg{max-width:100%;height:auto}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:11px 18px;border-radius:999px;font-size:15px;font-weight:700;z-index:60;max-width:calc(100% - 32px);box-shadow:0 4px 0 var(--outline)}
+@media (max-width:760px){#toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M10.5 8v8M14 8v8M17 8v8"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-pct" viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-badge" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M8 17c1-2 7-2 8 0"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l-5-5 5-5M5 12h11"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2.5l1.5-2h6l1.5 2H19a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></symbol>
+</svg>
+
+<section id="login" class="login">
+  <div class="card">
+    <div class="hello"><span id="loginMascot"></span><div><h1>Selamat datang!</h1><p>Sistem Kehadiran Peperiksaan JMTi</p></div></div>
+    <form id="loginForm" autocomplete="on">
+      <label>Nama pengguna<input type="text" id="lgNama" required autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Nama"></label>
+      <label>Kata laluan<input type="password" id="lgPw" required autocomplete="current-password" placeholder="Kata laluan"></label>
+      <p class="err" id="lgErr" role="alert"></p>
+      <button class="btn primary" type="submit" id="lgBtn">Masuk</button>
+      <p class="conn" id="lgConn" hidden></p>
+      <p class="lalai" id="lgLalai" hidden>Belum ada akaun admin. Log masuk kali pertama dengan nama pengguna <b class="mono">admin</b> dan kata laluan <b class="mono">admin123</b>. Anda akan diminta menukar kata laluan serta-merta.</p>
+    </form>
+  </div>
+</section>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <div class="brand">
+        <span id="logoMascot"></span>
+        <div>
+          <h1>Kehadiran Peperiksaan</h1>
+          <p>JMTi · Imbas kad matrik, siap!</p>
+        </div>
+      </div>
+      <div class="top-ctl">
+        <label class="field-inline"><span class="label">Sidang peperiksaan</span><select id="sesiPick"></select></label>
+        <div class="userbox"><span class="role-pill" id="rolePill">Pengawas</span><b id="userName"></b><button class="btn sm" type="button" id="logoutBtn" title="Log keluar"><svg class="ic"><use href="#i-out"/></svg>Keluar</button></div>
+        <button class="btn icon-btn" type="button" id="themeBtn" title="Tukar mod cerah / gelap" aria-label="Tukar mod cerah / gelap"><svg class="ic"><use href="#i-moon"/></svg><span>Gelap</span></button>
+        <span class="chip" id="modeChip" title=""><span class="dot"></span><span>Menyambung…</span></span>
+      </div>
+    </div>
+    <nav class="tabs topnav" aria-label="Menu utama">
+      <a href="#imbas" data-v="imbas"><svg class="ic"><use href="#i-scan"/></svg>Imbas</a>
+      <a href="#dashboard" data-v="dashboard"><svg class="ic"><use href="#i-chart"/></svg>Ringkasan</a>
+      <a href="#sesi" data-v="sesi" class="admin-only"><svg class="ic"><use href="#i-cal"/></svg>Sidang</a>
+      <a href="#pelajar" data-v="pelajar" class="admin-only"><svg class="ic"><use href="#i-users"/></svg>Pelajar</a>
+      <a href="#laporan" data-v="laporan"><svg class="ic"><use href="#i-file"/></svg>Laporan</a>
+      <a href="#akaun" data-v="akaun"><svg class="ic"><use href="#i-badge"/></svg>Akaun</a>
+    </nav>
+  </div>
+</header>
+<nav class="tabs bottom" aria-label="Menu utama (telefon)">
+  <a href="#imbas" data-v="imbas"><svg class="ic"><use href="#i-scan"/></svg>Imbas</a>
+  <a href="#dashboard" data-v="dashboard"><svg class="ic"><use href="#i-chart"/></svg>Ringkasan</a>
+  <a href="#sesi" data-v="sesi" class="admin-only"><svg class="ic"><use href="#i-cal"/></svg>Sidang</a>
+  <a href="#pelajar" data-v="pelajar" class="admin-only"><svg class="ic"><use href="#i-users"/></svg>Pelajar</a>
+  <a href="#laporan" data-v="laporan"><svg class="ic"><use href="#i-file"/></svg>Laporan</a>
+  <a href="#akaun" data-v="akaun"><svg class="ic"><use href="#i-badge"/></svg>Akaun</a>
+</nav>
+
+<main class="wrap">
+<div class="mode-banner" id="modeBanner" hidden></div>
+
+<!-- ============ IMBAS ============ -->
+<section class="view" id="v-imbas">
+  <ol class="steps" id="steps">
+    <li id="st1"><span class="num">1</span><div style="min-width:0"><b>Pilih sidang</b><small id="st1t">Pilih di bahagian atas</small></div></li>
+    <li id="st2"><span class="num">2</span><div style="min-width:0"><b>Log masuk</b><small id="st2t">Nama anda direkod dalam laporan</small></div></li>
+    <li id="st3"><span class="num">3</span><div style="min-width:0"><b>Buka kamera dan imbas</b><small>Satu demi satu, sambil pelajar masuk</small></div></li>
+  </ol>
+
+  <div class="panel strip-panel">
+    <div class="strip">
+      <div class="who" id="stripWho"></div>
+      <div class="tally">
+        <div class="ok"><b id="tHadir">0</b><span>Sudah hadir</span></div>
+        <div class="bad"><b id="tTidak">0</b><span>Belum hadir</span></div>
+        <div><b id="tJumlah">0</b><span>Jumlah pelajar</span></div>
+      </div>
+    </div>
+    <div class="progress"><div class="meter"><i id="tMeter" style="width:0"></i></div><b id="tPct">0%</b></div>
+  </div>
+
+  <div class="desk">
+    <div class="view">
+      <div class="panel panel-b">
+        <div class="cam-head">
+          <span class="scan-title"><svg class="ic" style="color:var(--primary)"><use href="#i-camera"/></svg>Imbas kad matrik</span>
+          <span class="cam-count" id="camCount">0 / 0 hadir</span>
+        </div>
+        <div class="cam" id="camBox">
+          <video id="camVideo" playsinline muted autoplay></video>
+          <div class="cam-guide" id="camGuide" hidden><i></i></div>
+          <div class="cam-live" id="camLive" hidden><i></i>Kamera aktif</div>
+          <div class="cam-note" id="camNote" hidden></div>
+          <div class="cam-tools" id="camTools" hidden>
+            <button class="btn sm" type="button" id="camTorch" hidden title="Lampu suluh">Lampu</button>
+            <button class="btn sm" type="button" id="camSwitch" title="Tukar kamera depan / belakang">Tukar kamera</button>
+            <button class="btn sm" type="button" id="camStop" title="Hentikan kamera">Henti</button>
+          </div>
+          <div class="cam-off" id="camOff">
+            <span id="camMascot"></span>
+            <p id="camMsg">Kamera telefon digunakan untuk membaca barcode kad matrik.</p>
+            <button class="btn primary" type="button" id="camStart"><svg class="ic"><use href="#i-camera"/></svg>Buka kamera</button>
+          </div>
+        </div>
+        <p class="hint">Letakkan barcode <b>No. IC</b> pada kad matrik di dalam kotak putus-putus, kira-kira sejengkal dari kamera. Sistem membaca sendiri, tak perlu tekan apa-apa.</p>
+        <div class="result idle" id="result"></div>
+        <details class="manual">
+          <summary>Barcode rosak atau kabur? Taip No. IC sendiri</summary>
+          <form id="scanForm" autocomplete="off">
+            <input id="scanIn" type="text" inputmode="numeric" placeholder="No. IC tanpa -, cth 050312031234" spellcheck="false" autocomplete="off" aria-label="No. IC tanpa tanda sempang">
+            <button class="btn primary" type="submit">Semak</button>
+          </form>
+        </details>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h2><svg class="ic"><use href="#i-clock"/></svg>Baru diimbas</h2><span class="faint" id="feedCount"></span></div>
+        <ul class="feed" id="feed"></ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h">
+        <h2><svg class="ic"><use href="#i-users"/></svg>Pelajar sidang ini</h2>
+        <div class="seg" role="group" aria-label="Tapis status" id="rosterSeg">
+          <button type="button" data-f="all" aria-pressed="true">Semua</button>
+          <button type="button" data-f="hadir" aria-pressed="false">Hadir</button>
+          <button type="button" data-f="tidak" aria-pressed="false">Belum</button>
+        </div>
+      </div>
+      <div style="padding:12px 18px;border-bottom:1px solid var(--line-soft)"><input type="search" id="rosterQ" placeholder="Cari nama atau no. matrik"></div>
+      <ul class="roster" id="roster"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DASHBOARD ============ -->
+<section class="view" id="v-dashboard" hidden>
+  <div class="kpis">
+    <div class="panel kpi"><span class="k-ic"><svg class="ic"><use href="#i-users"/></svg></span><span class="label">Jumlah pelajar</span><b id="kJumlah">0</b><span class="faint" id="kSesi">—</span></div>
+    <div class="panel kpi ok"><span class="k-ic"><svg class="ic"><use href="#i-check"/></svg></span><span class="label">Sudah hadir</span><b id="kHadir">0</b><span class="faint">kad telah diimbas</span></div>
+    <div class="panel kpi bad"><span class="k-ic"><svg class="ic"><use href="#i-x"/></svg></span><span class="label">Belum hadir</span><b id="kTidak">0</b><span class="faint">belum diimbas</span></div>
+    <div class="panel kpi acc"><span class="k-ic"><svg class="ic"><use href="#i-pct"/></svg></span><span class="label">Peratus hadir</span><b id="kPeratus">0%</b><span class="faint" id="kTerakhir">—</span></div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-h"><h2><svg class="ic"><use href="#i-clock"/></svg>Bila pelajar masuk?</h2><span class="faint">setiap 10 minit</span></div>
+      <div class="panel-b"><div class="hist" id="hist"></div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-h"><h2><svg class="ic"><use href="#i-cap"/></svg>Ikut bahagian</h2></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Bahagian</th><th class="num">Hadir</th><th>Peratus</th></tr></thead><tbody id="byKursus"></tbody></table></div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-cal"/></svg>Semua sidang peperiksaan</h2></div>
+    <div class="tbl-wrap"><table><thead><tr><th>Tarikh</th><th>Subjek</th><th>Dewan</th><th class="num">Hadir</th><th class="num">Jumlah</th><th>Kehadiran</th></tr></thead><tbody id="allSesi"></tbody></table></div>
+  </div>
+</section>
+
+<!-- ============ SESI ============ -->
+<section class="view" id="v-sesi" hidden>
+  <div class="panel">
+    <div class="panel-h"><h2 id="sesiFormTitle">Tambah sidang peperiksaan</h2><button class="btn sm" type="button" id="sesiReset" hidden>Batal suntingan</button></div>
+    <form class="panel-b form" id="sesiForm">
+      <label>Kod subjek<input type="text" id="sKod" required></label>
+      <label style="grid-column:span 2">Nama subjek<input type="text" id="sNama" required></label>
+      <label>Dewan / bilik<input type="text" id="sDewan" required></label>
+      <label>Tarikh<input type="date" id="sTarikh" required></label>
+      <label>Masa mula<input type="time" id="sMula" required value="09:00"></label>
+      <label>Masa tamat<input type="time" id="sTamat" required value="11:00"></label>
+      <div class="full pickbox">
+        <div class="ttl"><span>1. Bahagian / kursus (pilih satu atau lebih)</span><button class="btn sm" type="button" id="sAllBhg">Pilih semua</button></div>
+        <div class="picks" id="sBahagian"></div>
+      </div>
+      <div class="full pickbox">
+        <div class="ttl"><span>2. Semester (pilih satu atau lebih)</span><button class="btn sm" type="button" id="sAllSem">Pilih semua</button></div>
+        <div class="picks" id="sSemester"></div>
+      </div>
+      <div class="full pickbox">
+        <div class="ttl"><span>3. Pelajar ulang yang menduduki sidang ini (pilihan)</span><input type="search" id="sUlangQ" placeholder="Cari nama / no. matrik" style="max-width:240px"></div>
+        <div class="picks ulang-list" id="sUlang"></div>
+      </div>
+      <div class="full row"><button class="btn primary" type="submit" id="sesiSubmit"><svg class="ic"><use href="#i-plus"/></svg>Simpan sidang</button><span class="muted" id="sesiCountHint" style="font-weight:700"></span></div>
+    </form>
+  </div>
+  <div class="panel">
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-cal"/></svg>Senarai sidang</h2><span class="faint">Tekan “Guna sidang ini” sebelum mula mengimbas</span></div>
+    <div class="sesi-list" id="sesiList"></div>
+  </div>
+</section>
+
+<!-- ============ PELAJAR ============ -->
+<section class="view" id="v-pelajar" hidden>
+  <div class="note" id="contohNote" hidden><span style="flex:1 1 260px">Ini <b>data contoh</b> untuk mencuba sistem. Bila senarai sebenar sudah dimasukkan, padamkan data contoh.</span><button class="btn sm sun" type="button" id="padamContoh">Padam data contoh</button></div>
+  <div class="panel">
+    <div class="panel-h">
+      <h2><svg class="ic"><use href="#i-users"/></svg>Senarai pelajar <span class="faint" id="pCount" style="font-size:16px"></span></h2>
+      <div class="row">
+        <label class="btn primary" for="pFile"><svg class="ic"><use href="#i-up"/></svg>Muat naik senarai (Excel)</label>
+        <input type="file" id="pFile" accept=".xlsx,.xls,.csv" hidden>
+        <button class="btn" type="button" id="pTemplate"><svg class="ic"><use href="#i-down"/></svg>Contoh fail Excel</button>
+      </div>
+    </div>
+    <div class="row" style="padding:12px 18px;border-bottom:1px solid var(--line-soft)"><input type="search" id="pQ" placeholder="Cari nama, no. matrik atau no. IC" style="flex:1 1 220px;width:auto">
+      <div class="seg" role="group" aria-label="Jenis pelajar" id="pSeg"><button type="button" data-f="all" aria-pressed="true">Semua</button><button type="button" data-f="biasa" aria-pressed="false">Biasa</button><button type="button" data-f="ulang" aria-pressed="false">Ulang</button></div></div>
+    <div class="tbl-wrap"><table><thead><tr><th>No. matrik</th><th>Nama</th><th>No. IC</th><th>Kursus</th><th class="num">Sem</th><th></th></tr></thead><tbody id="pTable"></tbody></table></div>
+  </div>
+  <div class="panel">
+    <div class="panel-h"><h2 id="pFormTitle">Tambah seorang pelajar</h2><button class="btn sm" type="button" id="pReset" hidden>Batal suntingan</button></div>
+    <form class="panel-b form" id="pForm">
+      <label>No. matrik<input type="text" id="pMatrik" required placeholder="JM2301001" class="mono"></label>
+      <label>No. IC (untuk imbasan)<input type="text" id="pIC" required inputmode="numeric" placeholder="050312031234" class="mono"></label>
+      <label style="grid-column:span 2">Nama penuh<input type="text" id="pNama" required></label>
+      <label>Kursus<input type="text" id="pKursus" required list="kursusList" placeholder="Diploma Teknologi Komputer (Sistem)"></label>
+      <label>Semester<input type="number" id="pSem" min="1" max="8" required value="4"></label>
+      <datalist id="kursusList"></datalist>
+      <label class="pick ulang full" style="justify-self:start"><input type="checkbox" id="pUlang">Pelajar ulang (repeat) <small>diasingkan daripada bahagian biasa dan dipilih satu per satu dalam sidang</small></label>
+      <div class="full row"><button class="btn primary" type="submit" id="pSubmit"><svg class="ic"><use href="#i-plus"/></svg>Simpan pelajar</button></div>
+    </form>
+  </div>
+  <p class="howto">Fail Excel perlu ada lajur <b>NO MATRIK, NAMA, NO IC, KURSUS, SEMESTER</b> di baris pertama, dan lajur pilihan <b>ULANG</b> (isi “YA” untuk pelajar ulang). <b>No. IC wajib</b> kerana kad diimbas menggunakan No. IC (dengan atau tanpa “-”). Muat turun “Contoh fail Excel” jika tidak pasti.</p>
+</section>
+
+<!-- ============ LAPORAN ============ -->
+<section class="view" id="v-laporan" hidden>
+  <div class="panel">
+    <div class="panel-h">
+      <h2><svg class="ic"><use href="#i-file"/></svg>Laporan kehadiran</h2>
+      <select id="lSesi" style="width:auto;max-width:340px"></select>
+    </div>
+    <div class="panel-b" id="lSummary"></div>
+    <div class="panel-b row" style="padding-top:0">
+      <button class="btn primary" type="button" id="lPdf"><svg class="ic"><use href="#i-down"/></svg>Muat turun PDF</button>
+      <button class="btn green" type="button" id="lXlsx"><svg class="ic"><use href="#i-down"/></svg>Muat turun Excel</button>
+      <button class="btn" type="button" id="lDrive" hidden>Simpan ke Google Drive</button>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-badge"/></svg>Pengawas bertugas</h2><span class="faint">Direkod automatik apabila pengawas menggunakan sistem</span></div>
+    <div class="tbl-wrap"><table><thead><tr><th>Nama pengawas</th><th>Mula guna</th><th>Aktif terakhir</th><th class="num">Bil. imbasan</th></tr></thead><tbody id="lPeng"></tbody></table></div>
+  </div>
+  <div class="panel">
+    <div class="panel-h">
+      <h2>Senarai penuh</h2>
+      <div class="row">
+        <input type="search" id="lQ" placeholder="Cari nama atau no. matrik" style="width:220px">
+        <div class="seg" role="group" aria-label="Tapis status" id="lSeg">
+          <button type="button" data-f="all" aria-pressed="true">Semua</button>
+          <button type="button" data-f="hadir" aria-pressed="false">Hadir</button>
+          <button type="button" data-f="tidak" aria-pressed="false">Tidak hadir</button>
+        </div>
+      </div>
+    </div>
+    <div class="tbl-wrap"><table><thead><tr><th class="num">Bil</th><th>No. matrik</th><th>Nama</th><th>Kursus</th><th>Masa imbas</th><th>Pengawas</th><th>Status</th></tr></thead><tbody id="lTable"></tbody></table></div>
+  </div>
+</section>
+<!-- ============ AKAUN ============ -->
+<section class="view" id="v-akaun" hidden>
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-h"><h2><svg class="ic"><use href="#i-badge"/></svg>Akaun saya</h2></div>
+      <div class="panel-b" id="akSaya"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-h"><h2><svg class="ic"><use href="#i-key"/></svg>Tukar kata laluan</h2></div>
+      <form class="panel-b form" id="fPw" autocomplete="off">
+        <label class="full">Kata laluan semasa<input type="password" id="pwLama" required autocomplete="current-password"></label>
+        <label>Kata laluan baharu<input type="password" id="pwBaru" required minlength="6" autocomplete="new-password"></label>
+        <label>Ulang kata laluan baharu<input type="password" id="pwBaru2" required minlength="6" autocomplete="new-password"></label>
+        <p class="howto full" style="margin:0">Sekurang-kurangnya 6 aksara. Jangan kongsi kata laluan anda dengan orang lain.</p>
+        <div class="full"><button class="btn primary" type="submit">Simpan kata laluan</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel admin-only">
+    <div class="panel-h"><h2 id="akFormTitle"><svg class="ic"><use href="#i-plus"/></svg>Tambah akaun</h2><button class="btn sm" type="button" id="akReset" hidden>Batal suntingan</button></div>
+    <form class="panel-b form" id="fAkaun" autocomplete="off">
+      <label>Nama penuh<input type="text" id="akNama" required placeholder="Nama"></label>
+      <label>Nama pengguna (untuk log masuk)<input type="text" id="akId" required autocapitalize="none" spellcheck="false" placeholder="cth: ali.ahmad" pattern="[a-zA-Z0-9._-]{3,30}" title="3-30 aksara: huruf, nombor, titik, sempang atau garis bawah, tanpa jarak"></label>
+      <label>Peranan<select id="akPeranan"><option value="pengawas">Pengawas</option><option value="admin">Admin</option></select></label>
+      <label><span id="akPwLabel">Kata laluan sementara</span><input type="text" id="akPw" autocomplete="off" placeholder="Sekurang-kurangnya 6 aksara"></label>
+      <p class="howto full" style="margin:0" id="akHint">Berikan nama pengguna dan kata laluan sementara kepada pemilik akaun. Mereka akan diminta menukar kata laluan pada log masuk pertama.</p>
+      <div class="full"><button class="btn primary" type="submit" id="akSubmit"><svg class="ic"><use href="#i-plus"/></svg>Cipta akaun</button></div>
+    </form>
+  </div>
+  <div class="panel admin-only">
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-users"/></svg>Senarai akaun <span class="faint" id="akCount" style="font-size:16px"></span></h2><span class="faint">Hanya admin boleh menambah, mengubah dan membuang akaun</span></div>
+    <div class="tbl-wrap"><table><thead><tr><th>Nama penuh</th><th>Nama pengguna</th><th>Peranan</th><th>Status</th><th></th></tr></thead><tbody id="akTable"></tbody></table></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-users"/></svg>Siapa boleh buat apa?</h2></div>
+    <div class="panel-b grid2">
+      <div><h3 style="font-size:19px;margin-bottom:8px">Admin</h3><ul class="perms">
+        <li><svg class="ic"><use href="#i-check"/></svg>Tambah, ubah dan padam sidang peperiksaan</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Tambah, ubah, padam dan muat naik senarai pelajar (termasuk pelajar ulang)</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Cipta, ubah dan buang akaun admin dan pengawas</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Imbas, tanda hadir, batalkan rekod hadir, lihat ringkasan dan laporan</li></ul></div>
+      <div><h3 style="font-size:19px;margin-bottom:8px">Pengawas</h3><ul class="perms">
+        <li><svg class="ic"><use href="#i-check"/></svg>Pilih sidang dan imbas kad matrik</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Tanda hadir secara manual</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Lihat ringkasan dan muat turun laporan</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Tukar kata laluan sendiri</li>
+        <li class="no"><svg class="ic"><use href="#i-x"/></svg>Tidak boleh ubah sidang, pelajar, akaun atau batalkan rekod hadir</li></ul></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="modal" hidden><div class="box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <h3 id="mTitle"></h3><div id="mBody"></div>
+  <div class="row" style="justify-content:center" id="mActions"></div>
+</div></div>
+<div id="toast" hidden></div>
+
+<script>
+/* ===== TETAPAN SAMBUNGAN =====
+   Tampal URL Web App Google Apps Script anda di antara tanda petik di bawah
+   (contoh: https://script.google.com/macros/s/AKfy.../exec).
+   Biarkan kosong untuk mod demo (data disimpan dalam peranti sahaja). */
+window.API_URL = "https://script.google.com/macros/s/AKfycbyvjdQ3lxldOPrLkXz9CFPGqYlZACI43HYBQWwNLAu8evOhXODGzUE2OsNq8YIh0_iK/exec";
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@zxing/library@0.21.3/umd/index.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+"use strict";
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const lsGet = k => { try { return localStorage.getItem(k); } catch { return null; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+const safeId = s => String(s).trim().toUpperCase().replace(/[^A-Z0-9_\-.~:@+]/g, "_").slice(0, 120) || "X";
+const digits = s => String(s || "").replace(/\D/g, "");
+const pad = n => String(n).padStart(2, "0");
+const hhmm = iso => { const d = new Date(iso); return pad(d.getHours()) + ":" + pad(d.getMinutes()); };
+const hhmmss = iso => { const d = new Date(iso); return hhmm(iso) + ":" + pad(d.getSeconds()); };
+const todayStr = () => { const d = new Date(); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); };
+const fmtTarikh = s => { if (!s) return "—"; const [y, m, d] = s.split("-"); const bln = ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogo","Sep","Okt","Nov","Dis"]; return `${+d} ${bln[+m - 1]} ${y}`; };
+const ICON = n => `<svg class="ic"><use href="#i-${n}"/></svg>`;
+function mascot(mood = "happy", size = 64) {
+  const faces = {
+    happy: '<path class="face" d="M40 62 q4 -6 8 0 M72 62 q4 -6 8 0"/><path class="face" d="M50 76 q10 10 20 0"/>',
+    wave: '<circle class="eye" cx="44" cy="62" r="4.5"/><circle class="eye" cx="76" cy="62" r="4.5"/><path class="face" d="M51 76 q9 7 18 0"/>',
+    warn: '<circle class="eye" cx="44" cy="63" r="4.5"/><circle class="eye" cx="76" cy="63" r="4.5"/><path class="face" d="M38 53 l10 -3 M82 53 l-10 -3 M52 79 h16"/>',
+    sad: '<circle class="eye" cx="44" cy="63" r="4.5"/><circle class="eye" cx="76" cy="63" r="4.5"/><path class="face" d="M50 82 q10 -9 20 0"/><path class="face" d="M36 54 l9 3 M84 54 l-9 3"/>'
+  };
+  const extra = mood === "happy" ? '<path class="extra" d="M104 14 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/><path class="arm" d="M14 70 q-8 -14 2 -24 M106 70 q8 -14 -2 -24"/>'
+    : mood === "wave" ? '<path class="arm" d="M106 72 q12 -6 8 -24"/><path class="arm" d="M14 74 q-6 4 -4 10"/>'
+    : mood === "warn" ? '<text x="100" y="30" font-family="Baloo 2,sans-serif" font-weight="800" font-size="30" fill="var(--warn)">?</text><path class="arm" d="M14 74 q-6 4 -4 10 M106 74 q6 4 4 10"/>'
+    : '<path class="extra" style="fill:#7FB7FF" d="M90 50 q4 8 0 11 q-4 -3 0 -11z"/><path class="arm" d="M14 74 q-6 4 -4 10 M106 74 q6 4 4 10"/>';
+  return `<svg class="mascot" width="${size}" height="${size}" viewBox="0 0 120 120" aria-hidden="true">${extra}<rect class="body" x="16" y="22" width="88" height="86" rx="16"/><path class="band" d="M18 40 V36 a12 12 0 0 1 12 -12 h60 a12 12 0 0 1 12 12 V40z"/><rect class="bars" x="34" y="92" width="3" height="9"/><rect class="bars" x="40" y="92" width="6" height="9"/><rect class="bars" x="49" y="92" width="2" height="9"/><rect class="bars" x="54" y="92" width="5" height="9"/><rect class="bars" x="62" y="92" width="2" height="9"/><rect class="bars" x="67" y="92" width="6" height="9"/><rect class="bars" x="76" y="92" width="3" height="9"/><rect class="bars" x="82" y="92" width="4" height="9"/><circle class="cheek" cx="34" cy="72" r="6"/><circle class="cheek" cx="86" cy="72" r="6"/>${faces[mood] || faces.happy}</svg>`;
+}
+const initials = n => String(n || "?").replace(/\b(bin|binti|a\/l|a\/p)\b/gi, " ").trim().split(/\s+/).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 2600); }
+
+/* ---------- storage: shared cloud db when published, localStorage when opened as a file ---------- */
+const COLS = ["pelajar", "sesi", "kehadiran", "pengawas", "pengguna"];
+const hasGAS = () => !!(window.google && google.script && google.script.run);
+const API = () => String(window.API_URL || "").trim();
+const gs = (fn, ...args) => hasGAS()
+  ? new Promise((res, rej) => google.script.run.withSuccessHandler(res).withFailureHandler(e => rej({ code: "sheets", message: (e && e.message) || String(e) }))[fn](...args))
+  : fetch(API(), { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ fn, args }) })
+      .then(r => r.json(), () => { throw { code: "sheets", message: "Tiada sambungan internet atau URL pelayan salah." }; })
+      .then(j => { if (j && j.error) throw { code: "sheets", message: j.error }; return j.result; },
+            e => { throw (e && e.code) ? e : { code: "sheets", message: "Jawapan pelayan tidak sah. Pastikan Web App dibuka kepada 'Anyone'." }; });
+const Store = {
+  mode: "init", db: null, data: { pelajar: {}, sesi: {}, kehadiran: {}, pengawas: {}, pengguna: {} }, loaded: {}, subs: [],
+  on(fn) { this.subs.push(fn); },
+  emit() { this.subs.forEach(f => f()); },
+  loadLocal() {
+    this.mode = "local";
+    try { const raw = JSON.parse(localStorage.getItem("kp.data") || "null"); if (raw) COLS.forEach(c => this.data[c] = raw[c] || {}); } catch {}
+    COLS.forEach(c => this.loaded[c] = true);
+  },
+  saveLocal() { lsSet("kp.data", JSON.stringify(this.data)); },
+  hash: null, seq: 0, pulling: false,
+  async pull() {
+    if (this.pulling || !auth) return; this.pulling = true; const seq0 = this.seq;
+    try {
+      const r = await gs("apiGetAll", auth.token, this.hash);
+      this.err = false; this.lastSync = Date.now();
+      if (seq0 === this.seq && !r.unchanged) { this.hash = r.hash; COLS.forEach(c => { this.data[c] = r.data[c] || {}; this.loaded[c] = true; }); this.emit(); }
+      else { if (r.unchanged) this.hash = r.hash; renderChip(); }
+    } catch (e) {
+      if (/SESI_TAMAT/.test(e.message)) { forceLogout(); return; }
+      if (!this.err) toast("Tidak dapat membaca Google Sheets: " + e.message);
+      this.err = true; renderChip();
+    }
+    finally { this.pulling = false; }
+  },
+  connOk: null, connErr: "",
+  async checkConn() {
+    try { const r = await gs("apiLoginInfo"); this.connOk = true; this.connErr = ""; this.lalai = !!(r && r.lalai); }
+    catch (e) { this.connOk = false; this.connErr = (e && e.message) || String(e); }
+    showConn();
+  },
+  async init() {
+    if (hasGAS() || API()) {
+      this.mode = "sheets"; this.emit();
+      await this.checkConn();
+      if (auth) await this.startSheets();
+      return;
+    }
+    if (!(window.claude && typeof window.claude.use === "function")) { this.loadLocal(); this.emit(); return; }
+    let db = null;
+    try { db = await window.claude.use("db"); } catch {}
+    if (!db) { this.loadLocal(); this.emit(); return; }
+    this.db = db; this.mode = "cloud";
+    COLS.forEach(c => {
+      db.collection(c).onSnapshot(snap => {
+        const o = {}; snap.docs.forEach(d => { o[d.id] = d.data(); });
+        this.data[c] = o; this.loaded[c] = true; this.emit();
+      }, err => { toast("Sambungan pangkalan data terputus: " + err.code); });
+    });
+  },
+  started: false,
+  async startSheets() {
+    if (this.started) return; this.started = true;
+    await this.pull();
+    setInterval(() => { if (document.visibilityState === "visible") this.pull(); }, 3000);
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") this.pull(); });
+  },
+  localApply(ops) { ops.forEach(o => { const c = { ...this.data[o.col] }; if (o.op === "set") c[o.id] = o.obj; else delete c[o.id]; this.data[o.col] = c; }); this.emit(); },
+  async sheetsWrite(fn, args, ops) {
+    this.seq++; this.hash = null; this.localApply(ops);
+    try { return await gs(fn, ...args); }
+    catch (e) { if (/SESI_TAMAT/.test(e.message)) forceLogout(); else toast("Tidak dapat disimpan: " + (e.message || "ralat tidak diketahui")); this.pull(); throw e; }
+    finally { this.seq++; setTimeout(() => this.pull(), 300); }
+  },
+  async set(col, id, obj) {
+    if (this.mode === "sheets") return this.sheetsWrite("apiSet", [auth && auth.token, col, id, obj], [{ op: "set", col, id, obj }]);
+    if (this.mode === "cloud") { try { await this.db.doc(col + "/" + id).set(obj); } catch (e) { toast("Tidak dapat disimpan (" + (e.code || "ralat") + ")"); throw e; } }
+    else { this.data[col] = { ...this.data[col], [id]: obj }; this.saveLocal(); this.emit(); }
+  },
+  async del(col, id) {
+    if (this.mode === "sheets") return this.sheetsWrite("apiDelete", [auth && auth.token, col, id], [{ op: "del", col, id }]);
+    if (this.mode === "cloud") { await this.db.doc(col + "/" + id).delete(); }
+    else { const o = { ...this.data[col] }; delete o[id]; this.data[col] = o; this.saveLocal(); this.emit(); }
+  },
+  async bulk(ops) { // [{op:'set'|'del', col, id, obj}]
+    if (this.mode === "sheets") { for (let i = 0; i < ops.length; i += 400) await this.sheetsWrite("apiBulk", [auth && auth.token, ops.slice(i, i + 400)], ops.slice(i, i + 400)); return; }
+    if (this.mode !== "cloud") {
+      ops.forEach(o => { const c = { ...this.data[o.col] }; if (o.op === "set") c[o.id] = o.obj; else delete c[o.id]; this.data[o.col] = c; });
+      this.saveLocal(); this.emit(); return;
+    }
+    for (let i = 0; i < ops.length; i += 6) {
+      await Promise.all(ops.slice(i, i + 6).map(o => o.op === "set" ? this.db.doc(o.col + "/" + o.id).set(o.obj) : this.db.doc(o.col + "/" + o.id).delete()));
+    }
+  }
+};
+let downloadsP = null;
+function getDownloads() { if (!downloadsP) downloadsP = (window.claude && window.claude.use) ? window.claude.use("downloads").catch(() => null) : Promise.resolve(null); return downloadsP; }
+async function saveFile(filename, blob) {
+  const dl = await getDownloads();
+  if (dl) {
+    try { await dl.save({ filename, data: blob }); toast("Fail disimpan: " + filename); }
+    catch (e) { if (e && e.code !== "declined") toast("Fail tidak dapat disimpan (" + (e.code || "ralat") + ")"); }
+    return;
+  }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000); toast("Fail dimuat turun: " + filename);
+}
+
+/* ---------- domain ---------- */
+let activeSesi = lsGet("kp.sesi") || "";
+let auth = null;
+try { const a = JSON.parse(lsGet("kp.auth") || "null"); if (a && a.id && (a.role === "admin" || a.role === "pengawas") && a.nama) auth = a; } catch {}
+let pengawas = auth ? auth.nama : "";
+const isAdmin = () => !!auth && auth.role === "admin";
+const sesiList = () => Object.entries(Store.data.sesi).map(([id, s]) => ({ id, ...s })).sort((a, b) => (b.tarikh + b.mula).localeCompare(a.tarikh + a.mula));
+const pelajarList = () => Object.values(Store.data.pelajar).sort((a, b) => a.nama.localeCompare(b.nama));
+const getSesi = id => id && Store.data.sesi[id] ? { id, ...Store.data.sesi[id] } : null;
+const grpKey = p => String(p.kursus || "").trim() + " | Sem " + String(p.semester || "").trim();
+const bahagianOf = s => s && s.bahagian ? String(s.bahagian).split(" ; ").map(x => x.trim()).filter(Boolean) : null;   // format lama: "kursus | Sem n"
+const kursusOf = s => String((s && s.kursus) || "").split(" ; ").map(x => x.trim()).filter(Boolean);
+const semOf = s => String((s && s.semester) || "").split(",").map(x => x.trim()).filter(Boolean);
+const ulangOf = s => s && s.pelajarUlang ? String(s.pelajarUlang).split(",").map(x => x.trim().toUpperCase()).filter(Boolean) : [];
+function registered(sesi) {
+  if (!sesi) return [];
+  const bl = bahagianOf(sesi), ul = new Set(ulangOf(sesi)), ks = kursusOf(sesi), ss = semOf(sesi);
+  return pelajarList().filter(p => ul.has(p.noMatrik.toUpperCase()) || (!p.ulang && (bl ? bl.includes(grpKey(p))
+    : (!ks.length || ks.includes(String(p.kursus).trim())) && (!ss.length || ss.includes(String(p.semester).trim())))));
+}
+function bahagianLabel(s) {
+  const bl = bahagianOf(s), ks = kursusOf(s), ss = semOf(s), n = ulangOf(s).length;
+  const base = bl ? (bl.length === 1 ? bl[0] : bl.length + " bahagian")
+    : (ks.length === 0 ? "Semua bahagian" : ks.length === 1 ? ks[0] : ks.length + " bahagian") + " · " + (ss.length === 0 ? "Semua semester" : "Sem " + ss.join(", "));
+  return base + (n ? " + " + n + " pelajar ulang" : "");
+}
+const hadirId = (sesiId, matrik) => sesiId + "__" + safeId(matrik);
+const rekod = (sesiId, matrik) => Store.data.kehadiran[hadirId(sesiId, matrik)] || null;
+function sesiStats(sesi) {
+  const reg = registered(sesi); let h = 0, last = null;
+  reg.forEach(p => { const r = rekod(sesi.id, p.noMatrik); if (r) { h++; if (!last || r.masa > last) last = r.masa; } });
+  return { jumlah: reg.length, hadir: h, tidak: reg.length - h, pct: reg.length ? Math.round(h / reg.length * 100) : 0, last };
+}
+/* No. IC: 12 digit tanpa "-". Sifar di hadapan yang hilang dalam Excel dipulihkan. */
+const icDigits = s => { const d = digits(s); return d.length === 11 ? "0" + d : d; };
+const icFmt = s => { const d = icDigits(s); return d.length === 12 ? d.slice(0, 6) + "-" + d.slice(6, 8) + "-" + d.slice(8) : (s || ""); };
+function findPelajar(code) {
+  const c = code.trim().toUpperCase(); if (!c) return null;
+  const d = icDigits(c);
+  if (d.length >= 11 && digits(c).length === c.replace(/[\s-]/g, "").length) {          // imbasan No. IC
+    const p = pelajarList().find(x => icDigits(x.noIC) === d); if (p) return p;
+  }
+  return Store.data.pelajar[safeId(c)] || pelajarList().find(p => p.noMatrik.toUpperCase() === c) || null;  // taip no. matrik secara manual
+}
+function barcodeSVG(text, opts = {}) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  try { JsBarcode(svg, text, { format: "CODE128", height: opts.h || 46, width: opts.w || 1.6, fontSize: opts.fs || 12, margin: 4, font: "IBM Plex Mono", background: "#ffffff", lineColor: "#000000" }); }
+  catch { return ""; }
+  return svg.outerHTML;
+}
+
+/* ---------- audio feedback ---------- */
+let actx = null;
+function beep(kind) {
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    const tones = kind === "ok" ? [[1046, .09]] : kind === "warn" ? [[660, .1], [660, .1]] : [[220, .18], [180, .2]];
+    let t = actx.currentTime;
+    tones.forEach(([f, d]) => { const o = actx.createOscillator(), g = actx.createGain(); o.frequency.value = f; o.type = "square"; g.gain.setValueAtTime(.06, t); g.gain.exponentialRampToValueAtTime(.001, t + d); o.connect(g).connect(actx.destination); o.start(t); o.stop(t + d); t += d + .05; });
+  } catch {}
+}
+
+/* ---------- scanning ---------- */
+let busy = false;
+async function handleScan(raw) {
+  const code = raw.trim(); if (!code || busy) return;
+  const sesi = getSesi(activeSesi);
+  if (!sesi) { showResult("bad", "Pilih sidang dahulu", null, "Pilih sidang peperiksaan di bahagian atas, kemudian imbas semula."); beep("bad"); return; }
+  if (!auth) return;
+  const p = findPelajar(code);
+  if (!p) { showResult("bad", "Kad tidak dikenali", null, "No. IC " + code.trim() + " tiada dalam senarai pelajar. Semak kad, atau minta admin menambah pelajar ini."); beep("bad"); return; }
+  const reg = registered(sesi).some(x => x.noMatrik === p.noMatrik);
+  if (!reg) { showResult("bad", "Bukan sidang ini", p, "Pelajar ini tidak berdaftar untuk sidang " + sesi.kod + ". Mungkin dia di dewan yang salah."); beep("bad"); return; }
+  const ada = rekod(sesi.id, p.noMatrik);
+  if (ada) { showResult("warn", "Sudah diimbas tadi", p, "Kehadiran sudah direkod pada " + hhmmss(ada.masa) + ". Tak perlu imbas lagi."); beep("warn"); return; }
+  busy = true;
+  const masa = new Date().toISOString();
+  try {
+    await Store.set("kehadiran", hadirId(sesi.id, p.noMatrik), { sesiId: sesi.id, noMatrik: p.noMatrik, masa, pengawas: pengawas || "—", kaedah: "imbasan" });
+    showResult("ok", "Berjaya! Hadir", p, "Direkod pada " + hhmmss(masa) + " · " + sesi.dewan); beep("ok"); logPengawas();
+  } catch (e) { showResult("bad", "Belum tersimpan", p, "Rekod tidak dapat disimpan. Semak internet dan imbas semula."); beep("bad"); }
+  finally { busy = false; }
+}
+function showResult(kind, status, p, msg) {
+  const r = $("#result"); r.className = "result " + kind;
+  if (kind !== "idle" && camOn) { const n = $("#camNote"); n.className = "cam-note " + kind; n.innerHTML = `<span>${esc(status)}</span>${p && p.nama ? `<small>${esc(p.nama)}</small>` : ""}`; n.hidden = false; clearTimeout(showResult._t); showResult._t = setTimeout(() => n.hidden = true, 2600); }
+  if (kind !== "idle") { flashCam(kind === "ok" ? "hit" : kind === "warn" ? "dup" : "miss"); try { navigator.vibrate && navigator.vibrate(kind === "ok" ? 80 : [60, 60, 60]); } catch {} }
+  const mood = kind === "ok" ? "happy" : kind === "warn" ? "warn" : kind === "bad" ? "sad" : "wave";
+  r.innerHTML = mascot(mood, 104) + `<div class="txt"><div class="status">${esc(status)}</div>` +
+    (p && p.nama ? `<div class="name">${esc(p.nama)}</div><div class="sub">IC <span class="mono">${esc(icFmt(p.noIC))}</span> · <span class="mono">${esc(p.noMatrik)}</span> · ${esc(p.kursus)} · Sem ${esc(p.semester)}</div>` : "") +
+    `<div class="sub">${esc(msg)}</div>` + (p && p.nama && icDigits(p.noIC).length === 12 ? `<div class="bc">${barcodeSVG(icDigits(p.noIC), { h: 30, w: 1.2, fs: 10 })}</div>` : "") + `</div>`;
+  void r.offsetWidth; r.classList.add("flash");
+}
+function showIdle() { showResult("idle", "Sedia untuk imbasan", null, "Hasil imbasan akan keluar di sini. Hijau bermaksud pelajar hadir."); }
+async function manualMark(matrik) {
+  const sesi = getSesi(activeSesi); if (!sesi || rekod(sesi.id, matrik)) return;
+  if (!auth) return;
+  logPengawas();
+  const p = Store.data.pelajar[safeId(matrik)];
+  await Store.set("kehadiran", hadirId(sesi.id, matrik), { sesiId: sesi.id, noMatrik: matrik, masa: new Date().toISOString(), pengawas: pengawas || "—", kaedah: "manual" });
+  if (p) showResult("ok", "Berjaya! Hadir", p, "Ditanda hadir secara manual oleh pengawas.");
+}
+async function undoMark(matrik) { if (!isAdmin()) return; const sesi = getSesi(activeSesi); if (sesi) await Store.del("kehadiran", hadirId(sesi.id, matrik)); }
+
+/* ---------- views ---------- */
+/* ---------- kamera: imbas barcode guna kamera telefon ----------
+   Android Chrome: BarcodeDetector terbina dalam pelayar (pantas).
+   iPhone / lain-lain: ZXing, dibaca pada resolusi penuh kamera. */
+let camStream = null, camTimer = null, camOn = false, camWanted = false, camFacing = "environment", camBusy = false, torchOn = false;
+let detector = null, zx = null, decoderReady = false, detFails = 0, lastCode = "", lastAt = 0;
+const camCanvas = document.createElement("canvas");
+async function initDecoder() {
+  if (decoderReady) return; decoderReady = true;
+  if ("BarcodeDetector" in window) {
+    try {
+      const have = await BarcodeDetector.getSupportedFormats();
+      const want = ["code_128", "code_39", "code_93", "qr_code", "ean_13", "ean_8", "itf", "codabar", "data_matrix", "pdf417", "upc_a"].filter(f => have.includes(f));
+      if (want.includes("code_128")) detector = new BarcodeDetector({ formats: want });
+    } catch {}
+  }
+  if (window.ZXing) {
+    const Z = window.ZXing, F = Z.BarcodeFormat, hints = new Map();
+    hints.set(Z.DecodeHintType.POSSIBLE_FORMATS, [F.CODE_128, F.CODE_39, F.CODE_93, F.QR_CODE, F.EAN_13, F.EAN_8, F.ITF, F.CODABAR, F.DATA_MATRIX, F.UPC_A]);
+    hints.set(Z.DecodeHintType.TRY_HARDER, true);
+    zx = new Z.MultiFormatReader(); zx.setHints(hints);
+  }
+}
+function camUI() { $("#camOff").hidden = camOn; $("#camLive").hidden = !camOn; $("#camTools").hidden = !camOn; $("#camGuide").hidden = !camOn; }
+function camMsg(m, mood) { $("#camMsg").textContent = m; $("#camMascot").innerHTML = mascot(mood || "wave", 80); camOn = false; camUI(); }
+function camError(e) {
+  const n = String((e && (e.name || e.message)) || e);
+  if (/NotAllowed|Permission|Security/i.test(n)) return window.claude ? "Kamera tidak dibenarkan dalam paparan ini. Buka sistem melalui pautan GitHub Pages untuk menggunakan kamera." : "Kebenaran kamera ditolak. Tekan ikon kunci di sebelah alamat web, benarkan Kamera, kemudian tekan Buka kamera semula.";
+  if (/NotFound|Overconstrained|DevicesNotFound/i.test(n)) return "Tiada kamera dijumpai pada peranti ini.";
+  if (/NotReadable|TrackStart|Abort/i.test(n)) return "Kamera sedang digunakan oleh aplikasi lain. Tutup aplikasi itu, kemudian cuba lagi.";
+  return "Kamera tidak dapat dibuka (" + n.slice(0, 80) + ").";
+}
+async function startCam() {
+  camWanted = true;
+  if (camOn || camBusy) return;
+  if (!window.isSecureContext || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return camMsg("Kamera hanya berfungsi melalui pautan https (contohnya GitHub Pages).", "sad");
+  await initDecoder();
+  if (!detector && !zx) return camMsg("Alat pembaca barcode gagal dimuatkan. Semak sambungan internet, kemudian muat semula halaman.", "sad");
+  camBusy = true; $("#camMsg").textContent = "Membuka kamera…";
+  try {
+    camStream = await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: camFacing }, width: { ideal: 1280 }, height: { ideal: 720 } } });
+    const v = $("#camVideo"); v.srcObject = camStream; v.muted = true; v.setAttribute("playsinline", ""); await v.play();
+    const track = camStream.getVideoTracks()[0];
+    try { await track.applyConstraints({ advanced: [{ focusMode: "continuous" }] }); } catch {}
+    let caps = {}; try { caps = track.getCapabilities ? track.getCapabilities() : {}; } catch {}
+    $("#camTorch").hidden = !caps.torch; torchOn = false; $("#camTorch").textContent = "Lampu";
+    camOn = true; scanFrame();
+  } catch (e) { stopTracks(); camMsg(camError(e), "sad"); camWanted = false; }
+  finally { camBusy = false; camUI(); }
+}
+function stopTracks() { clearTimeout(camTimer); if (camStream) camStream.getTracks().forEach(t => t.stop()); camStream = null; const v = $("#camVideo"); if (v) v.srcObject = null; }
+async function stopCam(keepWanted) {
+  if (!keepWanted) camWanted = false;
+  stopTracks(); camOn = false; camUI();
+  if (!keepWanted) camMsg("Kamera dihentikan. Tekan Buka kamera untuk sambung mengimbas.", "wave");
+}
+async function scanFrame() {
+  if (!camOn) return;
+  const v = $("#camVideo"); let text = null;
+  if (v.readyState >= 2 && v.videoWidth && !busy) {
+    if (detector) {
+      try { const r = await detector.detect(v); if (r && r.length) text = r[0].rawValue; detFails = 0; }
+      catch { if (++detFails > 5 && zx) detector = null; }
+    } else if (zx) {
+      const W = v.videoWidth, H = v.videoHeight, ch = Math.floor(H * 0.6), cy = Math.floor((H - ch) / 2);
+      if (camCanvas.width !== W) camCanvas.width = W; if (camCanvas.height !== ch) camCanvas.height = ch;
+      const g = camCanvas.getContext("2d", { willReadFrequently: true });
+      g.drawImage(v, 0, cy, W, ch, 0, 0, W, ch);
+      try { const Z = window.ZXing; text = zx.decodeWithState(new Z.BinaryBitmap(new Z.HybridBinarizer(new Z.HTMLCanvasElementLuminanceSource(camCanvas)))).getText(); } catch {}
+    }
+  }
+  if (text) onCamDecode(text);
+  if (camOn) camTimer = setTimeout(scanFrame, detector ? 100 : 160);
+}
+function flashCam(kind) { const b = $("#camBox"); b.classList.remove("hit", "miss", "dup"); void b.offsetWidth; b.classList.add(kind); clearTimeout(flashCam._t); flashCam._t = setTimeout(() => b.classList.remove(kind), 900); }
+function onCamDecode(text) {
+  const code = String(text || "").trim(); if (!code || busy) return;
+  const now = Date.now();
+  if (code === lastCode && now - lastAt < 4000) return;   // kad sama masih di depan kamera
+  lastCode = code; lastAt = now;
+  handleScan(code);
+}
+$("#camStart").addEventListener("click", () => { try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); actx.resume && actx.resume(); } catch {} startCam(); });
+$("#camStop").addEventListener("click", () => stopCam());
+$("#camSwitch").addEventListener("click", async () => { camFacing = camFacing === "environment" ? "user" : "environment"; await stopCam(true); startCam(); });
+$("#camTorch").addEventListener("click", async () => {
+  try { torchOn = !torchOn; await camStream.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: torchOn }] }); $("#camTorch").textContent = torchOn ? "Lampu: ON" : "Lampu"; }
+  catch { torchOn = false; toast("Lampu tidak disokong pada kamera ini"); }
+});
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") { if (camOn) stopCam(true); } else if (camWanted && curView === "imbas" && auth) startCam(); });
+
+/* ---------- pengawas log: who used the system for each session ---------- */
+const pengId = (sesiId, nama) => sesiId + "__" + safeId(nama);
+const pengLast = {};
+async function logPengawas() {
+  if (!auth) return;
+  const sesi = getSesi(activeSesi); const nama = pengawas.trim();
+  if (!sesi || nama.length < 2 || !Store.loaded.pengawas) return;
+  const id = pengId(sesi.id, nama); const ada = Store.data.pengawas[id];
+  if (ada && pengLast[id] && Date.now() - pengLast[id] < 120000) return;
+  pengLast[id] = Date.now(); const now = new Date().toISOString();
+  try { await Store.set("pengawas", id, { sesiId: sesi.id, nama, masuk: ada ? ada.masuk : now, terakhir: now }); } catch {}
+}
+let pengTimer = null;
+function logPengawasSoon() { clearTimeout(pengTimer); pengTimer = setTimeout(logPengawas, 1500); }
+function pengawasSesi(sesi) {
+  const m = {};
+  Object.values(Store.data.pengawas).filter(x => x.sesiId === sesi.id).forEach(x => { m[safeId(x.nama)] = { nama: x.nama, masuk: x.masuk, terakhir: x.terakhir, imbas: 0 }; });
+  Object.values(Store.data.kehadiran).filter(r => r.sesiId === sesi.id && r.pengawas && r.pengawas !== "—").forEach(r => {
+    const k = safeId(r.pengawas); const e = m[k] = m[k] || { nama: r.pengawas, masuk: r.masa, terakhir: r.masa, imbas: 0 };
+    e.imbas++; if (r.masa < e.masuk) e.masuk = r.masa; if (r.masa > e.terakhir) e.terakhir = r.masa;
+  });
+  return Object.values(m).sort((a, b) => a.masuk.localeCompare(b.masuk));
+}
+
+/* ---------- light / dark ---------- */
+function curTheme() { const a = document.documentElement.getAttribute("data-theme"); return a || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); }
+function applyTheme(t) { if (t) document.documentElement.setAttribute("data-theme", t); const dark = curTheme() === "dark"; $("#themeBtn").innerHTML = `<svg class="ic"><use href="#i-${dark ? "sun" : "moon"}"/></svg><span>${dark ? "Cerah" : "Gelap"}</span>`; }
+$("#themeBtn").addEventListener("click", () => { const t = curTheme() === "dark" ? "light" : "dark"; lsSet("kp.theme", t); applyTheme(t); });
+applyTheme(lsGet("kp.theme"));
+try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => applyTheme()); } catch {}
+
+const VIEWS = ["imbas", "dashboard", "sesi", "pelajar", "laporan", "akaun"];
+const ADMIN_VIEWS = ["sesi", "pelajar"];
+let curView = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "imbas";
+function go(v) { curView = VIEWS.includes(v) ? v : "imbas"; try { history.replaceState(null, "", "#" + curView); } catch {} route(); window.scrollTo(0, 0); }
+document.addEventListener("click", e => { const a = e.target.closest('a[href^="#"]'); if (!a) return; e.preventDefault(); go(a.getAttribute("href").slice(1)); });
+function route() {
+  if (!isAdmin() && ADMIN_VIEWS.includes(curView)) curView = "imbas";
+  const v = curView;
+  VIEWS.forEach(x => { $("#v-" + x).hidden = x !== v; });
+  document.querySelectorAll("nav.tabs a").forEach(a => { if (a.dataset.v === v) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  if (v !== "imbas" && (camOn || camWanted)) stopCam();
+}
+
+function renderBanner() {
+  const b = $("#modeBanner");
+  if (Store.mode === "local") { b.className = "mode-banner"; b.innerHTML = `<div><b>Data TIDAK dikongsi dengan peranti lain</b>Peranti ini menyimpan data dalam pelayar sahaja. Sidang dan pelajar yang ditambah di sini tidak akan muncul pada peranti pengawas. Buka sistem melalui pautan GitHub Pages yang disambung ke Google Sheets.</div>`; b.hidden = false; }
+  else if (Store.mode === "cloud") { b.className = "mode-banner warn"; b.innerHTML = `<div><b>Versi pratonton</b>Data di sini berasingan dan tidak masuk ke Google Sheets. Untuk peperiksaan sebenar, gunakan pautan GitHub Pages.</div>`; b.hidden = false; }
+  else if (Store.mode === "sheets" && Store.err) { b.className = "mode-banner"; b.innerHTML = `<div><b>Sambungan ke Google Sheets terputus</b>Perubahan terbaru mungkin belum disimpan. Semak internet; sistem akan cuba menyambung semula setiap 3 saat.</div>`; b.hidden = false; }
+  else b.hidden = true;
+}
+function renderHeader() { renderChip(); renderSesiOptions(); }
+function renderChip() {
+  renderBanner();
+  const chip = $("#modeChip");
+  const live = Store.mode === "cloud" || (Store.mode === "sheets" && !Store.err && Store.loaded.pelajar);
+  chip.className = "chip" + (live ? " live" : "");
+  chip.lastElementChild.textContent = Store.mode === "sheets" ? (Store.err ? "Google Sheets terputus" : Store.loaded.pelajar ? "Disambung ke Google Sheets" : "Membaca Google Sheets…") : Store.mode === "cloud" ? "Dalam talian" : Store.mode === "local" ? "Disimpan dalam peranti ini" : "Menyambung…";
+  if (Store.mode === "sheets" && Store.lastSync) chip.lastElementChild.textContent = (Store.err ? "Terputus" : "Google Sheets") + " · " + new Date(Store.lastSync).toLocaleTimeString("ms-MY", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  chip.title = Store.mode === "local" ? "Data disimpan dalam pelayar ini sahaja" : Store.mode === "sheets" ? "Pangkalan data: Google Sheets (DATABASE PELAJAR, SIDANG PEPERIKSAAN, REKOD KEHADIRAN, LOG PENGAWAS, AKAUN PENGGUNA)" : "Data dikongsi antara semua peranti pengawas";
+  $("#lDrive").hidden = Store.mode !== "sheets";
+}
+function renderSesiOptions() {
+  const list = sesiList();
+  if (activeSesi && !Store.data.sesi[activeSesi] && Store.loaded.sesi) activeSesi = "";
+  if (!activeSesi && list.length) { const t = list.find(s => s.tarikh === todayStr()) || list[0]; activeSesi = t.id; lsSet("kp.sesi", activeSesi); }
+  const opts = list.length ? list.map(s => `<option value="${esc(s.id)}">${esc(s.kod)} · ${esc(fmtTarikh(s.tarikh))} ${esc(s.mula)}</option>`).join("") : `<option value="">Tiada sidang lagi</option>`;
+  const sp = $("#sesiPick"), ls = $("#lSesi");
+  if (sp._o !== opts) { sp.innerHTML = opts; sp._o = opts; } if (sp.value !== activeSesi) sp.value = activeSesi;
+  const lv = lChosen ? ls.value : activeSesi;
+  if (ls._o !== opts) { ls.innerHTML = opts; ls._o = opts; } const want = Store.data.sesi[lv] ? lv : activeSesi; if (ls.value !== want) ls.value = want;
+}
+
+let rosterF = "all";
+function renderSteps() {
+  const sesi = getSesi(activeSesi);
+  $("#st1").className = sesi ? "done" : "now";
+  $("#st1t").textContent = sesi ? sesi.kod + " · " + sesi.dewan : "Pilih di bahagian atas";
+  $("#st2").className = pengawas ? "done" : (sesi ? "now" : "");
+  $("#st2t").textContent = pengawas ? pengawas + " · direkod dalam laporan" : "Nama anda direkod dalam laporan";
+  $("#st3").className = sesi && pengawas ? "now" : "";
+  $("#steps").classList.toggle("alldone", !!(sesi && pengawas));
+}
+function renderImbas() {
+  renderSteps();
+  const sesi = getSesi(activeSesi);
+  if (!sesi) {
+    $("#stripWho").innerHTML = `<div class="row" style="gap:14px;flex-wrap:nowrap">${mascot("wave", 70)}<div><h2 style="font-size:24px">Belum ada sidang dipilih</h2><div class="meta"><a href="#sesi">Pergi ke halaman Sidang untuk cipta atau pilih sidang</a></div></div></div>`;
+    ["#tHadir", "#tTidak", "#tJumlah"].forEach(s => $(s).textContent = "0"); $("#tMeter").style.width = "0"; $("#tPct").textContent = "0%";
+    $("#roster").innerHTML = `<li class="empty" style="display:flex">${mascot("wave", 72)}<b>Senarai pelajar akan muncul di sini</b>Pilih sidang dahulu.</li>`;
+    $("#feed").innerHTML = ""; $("#feedCount").textContent = ""; return;
+  }
+  const st = sesiStats(sesi);
+  $("#stripWho").innerHTML = `<span class="code">${esc(sesi.kod)}</span><h2>${esc(sesi.nama)}</h2><div class="meta"><span>${ICON("pin")}${esc(sesi.dewan)}</span><span>${ICON("cal")}${esc(fmtTarikh(sesi.tarikh))}</span><span>${ICON("clock")}${esc(sesi.mula)} – ${esc(sesi.tamat)}</span><span>${ICON("cap")}${esc(bahagianLabel(sesi))}</span></div>`;
+  $("#camCount").textContent = st.hadir + " / " + st.jumlah + " hadir";
+  $("#tHadir").textContent = st.hadir; $("#tTidak").textContent = st.tidak; $("#tJumlah").textContent = st.jumlah; $("#tMeter").style.width = st.pct + "%"; $("#tPct").textContent = st.pct + "%";
+
+  const q = $("#rosterQ").value.trim().toLowerCase();
+  const all = registered(sesi);
+  const rows = all.map(p => ({ p, r: rekod(sesi.id, p.noMatrik) }))
+    .filter(x => rosterF === "all" || (rosterF === "hadir" ? x.r : !x.r))
+    .filter(x => !q || x.p.nama.toLowerCase().includes(q) || x.p.noMatrik.toLowerCase().includes(q))
+    .sort((a, b) => (!!a.r - !!b.r) || a.p.nama.localeCompare(b.p.nama));
+  $("#roster").innerHTML = rows.length ? rows.map(({ p, r }) => `<li class="${r ? "is-hadir" : ""}"><span class="av">${r ? ICON("check") : esc(initials(p.nama))}</span><span class="n">${esc(p.nama)}${p.ulang ? ' <span class="pill ulang">Ulang</span>' : ""}</span><span class="r">${r ? `<span class="pill ok">Hadir</span><button class="btn sm admin-only" data-undo="${esc(p.noMatrik)}" title="Batalkan rekod hadir">Batal</button>` : `<span class="pill bad">Belum hadir</span><button class="btn sm" data-mark="${esc(p.noMatrik)}" title="Tanda hadir tanpa imbas kad">Tanda hadir</button>`}</span><span class="m"><span class="mono">${esc(p.noMatrik)}</span>${r ? " · masuk " + hhmm(r.masa) + (r.kaedah === "manual" ? " (manual)" : "") : ""}</span></li>`).join("")
+    : `<li class="empty" style="display:flex">${mascot(all.length ? "warn" : "wave", 72)}<b>${all.length ? (rosterF === "hadir" ? "Belum ada yang hadir" : rosterF === "tidak" ? "Semua pelajar sudah hadir!" : "Tiada nama yang sepadan") : "Tiada pelajar dalam sidang ini"}</b>${all.length ? "" : "Tambah pelajar yang kursus dan semesternya sama dengan sidang ini."}</li>`;
+
+  const feed = Object.values(Store.data.kehadiran).filter(r => r.sesiId === sesi.id).sort((a, b) => b.masa.localeCompare(a.masa));
+  $("#feedCount").textContent = feed.length ? feed.length + " orang" : "";
+  $("#feed").innerHTML = feed.length ? feed.slice(0, 8).map(r => { const p = Store.data.pelajar[safeId(r.noMatrik)]; return `<li><span class="t">${hhmmss(r.masa)}</span><span class="n">${esc(p ? p.nama : r.noMatrik)}</span><span class="pill ${r.kaedah === "manual" ? "info" : "ok"}">${r.kaedah === "manual" ? "Manual" : "Diimbas"}</span></li>`; }).join("")
+    : `<li class="empty" style="display:flex"><b>Belum ada imbasan</b>Pelajar pertama yang diimbas akan muncul di sini.</li>`;
+}
+
+function renderDashboard() {
+  const sesi = getSesi(activeSesi);
+  const st = sesi ? sesiStats(sesi) : { jumlah: 0, hadir: 0, tidak: 0, pct: 0, last: null };
+  $("#kJumlah").textContent = st.jumlah; $("#kHadir").textContent = st.hadir; $("#kTidak").textContent = st.tidak; $("#kPeratus").textContent = st.pct + "%";
+  $("#kSesi").textContent = sesi ? sesi.kod + " · " + sesi.dewan : "Tiada sidang aktif";
+  $("#kTerakhir").textContent = st.last ? "imbasan terakhir " + hhmm(st.last) : "belum ada imbasan";
+
+  // histogram 10-min buckets from session start
+  const recs = sesi ? Object.values(Store.data.kehadiran).filter(r => r.sesiId === sesi.id) : [];
+  if (!recs.length) $("#hist").innerHTML = `<p class="faint" style="margin:auto">Carta akan muncul selepas imbasan pertama.</p>`;
+  else {
+    const times = recs.map(r => new Date(r.masa).getTime());
+    const min = Math.min(...times), start = min - (min % 600000), n = Math.min(18, Math.floor((Math.max(...times) - start) / 600000) + 1);
+    const b = Array(n).fill(0); times.forEach(t => { const i = Math.min(n - 1, Math.floor((t - start) / 600000)); b[i]++; });
+    const mx = Math.max(...b);
+    $("#hist").innerHTML = b.map((v, i) => `<div><em>${v || ""}</em><i style="height:${Math.round(v / mx * 100)}%"></i><small>${hhmm(new Date(start + i * 600000).toISOString())}</small></div>`).join("");
+  }
+  // by kursus
+  const groups = {};
+  if (sesi) registered(sesi).forEach(p => { const k = p.ulang ? "Pelajar ulang" : grpKey(p); const g = groups[k] = groups[k] || { h: 0, j: 0 }; g.j++; if (rekod(sesi.id, p.noMatrik)) g.h++; });
+  const gk = Object.entries(groups);
+  $("#byKursus").innerHTML = gk.length ? gk.map(([k, g]) => `<tr><td>${esc(k)}</td><td class="num">${g.h}/${g.j}</td><td><div class="bar"><span><i style="width:${Math.round(g.h / g.j * 100)}%"></i></span><b>${Math.round(g.h / g.j * 100)}%</b></div></td></tr>`).join("") : `<tr><td colspan="3" class="faint">Tiada data.</td></tr>`;
+  const all = sesiList();
+  $("#allSesi").innerHTML = all.length ? all.map(s => { const x = sesiStats(s); return `<tr><td class="mono" style="white-space:nowrap">${esc(fmtTarikh(s.tarikh))}</td><td><b style="font-weight:600">${esc(s.kod)}</b> ${esc(s.nama)}</td><td>${esc(s.dewan)}</td><td class="num">${x.hadir}</td><td class="num">${x.jumlah}</td><td><div class="bar"><span><i style="width:${x.pct}%"></i></span><b>${x.pct}%</b></div></td></tr>`; }).join("") : `<tr><td colspan="6" class="faint">Belum ada sesi.</td></tr>`;
+}
+
+let editSesi = null;
+function renderSesi() {
+  renderSesiPicks();
+  $("#kursusList").innerHTML = [...new Set(pelajarList().map(p => p.kursus))].sort().map(k => `<option value="${esc(k)}">`).join("");
+  const bln = ["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogo","Sep","Okt","Nov","Dis"];
+  const list = sesiList();
+  $("#sesiList").innerHTML = list.length ? list.map(s => { const x = sesiStats(s); const on = s.id === activeSesi; const [, m, d] = (s.tarikh || "--").split("-");
+    return `<div class="sesi-item${on ? " active" : ""}"><div class="date"><small>${esc(bln[+m - 1] || "")}</small><b>${esc(+d || "?")}</b></div><div style="min-width:0"><h3>${esc(s.nama)} <span class="pill info">${esc(s.kod)}</span>${on ? ' <span class="pill ok">Sedang digunakan</span>' : ""}</h3><div class="meta"><span>${esc(s.dewan)}</span><span>${esc(s.mula)} – ${esc(s.tamat)}</span><span>${esc(bahagianLabel(s))}</span><span><b>${x.hadir}</b> / ${x.jumlah} hadir</span></div>${(bahagianOf(s) || []).length > 1 || kursusOf(s).length > 1 || ulangOf(s).length ? `<div class="chips" style="margin-top:6px">${(bahagianOf(s) || kursusOf(s)).map(b => `<span class="pill info">${esc(b)}</span>`).join("")}${!bahagianOf(s) && semOf(s).length ? `<span class="pill ok">Sem ${esc(semOf(s).join(", "))}</span>` : ""}${ulangOf(s).length ? `<span class="pill ulang">${ulangOf(s).length} pelajar ulang</span>` : ""}</div>` : ""}</div><div class="row">${on ? "" : `<button class="btn sm primary" data-aktif="${esc(s.id)}">Guna sidang ini</button>`}<button class="btn sm" data-edit-sesi="${esc(s.id)}">Ubah</button><button class="btn sm danger" data-del-sesi="${esc(s.id)}">Padam</button></div></div>`; }).join("")
+    : `<div class="empty">${mascot("wave", 80)}<b>Belum ada sidang peperiksaan</b>Isi borang di atas untuk mencipta sidang pertama.</div>`;
+}
+let pickBhg = new Set(), pickSem = new Set(), pickUlang = new Set();
+function chipsHtml(counts, picked, attr, label) {
+  picked.forEach(k => { if (!(k in counts)) counts[k] = 0; });
+  const keys = Object.keys(counts).sort((a, b) => attr === "sem" ? Number(a) - Number(b) : a.localeCompare(b));
+  return keys.length ? keys.map(k => `<label class="pick"><input type="checkbox" data-${attr}="${esc(k)}" ${picked.has(k) ? "checked" : ""}>${esc(label(k))} <small>${counts[k]} pelajar</small></label>`).join("")
+    : `<span class="faint">Belum ada pelajar. Tambah pelajar di halaman Pelajar dahulu.</span>`;
+}
+function renderSesiPicks() {
+  const biasa = pelajarList().filter(p => !p.ulang), kc = {}, sc = {};
+  biasa.forEach(p => { const k = String(p.kursus).trim(); kc[k] = (kc[k] || 0) + 1; });
+  biasa.filter(p => !pickBhg.size || pickBhg.has(String(p.kursus).trim())).forEach(p => { const k = String(p.semester).trim(); if (k) sc[k] = (sc[k] || 0) + 1; });
+  biasa.forEach(p => { const k = String(p.semester).trim(); if (k && !(k in sc)) sc[k] = 0; });
+  const h1 = chipsHtml(kc, pickBhg, "bhg", k => k), h2s = chipsHtml(sc, pickSem, "sem", k => "Semester " + k);
+  if ($("#sBahagian")._h !== h1) { $("#sBahagian").innerHTML = h1; $("#sBahagian")._h = h1; }
+  if ($("#sSemester")._h !== h2s) { $("#sSemester").innerHTML = h2s; $("#sSemester")._h = h2s; }
+  const q = $("#sUlangQ").value.trim().toLowerCase();
+  const ul = pelajarList().filter(p => p.ulang);
+  const shown = ul.filter(p => pickUlang.has(p.noMatrik) || !q || p.nama.toLowerCase().includes(q) || p.noMatrik.toLowerCase().includes(q));
+  const h2 = ul.length ? (shown.length ? shown.map(p => `<label class="pick ulang"><input type="checkbox" data-ul="${esc(p.noMatrik)}" ${pickUlang.has(p.noMatrik) ? "checked" : ""}>${esc(p.nama)} <small>${esc(p.noMatrik)} · ${esc(p.kursus)} · Sem ${esc(p.semester)}</small></label>`).join("") : `<span class="faint">Tiada nama yang sepadan.</span>`)
+    : `<span class="faint">Tiada pelajar ulang. Tandakan pelajar sebagai “Pelajar ulang” di halaman Pelajar.</span>`;
+  if ($("#sUlang")._h !== h2) { $("#sUlang").innerHTML = h2; $("#sUlang")._h = h2; }
+  updateSesiHint();
+}
+function draftSidang() { return { bahagian: "", kursus: [...pickBhg].join(" ; "), semester: [...pickSem].sort((a, b) => a - b).join(","), pelajarUlang: [...pickUlang].join(",") }; }
+function updateSesiHint() {
+  const d = draftSidang();
+  const biasa = pickBhg.size && pickSem.size ? registered({ ...d, pelajarUlang: "" }).length : 0;
+  $("#sesiCountHint").textContent = (biasa + pickUlang.size) + " pelajar akan menduduki sidang ini" + (pickUlang.size ? " (termasuk " + pickUlang.size + " pelajar ulang)" : "")
+    + (pickBhg.size && !pickSem.size ? " · pilih semester" : !pickBhg.size && pickSem.size ? " · pilih bahagian" : "");
+}
+$("#sBahagian").addEventListener("change", e => { const c = e.target.closest("[data-bhg]"); if (!c) return; c.checked ? pickBhg.add(c.dataset.bhg) : pickBhg.delete(c.dataset.bhg); renderSesiPicks(); });
+$("#sSemester").addEventListener("change", e => { const c = e.target.closest("[data-sem]"); if (!c) return; c.checked ? pickSem.add(c.dataset.sem) : pickSem.delete(c.dataset.sem); updateSesiHint(); });
+$("#sUlang").addEventListener("change", e => { const c = e.target.closest("[data-ul]"); if (!c) return; c.checked ? pickUlang.add(c.dataset.ul) : pickUlang.delete(c.dataset.ul); updateSesiHint(); });
+$("#sUlangQ").addEventListener("input", renderSesiPicks);
+$("#sAllBhg").addEventListener("click", () => { const boxes = [...document.querySelectorAll("#sBahagian [data-bhg]")]; const all = boxes.every(b => b.checked); boxes.forEach(b => { all ? pickBhg.delete(b.dataset.bhg) : pickBhg.add(b.dataset.bhg); }); renderSesiPicks(); });
+$("#sAllSem").addEventListener("click", () => { const boxes = [...document.querySelectorAll("#sSemester [data-sem]")]; const all = boxes.every(b => b.checked); boxes.forEach(b => { b.checked = !all; all ? pickSem.delete(b.dataset.sem) : pickSem.add(b.dataset.sem); }); updateSesiHint(); });
+
+let editPelajar = null;
+let pF = "all";
+$("#pSeg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; pF = b.dataset.f; $("#pSeg").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); renderPelajar(); });
+function renderPelajar() {
+  const q = $("#pQ").value.trim().toLowerCase();
+  const all = pelajarList();
+  const nUl = all.filter(p => p.ulang).length;
+  $("#pSeg").querySelector('[data-f="ulang"]').textContent = "Ulang (" + nUl + ")"; $("#pSeg").querySelector('[data-f="biasa"]').textContent = "Biasa (" + (all.length - nUl) + ")";
+  const rows = all.filter(p => pF === "all" || (pF === "ulang" ? p.ulang : !p.ulang)).filter(p => !q || p.nama.toLowerCase().includes(q) || p.noMatrik.toLowerCase().includes(q) || (p.noIC || "").toLowerCase().includes(q) || (digits(q).length >= 4 && icDigits(p.noIC).includes(digits(q))));
+  $("#pCount").textContent = "(" + all.length + " orang)";
+  $("#contohNote").hidden = !all.some(p => p.contoh);
+  $("#pTable").innerHTML = rows.length ? rows.slice(0, 500).map(p => `<tr><td class="mono">${esc(p.noMatrik)}</td><td style="font-weight:700">${esc(p.nama)}${p.ulang ? ' <span class="pill ulang">Ulang</span>' : ""}${p.contoh ? ' <span class="pill warn">Contoh</span>' : ""}</td><td class="mono">${icDigits(p.noIC).length === 12 ? esc(icFmt(p.noIC)) : '<span class="pill bad">Tiada No. IC</span>'}</td><td>${esc(p.kursus)}</td><td class="num">${esc(p.semester)}</td><td style="white-space:nowrap;text-align:right"><button class="btn sm" data-bc="${esc(p.noMatrik)}" title="Papar barcode No. IC untuk menguji imbasan kamera">${ICON("scan")}Barcode</button> <button class="btn sm" data-edit-p="${esc(p.noMatrik)}">Ubah</button> <button class="btn sm danger" data-del-p="${esc(p.noMatrik)}">Padam</button></td></tr>`).join("")
+    : `<tr><td colspan="6"><div class="empty">${mascot(all.length ? "warn" : "wave", 84)}<b>${all.length ? "Tiada nama yang sepadan" : "Senarai pelajar masih kosong"}</b>${all.length ? "Cuba cari dengan perkataan lain." : "Muat naik fail Excel senarai pelajar, atau tambah seorang demi seorang di bawah."}${all.length ? "" : '<div style="margin-top:10px"><button class="btn sun" type="button" data-sample>Cuba dengan data contoh</button></div>'}</div></td></tr>`;
+}
+
+let lF = "all", lChosen = false;
+function laporanRows(sesi) {
+  return registered(sesi).map(p => ({ p, r: rekod(sesi.id, p.noMatrik) })).sort((a, b) => (!!a.p.ulang - !!b.p.ulang) || a.p.noMatrik.localeCompare(b.p.noMatrik));
+}
+function renderLaporan() {
+  const sesi = getSesi($("#lSesi").value);
+  if (!sesi) { $("#lSummary").innerHTML = `<p class="faint" style="margin:0">Tiada sidang untuk dilaporkan.</p>`; $("#lTable").innerHTML = ""; $("#lPeng").innerHTML = ""; return; }
+  const pg = pengawasSesi(sesi);
+  $("#lPeng").innerHTML = pg.length ? pg.map(x => `<tr><td style="font-weight:700">${esc(x.nama)}</td><td class="mono">${hhmm(x.masuk)}</td><td class="mono">${hhmm(x.terakhir)}</td><td class="num">${x.imbas}</td></tr>`).join("") : `<tr><td colspan="4" class="faint">Belum ada pengawas yang menggunakan sistem untuk sidang ini.</td></tr>`;
+  const st = sesiStats(sesi);
+  $("#lSummary").innerHTML = `<div class="row" style="gap:28px;align-items:flex-start"><div style="min-width:0;flex:1 1 260px"><div class="label">Subjek</div><div style="font-weight:800;font-size:18px">${esc(sesi.kod)} · ${esc(sesi.nama)}</div><div class="muted" style="font-size:13.5px">${esc(sesi.dewan)} · ${esc(fmtTarikh(sesi.tarikh))} · <span class="mono">${esc(sesi.mula)}–${esc(sesi.tamat)}</span></div></div><div class="tally"><div class="ok"><b>${st.hadir}</b><span>Hadir</span></div><div class="bad"><b>${st.tidak}</b><span>Tidak hadir</span></div><div><b>${st.pct}%</b><span>Peratus</span></div></div></div>`;
+  const q = $("#lQ").value.trim().toLowerCase();
+  const rows = laporanRows(sesi).map((x, i) => ({ ...x, i: i + 1 }))
+    .filter(x => lF === "all" || (lF === "hadir" ? x.r : !x.r))
+    .filter(x => !q || x.p.nama.toLowerCase().includes(q) || x.p.noMatrik.toLowerCase().includes(q));
+  let grp = null;
+  $("#lTable").innerHTML = rows.length ? rows.map(({ p, r, i }) => (grp !== !!p.ulang && (grp = !!p.ulang, true) && (p.ulang || rows.some(x => x.p.ulang)) ? `<tr><td colspan="7" style="background:${p.ulang ? "var(--warn-soft)" : "var(--surface-2)"};font-weight:800">${p.ulang ? "Pelajar ulang" : "Pelajar biasa"}</td></tr>` : "") + `<tr><td class="num">${i}</td><td class="mono">${esc(p.noMatrik)}</td><td>${esc(p.nama)}${p.ulang ? ' <span class="pill ulang">Ulang</span>' : ""}</td><td>${esc(p.kursus)}${p.semester ? " · Sem " + esc(p.semester) : ""}</td><td class="mono">${r ? hhmmss(r.masa) + (r.kaedah === "manual" ? " (M)" : "") : "—"}</td><td>${esc(r ? r.pengawas : "—")}</td><td>${r ? '<span class="pill ok">Hadir</span>' : '<span class="pill bad">Tidak hadir</span>'}</td></tr>`).join("") : `<tr><td colspan="7" class="faint">Tiada rekod sepadan.</td></tr>`;
+}
+
+function renderAll() {
+  if (auth && Store.mode !== "sheets" && Store.loaded.pengguna && !Store.data.pengguna[auth.id]) { forceLogout(); return; }
+  renderAkaun(); renderHeader(); renderImbas(); renderDashboard(); renderSesi(); renderPelajar(); renderLaporan(); }
+
+/* ---------- exports ---------- */
+function reportData(sesi) {
+  return laporanRows(sesi).map(({ p, r }, i) => [i + 1, p.noMatrik, p.nama, icFmt(p.noIC), p.kursus + (p.semester ? " · Sem " + p.semester : "") + (p.ulang ? " (ULANG)" : ""), r ? hhmmss(r.masa) : "", r ? r.pengawas : "", r ? (r.kaedah === "manual" ? "HADIR (manual)" : "HADIR") : "TIDAK HADIR"]);
+}
+const HEAD = ["Bil", "No. Matrik", "Nama", "No. IC", "Kursus", "Masa Imbas", "Pengawas", "Status"];
+const fileBase = s => `Kehadiran_${s.kod}_${s.tarikh}`.replace(/[^\w\-]/g, "_");
+async function exportXlsx() {
+  const sesi = getSesi($("#lSesi").value); if (!sesi) return toast("Pilih sidang dahulu");
+  const st = sesiStats(sesi);
+  const aoa = [["LAPORAN KEHADIRAN PEPERIKSAAN AKHIR"], ["Institut Teknikal Jepun-Malaysia (JMTi)"], [],
+    ["Subjek", sesi.kod + " " + sesi.nama], ["Dewan", sesi.dewan], ["Bahagian", (bahagianOf(sesi) || [kursusOf(sesi).join("; ") || "Semua bahagian"]).join("; ")], ["Semester", bahagianOf(sesi) ? "-" : (semOf(sesi).join(", ") || "Semua")], ["Pelajar ulang", ulangOf(sesi).length || "-"], ["Tarikh", fmtTarikh(sesi.tarikh)], ["Masa", sesi.mula + " - " + sesi.tamat],
+    ["Hadir", st.hadir], ["Tidak hadir", st.tidak], ["Peratus", st.pct + "%"], ["Pengawas bertugas", pengawasSesi(sesi).map(x => x.nama).join(", ") || "-"], [], HEAD, ...reportData(sesi)];
+  const ws = XLSX.utils.aoa_to_sheet(aoa);
+  ws["!cols"] = [{ wch: 5 }, { wch: 13 }, { wch: 34 }, { wch: 16 }, { wch: 36 }, { wch: 11 }, { wch: 20 }, { wch: 16 }];
+  const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "Kehadiran");
+  const ws2 = XLSX.utils.aoa_to_sheet([["PENGAWAS BERTUGAS", sesi.kod + " " + sesi.nama], [], ["Bil", "Nama Pengawas", "Mula Guna", "Aktif Terakhir", "Bil. Imbasan"], ...pengawasSesi(sesi).map((x, i) => [i + 1, x.nama, hhmmss(x.masuk), hhmmss(x.terakhir), x.imbas])]);
+  ws2["!cols"] = [{ wch: 5 }, { wch: 30 }, { wch: 12 }, { wch: 14 }, { wch: 13 }];
+  XLSX.utils.book_append_sheet(wb, ws2, "Pengawas");
+  const buf = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+  await saveFile(fileBase(sesi) + ".xlsx", new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+}
+async function exportPdf() {
+  const sesi = getSesi($("#lSesi").value); if (!sesi) return toast("Pilih sidang dahulu");
+  const st = sesiStats(sesi);
+  const { jsPDF } = window.jspdf; const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+  doc.setFont("helvetica", "bold"); doc.setFontSize(15); doc.text("LAPORAN KEHADIRAN PEPERIKSAAN AKHIR", 14, 16);
+  doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.text("Institut Teknikal Jepun-Malaysia (JMTi) · Jabatan Teknologi Kejuruteraan Komputer", 14, 22);
+  doc.setFontSize(10.5);
+  const info = [["Subjek", sesi.kod + " " + sesi.nama], ["Dewan", sesi.dewan], ["Bahagian", (bahagianOf(sesi) || [kursusOf(sesi).join("; ") || "Semua bahagian"]).join("; ") + (!bahagianOf(sesi) ? "   |   Semester: " + (semOf(sesi).join(", ") || "Semua") : "") + (ulangOf(sesi).length ? "   |   " + ulangOf(sesi).length + " pelajar ulang" : "")], ["Tarikh / Masa", fmtTarikh(sesi.tarikh) + ", " + sesi.mula + " - " + sesi.tamat], ["Ringkasan", `Hadir ${st.hadir}  ·  Tidak hadir ${st.tidak}  ·  Berdaftar ${st.jumlah}  ·  ${st.pct}%`], ["Pengawas", pengawasSesi(sesi).map(x => x.nama).join(", ") || "-"]];
+  info.forEach(([k, v], i) => { doc.setFont("helvetica", "bold"); doc.text(k, 14, 31 + i * 6); doc.setFont("helvetica", "normal"); doc.text(doc.splitTextToSize(String(v), 230)[0], 48, 31 + i * 6); });
+  doc.autoTable({ head: [HEAD], body: reportData(sesi), startY: 31 + info.length * 6 + 2, styles: { fontSize: 9, cellPadding: 2 }, headStyles: { fillColor: [19, 33, 58] },
+    columnStyles: { 0: { halign: "right", cellWidth: 10 } },
+    didParseCell: d => { if (d.section === "body" && d.column.index === 7) { const h = String(d.cell.raw).startsWith("HADIR"); d.cell.styles.textColor = h ? [23, 128, 61] : [192, 49, 43]; d.cell.styles.fontStyle = "bold"; } } });
+  const pg = pengawasSesi(sesi);
+  let y = doc.lastAutoTable.finalY + 10; if (y > 160) { doc.addPage(); y = 18; }
+  doc.setFont("helvetica", "bold"); doc.setFontSize(11.5); doc.setTextColor(0); doc.text("PENGAWAS BERTUGAS", 14, y);
+  doc.autoTable({ head: [["Bil", "Nama Pengawas", "Mula Guna", "Aktif Terakhir", "Bil. Imbasan", "Tandatangan"]], body: pg.length ? pg.map((x, i) => [i + 1, x.nama, hhmmss(x.masuk), hhmmss(x.terakhir), x.imbas, ""]) : [["-", "Tiada rekod", "", "", "", ""]],
+    startY: y + 3, styles: { fontSize: 9.5, cellPadding: 3, minCellHeight: 10 }, headStyles: { fillColor: [45, 35, 80] }, columnStyles: { 0: { cellWidth: 12 }, 1: { cellWidth: 70 }, 5: { cellWidth: 60 } } });
+  doc.setFontSize(8); doc.setTextColor(120); doc.text("Dijana pada " + new Date().toLocaleString("ms-MY") + (pengawas ? " oleh " + pengawas : ""), 283, 200, { align: "right" });
+  await saveFile(fileBase(sesi) + ".pdf", doc.output("blob"));
+}
+async function downloadTemplate() {
+  const ws = XLSX.utils.aoa_to_sheet([["NO MATRIK", "NAMA", "NO IC", "KURSUS", "SEMESTER", "ULANG"], ["JM2301001", "Nama Pelajar", "050101011234", "Diploma Teknologi Komputer (Sistem)", 4, ""], ["JM2201050", "Nama Pelajar Ulang", "040202021234", "Diploma Teknologi Komputer (Sistem)", 6, "YA"]]);
+  ws["!cols"] = [{ wch: 13 }, { wch: 34 }, { wch: 16 }, { wch: 36 }, { wch: 10 }];
+  ws["C2"].z = "@"; ws["C2"].t = "s"; ws["C3"].z = "@"; ws["C3"].t = "s"; ws["!cols"].push({ wch: 8 });
+  const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "Masterlist");
+  await saveFile("Templat_Masterlist_Pelajar.xlsx", new Blob([XLSX.write(wb, { bookType: "xlsx", type: "array" })]));
+}
+
+/* ---------- import ---------- */
+async function importFile(file) {
+  try {
+    const wb = XLSX.read(await file.arrayBuffer(), { type: "array" });
+    const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { defval: "" });
+    const norm = o => { const m = {}; Object.keys(o).forEach(k => m[k.toUpperCase().replace(/[^A-Z]/g, "")] = String(o[k]).trim()); return m; };
+    const ops = []; let tiadaIC = 0;
+    rows.forEach(r => { const m = norm(r); const mat = (m.NOMATRIK || m.MATRIK || m.NOMATRIKS || "").toUpperCase(); const nama = m.NAMA || m.NAMAPELAJAR; if (!mat || !nama) return;
+      const ic = icDigits(m.NOIC || m.IC || m.NOKP || m.NOKADPENGENALAN || ""); if (ic.length !== 12) tiadaIC++;
+      ops.push({ op: "set", col: "pelajar", id: safeId(mat), obj: { noMatrik: mat, nama, noIC: ic.length === 12 ? ic : (m.NOIC || m.IC || m.NOKP || ""), kursus: m.KURSUS || m.PROGRAM || "Tidak dinyatakan", semester: Number(m.SEMESTER || m.SEM) || "", ulang: /^(YA|Y|YES|TRUE|1|ULANG)$/i.test(m.ULANG || m.REPEAT || m.PELAJARULANG || "") } }); });
+    if (!ops.length) return toast("Tiada baris sah. Pastikan lajur NO MATRIK dan NAMA wujud.");
+    toast("Mengimport " + ops.length + " pelajar…"); await Store.bulk(ops); toast(ops.length + " pelajar diimport" + (tiadaIC ? " · " + tiadaIC + " tiada No. IC yang sah (tidak boleh diimbas)" : ""));
+  } catch (e) { toast("Fail tidak dapat dibaca: " + (e.message || e.code || "ralat")); }
+}
+
+/* ---------- sample data (marked contoh) ---------- */
+function sampleOps() {
+  const K1 = "Diploma Teknologi Komputer (Sistem)", K2 = "Diploma Teknologi Komputer (Rangkaian)";
+  const names = ["Ahmad Danial bin Rosli", "Nur Aisyah binti Kamarul", "Muhammad Haziq bin Azman", "Siti Nurhaliza binti Zainal", "Arif Hakimi bin Shahrul", "Nurul Izzah binti Fadzil", "Lim Wei Jie", "Kavitha a/p Raman", "Muhammad Irfan bin Hashim", "Farah Adlina binti Musa", "Amirul Hakim bin Yusof", "Tan Mei Ling", "Hafiz Syazwan bin Rahim", "Puteri Balqis binti Azhar"];
+  const ops = names.map((n, i) => { const mat = "JM23" + (i < 9 ? "01" : "02") + String(i + 1).padStart(3, "0"); return { op: "set", col: "pelajar", id: mat, obj: { noMatrik: mat, nama: n, noIC: "05" + pad(1 + i % 12) + pad(3 + i) + "0" + (1 + i % 9) + (5101 + i * 37), kursus: i < 9 ? K1 : K2, semester: 4, contoh: true } }; });
+  ops.push({ op: "set", col: "pelajar", id: "JM2201050", obj: { noMatrik: "JM2201050", nama: "Zulkifli bin Omar", noIC: "040115081234", kursus: K1, semester: 6, ulang: true, contoh: true } });
+  ops.push({ op: "set", col: "pelajar", id: "JM2202051", obj: { noMatrik: "JM2202051", nama: "Nadia binti Hassan", noIC: "040322085678", kursus: K2, semester: 6, ulang: true, contoh: true } });
+  const t = todayStr();
+  ops.push({ op: "set", col: "sesi", id: "S-CONTOH-1", obj: { kod: "DTK4013", nama: "Pengaturcaraan Web", dewan: "Dewan Peperiksaan A", tarikh: t, mula: "09:00", tamat: "11:00", kursus: K1, semester: "4", bahagian: "", pelajarUlang: "JM2201050" } });
+  ops.push({ op: "set", col: "sesi", id: "S-CONTOH-2", obj: { kod: "DTK4022", nama: "Keselamatan Rangkaian", dewan: "Dewan Besar", tarikh: t, mula: "14:30", tamat: "16:30", kursus: K1 + " ; " + K2, semester: "4", bahagian: "", pelajarUlang: "JM2202051" } });
+  return ops;
+}
+
+/* ---------- events ---------- */
+$("#scanForm").addEventListener("submit", e => { e.preventDefault(); const v = $("#scanIn").value; $("#scanIn").value = ""; handleScan(v); });
+
+$("#sesiPick").addEventListener("change", e => { activeSesi = e.target.value; lsSet("kp.sesi", activeSesi); renderAll(); logPengawasSoon(); });
+/* ---------- akaun & log masuk ----------
+   Google Sheets: pelayan menyemak kata laluan dan peranan (selamat).
+   Mod peranti / pratonton: akaun disimpan bersama data peranti itu (untuk demo sahaja). */
+const ADMIN_ASAL = { id: "admin", kata: "admin123" };
+const idPengguna = s => String(s || "").trim().toLowerCase().replace(/\s+/g, "");
+async function sha(s) {
+  try { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
+  catch { return "plain:" + s; }
+}
+const hashAkaun = (id, kata) => sha(idPengguna(id) + ":" + kata);
+const adaAdmin = () => Object.values(Store.data.pengguna || {}).some(a => a.peranan === "admin");
+async function usingDefaults() {
+  if (Store.mode === "sheets") { if (Store.connOk === null) await Store.checkConn(); return !!Store.lalai; }
+  return !adaAdmin();
+}
+function waitLoaded(col, ms) { return new Promise(res => { const t0 = Date.now(); (function chk() { if (Store.loaded[col] || Store.mode === "sheets" || Date.now() - t0 > ms) res(); else setTimeout(chk, 150); })(); }); }
+async function loginLocal(id, kata) {
+  await waitLoaded("pengguna", 6000);
+  if (!adaAdmin() && id === ADMIN_ASAL.id && kata === ADMIN_ASAL.kata)
+    await Store.set("pengguna", id, { nama: "Admin", peranan: "admin", hash: await hashAkaun(id, kata), ubah: true, dicipta: new Date().toISOString() });
+  const a = Store.data.pengguna[id];
+  if (!a || a.hash !== await hashAkaun(id, kata)) throw new Error("Nama pengguna atau kata laluan salah.");
+  return { id, peranan: a.peranan, nama: a.nama || id, ubah: !!a.ubah, token: null };
+}
+$("#loginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const id = idPengguna($("#lgNama").value), pw = $("#lgPw").value;
+  if (!id) { $("#lgErr").textContent = "Sila tulis nama pengguna."; return; }
+  const btn = $("#lgBtn"); btn.disabled = true; btn.textContent = "Menyemak…"; $("#lgErr").textContent = "";
+  try {
+    const r = Store.mode === "sheets" ? await gs("apiLogin", id, pw) : await loginLocal(id, pw);
+    auth = { id: r.id, role: r.peranan, nama: r.nama, token: r.token || null, t: Date.now() };
+    lsSet("kp.auth", JSON.stringify(auth));
+    pengawas = auth.nama; $("#lgPw").value = "";
+    applyRole(); if (Store.mode === "sheets") await Store.startSheets();
+    renderAll(); logPengawasSoon();
+    if (r.ubah) paksaTukar(pw); else toast("Selamat datang, " + auth.nama + "!");
+  } catch (err) { $("#lgErr").textContent = String(err.message || err).replace(/^Error: /, ""); }
+  finally { btn.disabled = false; btn.textContent = "Masuk"; }
+});
+function doLogout() { stopCam(); auth = null; pengawas = ""; lsSet("kp.auth", ""); applyRole(); }
+function forceLogout() { if (!auth) return; doLogout(); toast("Sesi log masuk tamat. Sila log masuk semula."); }
+$("#logoutBtn").addEventListener("click", () => confirmBox("Log keluar?", `<p class="muted">Anda perlu log masuk semula untuk menggunakan sistem.</p>`, "Log keluar", doLogout));
+async function applyRole() {
+  document.body.classList.toggle("logged-out", !auth);
+  document.body.classList.toggle("role-admin", isAdmin());
+  document.body.classList.toggle("role-pengawas", !!auth && !isAdmin());
+  $("#userName").textContent = auth ? auth.nama : "";
+  $("#rolePill").textContent = isAdmin() ? "Admin" : "Pengawas";
+  route(); renderSteps && renderSteps();
+  if (!auth) { $("#lgNama").value = ""; try { localStorage.removeItem("kp.lastName"); } catch {} setTimeout(() => $("#lgNama").focus(), 50); $("#lgLalai").hidden = !(await usingDefaults()); }
+}
+
+/* tukar kata laluan sendiri */
+async function tukarKataLaluan(lama, baru) {
+  if (baru.length < 6) throw new Error("Kata laluan baharu mesti sekurang-kurangnya 6 aksara.");
+  if (Store.mode === "sheets") { await gs("apiTukarKataLaluanSendiri", auth.token, lama, baru); Store.pull(); return; }
+  const a = Store.data.pengguna[auth.id];
+  if (!a || a.hash !== await hashAkaun(auth.id, lama)) throw new Error("Kata laluan semasa salah.");
+  await Store.set("pengguna", auth.id, { ...a, hash: await hashAkaun(auth.id, baru), ubah: false });
+}
+$("#fPw").addEventListener("submit", async e => {
+  e.preventDefault();
+  if ($("#pwBaru").value !== $("#pwBaru2").value) return toast("Kata laluan baharu tidak sama. Sila taip semula.");
+  try { await tukarKataLaluan($("#pwLama").value, $("#pwBaru").value); e.target.reset(); toast("Kata laluan anda telah ditukar"); }
+  catch (err) { toast(err.message || String(err)); }
+});
+function paksaTukar(lama) {
+  $("#mTitle").textContent = "Tetapkan kata laluan anda";
+  $("#mBody").innerHTML = `<p class="muted" style="margin:0 0 10px">Ini log masuk pertama anda, atau kata laluan anda telah ditetapkan semula oleh admin. Sila pilih kata laluan baharu sendiri.</p>
+    <form id="fPaksa" class="form" style="text-align:left"><label class="full">Kata laluan baharu<input type="password" id="pkBaru" required minlength="6" autocomplete="new-password"></label>
+    <label class="full">Ulang kata laluan baharu<input type="password" id="pkBaru2" required minlength="6" autocomplete="new-password"></label><p class="err full" id="pkErr" style="margin:0;color:var(--bad);font-weight:700"></p>
+    <div class="full"><button class="btn primary" type="submit" style="width:100%">Simpan dan teruskan</button></div></form>`;
+  $("#mActions").innerHTML = ""; $("#modal").hidden = false; $("#modal").dataset.lock = "1";
+  setTimeout(() => $("#pkBaru").focus(), 50);
+  $("#fPaksa").addEventListener("submit", async ev => {
+    ev.preventDefault();
+    if ($("#pkBaru").value !== $("#pkBaru2").value) { $("#pkErr").textContent = "Kata laluan tidak sama."; return; }
+    if ($("#pkBaru").value === lama) { $("#pkErr").textContent = "Gunakan kata laluan yang berbeza daripada kata laluan sementara."; return; }
+    try { await tukarKataLaluan(lama, $("#pkBaru").value); delete $("#modal").dataset.lock; $("#modal").hidden = true; toast("Kata laluan disimpan. Selamat datang, " + auth.nama + "!"); }
+    catch (err) { $("#pkErr").textContent = err.message || String(err); }
+  });
+}
+
+/* admin: urus akaun */
+let editAkaun = null;
+async function simpanAkaun(a) {
+  if (Store.mode === "sheets") { await gs("apiAkaunSimpan", auth.token, a); Store.pull(); return; }
+  const id = idPengguna(a.id);
+  if (!/^[a-z0-9._-]{3,30}$/.test(id)) throw new Error("Nama pengguna mesti 3-30 aksara: huruf kecil, nombor, titik, sempang atau garis bawah, tanpa jarak.");
+  const ada = Store.data.pengguna[id];
+  if (a.baru && ada) throw new Error("Nama pengguna \"" + id + "\" sudah digunakan.");
+  if (!ada && (a.kataLaluan || "").length < 6) throw new Error("Kata laluan sementara mesti sekurang-kurangnya 6 aksara.");
+  if (a.kataLaluan && a.kataLaluan.length < 6) throw new Error("Kata laluan mesti sekurang-kurangnya 6 aksara.");
+  if (ada && id === auth.id && a.peranan !== "admin") throw new Error("Anda tidak boleh membuang peranan admin anda sendiri.");
+  const r = { ...(ada || { dicipta: new Date().toISOString() }), nama: a.nama.trim(), peranan: a.peranan };
+  if (a.kataLaluan) { r.hash = await hashAkaun(id, a.kataLaluan); r.ubah = true; }
+  await Store.set("pengguna", id, r);
+}
+async function padamAkaun(id) {
+  if (id === auth.id) throw new Error("Anda tidak boleh memadam akaun anda sendiri.");
+  if (Store.mode === "sheets") { await gs("apiAkaunPadam", auth.token, id); Store.pull(); return; }
+  const semua = Store.data.pengguna;
+  if (semua[id] && semua[id].peranan === "admin" && Object.values(semua).filter(x => x.peranan === "admin").length <= 1) throw new Error("Mesti ada sekurang-kurangnya satu admin.");
+  await Store.del("pengguna", id);
+}
+function resetAkForm() {
+  editAkaun = null; $("#fAkaun").reset(); $("#akId").disabled = false;
+  $("#akFormTitle").innerHTML = ICON("plus") + "Tambah akaun"; $("#akSubmit").innerHTML = ICON("plus") + "Cipta akaun";
+  $("#akPwLabel").textContent = "Kata laluan sementara"; $("#akPw").placeholder = "Sekurang-kurangnya 6 aksara"; $("#akReset").hidden = true;
+}
+$("#akReset").addEventListener("click", resetAkForm);
+$("#fAkaun").addEventListener("submit", async e => {
+  e.preventDefault();
+  const a = { id: editAkaun || $("#akId").value, nama: $("#akNama").value, peranan: $("#akPeranan").value, kataLaluan: $("#akPw").value, baru: !editAkaun };
+  try { await simpanAkaun(a); toast(editAkaun ? "Akaun dikemas kini" + (a.kataLaluan ? " dan kata laluan ditetapkan semula" : "") : "Akaun " + idPengguna(a.id) + " dicipta"); resetAkForm(); }
+  catch (err) { toast(err.message || String(err)); }
+});
+function renderAkaun() {
+  if (!auth) return;
+  $("#akSaya").innerHTML = `<div class="row" style="gap:16px;flex-wrap:nowrap">${mascot("happy", 64)}<div style="min-width:0"><div style="font-family:var(--f-display);font-size:22px;font-weight:800">${esc(auth.nama)}</div>
+    <div class="muted" style="font-weight:700">Nama pengguna: <span class="mono">${esc(auth.id)}</span></div><div style="margin-top:6px"><span class="pill ${isAdmin() ? "info" : "ok"}">${isAdmin() ? "Admin" : "Pengawas"}</span></div></div></div>`;
+  if (!isAdmin()) return;
+  const list = Object.entries(Store.data.pengguna || {}).map(([id, a]) => ({ id, ...a })).sort((x, y) => (x.peranan === y.peranan ? x.nama.localeCompare(y.nama) : x.peranan === "admin" ? -1 : 1));
+  $("#akCount").textContent = "(" + list.length + ")";
+  $("#akTable").innerHTML = list.length ? list.map(a => `<tr><td style="font-weight:700">${esc(a.nama)}${a.id === auth.id ? ' <span class="pill info">Anda</span>' : ""}</td><td class="mono">${esc(a.id)}</td>
+    <td><span class="pill ${a.peranan === "admin" ? "info" : "ok"}">${a.peranan === "admin" ? "Admin" : "Pengawas"}</span></td>
+    <td>${a.ubah ? '<span class="pill warn">Belum tukar kata laluan</span>' : '<span class="faint">Aktif</span>'}</td>
+    <td style="white-space:nowrap;text-align:right"><button class="btn sm" data-ak-edit="${esc(a.id)}">Ubah / set semula</button> ${a.id === auth.id ? "" : `<button class="btn sm danger" data-ak-del="${esc(a.id)}">Buang</button>`}</td></tr>`).join("")
+    : `<tr><td colspan="5" class="faint">Belum ada akaun.</td></tr>`;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-ak-edit],[data-ak-del]"); if (!b || !isAdmin()) return;
+  if (b.dataset.akEdit) {
+    const id = b.dataset.akEdit, a = Store.data.pengguna[id]; if (!a) return; editAkaun = id;
+    $("#akNama").value = a.nama; $("#akId").value = id; $("#akId").disabled = true; $("#akPeranan").value = a.peranan; $("#akPw").value = "";
+    $("#akFormTitle").textContent = "Ubah akaun " + id; $("#akSubmit").textContent = "Simpan perubahan";
+    $("#akPwLabel").textContent = "Kata laluan baharu (kosongkan jika tidak mahu set semula)"; $("#akPw").placeholder = "Kosongkan untuk kekalkan kata laluan"; $("#akReset").hidden = false;
+    $("#fAkaun").scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    const id = b.dataset.akDel, a = Store.data.pengguna[id];
+    confirmBox("Buang akaun " + id + "?", `<p class="muted">${esc(a ? a.nama : id)} tidak lagi boleh log masuk. Rekod kehadiran yang pernah dibuat tetap disimpan.</p>`, "Buang akaun", async () => { try { await padamAkaun(id); toast("Akaun " + id + " dibuang"); } catch (err) { toast(err.message || String(err)); } });
+  }
+});
+$("#rosterQ").addEventListener("input", renderImbas);
+$("#rosterSeg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; rosterF = b.dataset.f; $("#rosterSeg").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); renderImbas(); });
+$("#lSeg").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; lF = b.dataset.f; $("#lSeg").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); renderLaporan(); });
+$("#lSesi").addEventListener("change", () => { lChosen = true; renderLaporan(); });
+$("#lQ").addEventListener("input", renderLaporan);
+$("#pQ").addEventListener("input", renderPelajar);
+$("#lPdf").addEventListener("click", exportPdf);
+$("#lXlsx").addEventListener("click", exportXlsx);
+$("#lDrive").addEventListener("click", async () => {
+  const id = $("#lSesi").value; if (!id) return toast("Pilih sidang dahulu");
+  const b = $("#lDrive"); b.disabled = true; b.textContent = "Menyimpan…";
+  try { const r = await gs("apiLaporanKeDrive", auth.token, id); confirmBox("Laporan disimpan ke Google Drive", `<p class="muted">${esc(r.nama)}</p><p><a href="${esc(r.url)}" target="_blank" rel="noopener">Buka laporan dalam Google Sheets</a></p>`, null); }
+  catch (e) { toast("Gagal menyimpan ke Drive: " + e.message); }
+  finally { b.disabled = false; b.textContent = "Simpan ke Google Drive"; }
+});
+$("#pTemplate").addEventListener("click", downloadTemplate);
+$("#pFile").addEventListener("change", e => { const f = e.target.files[0]; if (f) importFile(f); e.target.value = ""; });
+
+
+$("#sesiForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  if ((pickBhg.size && !pickSem.size) || (!pickBhg.size && pickSem.size)) return toast(pickBhg.size ? "Pilih sekurang-kurangnya satu semester." : "Pilih sekurang-kurangnya satu bahagian.");
+  if (!pickBhg.size && !pickUlang.size) return toast("Pilih bahagian dan semester, atau sekurang-kurangnya seorang pelajar ulang.");
+  const d = draftSidang();
+  const obj = { kod: $("#sKod").value.trim().toUpperCase(), nama: $("#sNama").value.trim(), dewan: $("#sDewan").value.trim(), tarikh: $("#sTarikh").value, mula: $("#sMula").value, tamat: $("#sTamat").value, kursus: d.kursus, semester: d.semester, bahagian: "", pelajarUlang: d.pelajarUlang };
+  const id = editSesi || ("S-" + Date.now().toString(36).toUpperCase());
+  try { await Store.set("sesi", id, obj); } catch { return; }
+  if (!editSesi) { activeSesi = id; lsSet("kp.sesi", id); }
+  toast(editSesi ? "Sidang dikemas kini" : "Sidang dicipta dan dijadikan aktif"); resetSesiForm(); renderAll();
+});
+function resetSesiForm() { editSesi = null; $("#sesiForm").reset(); pickBhg = new Set(); pickSem = new Set(); pickUlang = new Set(); $("#sTarikh").value = todayStr(); $("#sesiFormTitle").textContent = "Tambah sidang peperiksaan"; $("#sesiSubmit").innerHTML = ICON("plus") + "Simpan sidang"; $("#sesiReset").hidden = true; renderSesiPicks(); }
+$("#sesiReset").addEventListener("click", resetSesiForm);
+
+$("#pForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const mat = $("#pMatrik").value.trim().toUpperCase();
+  const ic = icDigits($("#pIC").value);
+  if (ic.length !== 12) { toast("No. IC mesti 12 digit, contohnya 050312031234"); $("#pIC").focus(); return; }
+  const dup = pelajarList().find(x => icDigits(x.noIC) === ic && x.noMatrik !== (editPelajar || mat));
+  if (dup) { toast("No. IC ini sudah digunakan oleh " + dup.nama); $("#pIC").focus(); return; }
+  const obj = { noMatrik: mat, nama: $("#pNama").value.trim(), noIC: ic, ulang: $("#pUlang").checked, kursus: $("#pKursus").value.trim(), semester: Number($("#pSem").value) || "" };
+  if (editPelajar && editPelajar !== mat) await Store.del("pelajar", safeId(editPelajar));
+  await Store.set("pelajar", safeId(mat), obj); toast(editPelajar ? "Rekod pelajar dikemas kini" : "Pelajar ditambah"); resetPForm();
+});
+function resetPForm() { editPelajar = null; $("#pForm").reset(); $("#pUlang").checked = false; $("#pSem").value = 4; $("#pFormTitle").textContent = "Tambah seorang pelajar"; $("#pSubmit").innerHTML = ICON("plus") + "Simpan pelajar"; $("#pReset").hidden = true; }
+$("#pReset").addEventListener("click", resetPForm);
+
+function confirmBox(title, body, okLabel, fn) {
+  $("#mTitle").textContent = title; $("#mBody").innerHTML = body;
+  $("#mActions").innerHTML = `<button class="btn" data-m="no">Batal</button>` + (okLabel ? `<button class="btn primary" data-m="ok">${esc(okLabel)}</button>` : "");
+  $("#modal").hidden = false;
+  $("#mActions").onclick = async ev => { const b = ev.target.closest("button"); if (!b) return; $("#modal").hidden = true; if (b.dataset.m === "ok" && fn) await fn(); };
+}
+$("#modal").addEventListener("click", e => { if (e.target.id === "modal" && !$("#modal").dataset.lock) $("#modal").hidden = true; });
+
+document.addEventListener("click", async e => {
+  const t = e.target.closest("button,[data-sample]"); if (!t) return;
+  const d = t.dataset;
+  if (d.mark) return manualMark(d.mark);
+  if ((d.undo || d.editSesi || d.delSesi || d.editP || d.delP || d.bc || t.hasAttribute("data-sample")) && !isAdmin()) return;
+  if (d.undo) return confirmBox("Batal rekod kehadiran?", `<p class="muted">Rekod hadir bagi <b class="mono">${esc(d.undo)}</b> akan dipadam daripada sidang ini.</p>`, "Batal rekod", () => undoMark(d.undo));
+  if (d.aktif) { activeSesi = d.aktif; lsSet("kp.sesi", activeSesi); renderAll(); logPengawasSoon(); return toast("Sidang ditukar. Sedia untuk imbas!"); }
+  if (d.editSesi) { const s = Store.data.sesi[d.editSesi]; editSesi = d.editSesi; $("#sKod").value = s.kod; $("#sNama").value = s.nama; $("#sDewan").value = s.dewan; $("#sTarikh").value = s.tarikh; $("#sMula").value = s.mula; $("#sTamat").value = s.tamat; { const reg = registered(s).filter(p => !p.ulang); const bl = bahagianOf(s);
+    pickBhg = new Set(bl ? bl.map(x => x.split(" | Sem ")[0].trim()) : kursusOf(s).length ? kursusOf(s) : reg.map(p => String(p.kursus).trim()));
+    pickSem = new Set(bl ? bl.map(x => (x.split(" | Sem ")[1] || "").trim()).filter(Boolean) : semOf(s).length ? semOf(s) : reg.map(p => String(p.semester).trim()).filter(Boolean)); } pickUlang = new Set(ulangOf(s)); renderSesiPicks(); $("#sesiFormTitle").textContent = "Ubah sidang " + s.kod; $("#sesiSubmit").textContent = "Simpan perubahan"; $("#sesiReset").hidden = false; updateSesiHint(); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+  if (d.delSesi) { const s = Store.data.sesi[d.delSesi]; return confirmBox("Padam sidang " + s.kod + "?", `<p class="muted">Sidang dan semua rekod kehadirannya akan dipadam.</p>`, "Padam", async () => { const ops = Object.entries(Store.data.kehadiran).filter(([, r]) => r.sesiId === d.delSesi).map(([id]) => ({ op: "del", col: "kehadiran", id })); Object.entries(Store.data.pengawas).filter(([, r]) => r.sesiId === d.delSesi).forEach(([id]) => ops.push({ op: "del", col: "pengawas", id })); ops.push({ op: "del", col: "sesi", id: d.delSesi }); await Store.bulk(ops); toast("Sidang dipadam"); }); }
+  if (d.editP) { const p = Store.data.pelajar[safeId(d.editP)]; editPelajar = p.noMatrik; $("#pMatrik").value = p.noMatrik; $("#pNama").value = p.nama; $("#pIC").value = p.noIC || ""; $("#pKursus").value = p.kursus; $("#pSem").value = p.semester; $("#pUlang").checked = !!p.ulang; $("#pFormTitle").textContent = "Ubah maklumat " + p.nama; $("#pSubmit").textContent = "Simpan perubahan"; $("#pReset").hidden = false; $("#pForm").scrollIntoView({ behavior: "smooth", block: "center" }); return; window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+  if (d.delP) return confirmBox("Padam pelajar?", `<p class="muted">${esc(Store.data.pelajar[safeId(d.delP)]?.nama)} (<span class="mono">${esc(d.delP)}</span>) akan dipadam daripada pangkalan data.</p>`, "Padam", async () => { await Store.del("pelajar", safeId(d.delP)); toast("Pelajar dipadam"); });
+  if (d.bc) { const p = Store.data.pelajar[safeId(d.bc)]; if (icDigits(p.noIC).length !== 12) return toast("Pelajar ini tiada No. IC yang sah"); return confirmBox(p.nama, `<div class="bcbox">${barcodeSVG(icDigits(p.noIC), { h: 80, w: 2.2, fs: 16 })}</div><p class="faint" style="font-size:13px;margin:8px 0 0">Barcode No. IC pelajar ini. Imbas terus dari skrin dengan kamera telefon untuk menguji sistem.</p>`, null); }
+  if (t.hasAttribute("data-sample")) { await Store.bulk(sampleOps()); activeSesi = "S-CONTOH-1"; lsSet("kp.sesi", activeSesi); renderAll(); toast("Data contoh dimuatkan"); return; }
+});
+$("#padamContoh").addEventListener("click", () => confirmBox("Padam semua data contoh?", `<p class="muted">Pelajar bertanda Contoh (termasuk pelajar ulang contoh), dua sidang contoh dan rekod kehadirannya akan dipadam.</p>`, "Padam", async () => {
+  const ops = Object.entries(Store.data.pelajar).filter(([, p]) => p.contoh).map(([id]) => ({ op: "del", col: "pelajar", id }));
+  Object.entries(Store.data.kehadiran).filter(([, r]) => r.sesiId.startsWith("S-CONTOH")).forEach(([id]) => ops.push({ op: "del", col: "kehadiran", id }));
+  Object.keys(Store.data.sesi).filter(id => id.startsWith("S-CONTOH")).forEach(id => ops.push({ op: "del", col: "sesi", id }));
+  Object.entries(Store.data.pengawas).filter(([, r]) => r.sesiId.startsWith("S-CONTOH")).forEach(([id]) => ops.push({ op: "del", col: "pengawas", id }));
+  await Store.bulk(ops); toast("Data contoh dipadam");
+}));
+
+window.addEventListener("unhandledrejection", e => { if (e.reason && (e.reason.code || e.reason.message)) e.preventDefault(); });
+window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (VIEWS.includes(h) && h !== curView) { curView = h; route(); } });
+Store.on(renderAll);
+$("#sTarikh").value = todayStr();
+$("#logoMascot").innerHTML = mascot("happy", 48); $("#loginMascot").innerHTML = mascot("wave", 76); $("#camMascot").innerHTML = mascot("wave", 80); showIdle();
+applyRole(); renderAll();
+Store.init().then(() => { if (Store.mode !== "sheets") showConn(); applyRole(); renderAll(); getDownloads(); setTimeout(logPengawas, 2500); });
+</script>
+
+</body>
+</html>
