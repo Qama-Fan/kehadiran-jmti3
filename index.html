@@ -954,9 +954,7 @@ async function manualMark(matrik) {
 async function undoMark(matrik) { if (!isAdmin()) return; const sesi = getSesi(activeSesi); if (sesi) await Store.del("kehadiran", hadirId(sesi.id, matrik)); }
 
 /* ---------- views ---------- */
-/* ---------- kamera: imbas barcode guna kamera telefon ----------
-   Android Chrome: BarcodeDetector terbina dalam pelayar (pantas).
-   iPhone / lain-lain: ZXing, dibaca pada resolusi penuh kamera. */
+/* ---------- kamera: imbas barcode guna kamera telefon ---------- */
 let camStream = null, camTimer = null, camOn = false, camWanted = false, camFacing = "environment", camBusy = false, torchOn = false;
 let detector = null, zx = null, decoderReady = false, detFails = 0, lastCode = "", lastAt = 0;
 const camCanvas = document.createElement("canvas");
