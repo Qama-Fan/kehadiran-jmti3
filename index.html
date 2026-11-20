@@ -94,7 +94,17 @@ button:focus-visible,a:focus-visible,label.btn:focus-within{outline:3px solid va
 .userbox b{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
 .role-pill{font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;background:var(--ok-soft);color:var(--ok);white-space:nowrap}
 .role-admin .role-pill{background:var(--violet-soft);color:var(--violet)}
-.role-pengawas .admin-only{display:none!important}
+.role-ketua .role-pill{background:var(--warn-soft);color:var(--warn)}
+body:not(.role-admin) .admin-only{display:none!important}
+body:not(.role-admin):not(.role-ketua) .urus-only{display:none!important}
+.pill.peranan-admin{background:var(--violet-soft);color:var(--violet)}
+.pill.peranan-ketua{background:var(--warn-soft);color:var(--warn)}
+.pill.peranan-pengawas{background:var(--ok-soft);color:var(--ok)}
+.online{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px;color:var(--ink-3);white-space:nowrap}
+.online i{width:9px;height:9px;border-radius:50%;background:var(--ink-3);flex:none}
+.online.on{color:var(--ok)} .online.on i{background:var(--ok-mid);box-shadow:0 0 0 3px var(--ok-soft)}
+.steps li .btn{flex:none}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;align-items:start}
 body.logged-out header.top,body.logged-out nav.bottom,body.logged-out main{display:none!important}
 body:not(.logged-out) #login{display:none!important}
 .login{min-height:100%;display:flex;align-items:center;justify-content:center;padding:32px max(16px,env(safe-area-inset-left,0px)) 32px max(16px,env(safe-area-inset-right,0px))}
@@ -429,7 +439,8 @@ tbody tr:hover{background:var(--surface-2)}
       <a href="#dashboard" data-v="dashboard"><svg class="ic"><use href="#i-chart"/></svg>Ringkasan</a>
       <a href="#sesi" data-v="sesi" class="admin-only"><svg class="ic"><use href="#i-cal"/></svg>Sidang</a>
       <a href="#pelajar" data-v="pelajar" class="admin-only"><svg class="ic"><use href="#i-users"/></svg>Pelajar</a>
-      <a href="#laporan" data-v="laporan"><svg class="ic"><use href="#i-file"/></svg>Laporan</a>
+      <a href="#laporan" data-v="laporan" class="urus-only"><svg class="ic"><use href="#i-file"/></svg>Laporan</a>
+      <a href="#tugas" data-v="tugas" class="urus-only"><svg class="ic"><use href="#i-key"/></svg>Log Masuk Pengawas</a>
       <a href="#akaun" data-v="akaun"><svg class="ic"><use href="#i-badge"/></svg>Akaun</a>
     </nav>
   </div>
@@ -439,7 +450,8 @@ tbody tr:hover{background:var(--surface-2)}
   <a href="#dashboard" data-v="dashboard"><svg class="ic"><use href="#i-chart"/></svg>Ringkasan</a>
   <a href="#sesi" data-v="sesi" class="admin-only"><svg class="ic"><use href="#i-cal"/></svg>Sidang</a>
   <a href="#pelajar" data-v="pelajar" class="admin-only"><svg class="ic"><use href="#i-users"/></svg>Pelajar</a>
-  <a href="#laporan" data-v="laporan"><svg class="ic"><use href="#i-file"/></svg>Laporan</a>
+  <a href="#laporan" data-v="laporan" class="urus-only"><svg class="ic"><use href="#i-file"/></svg>Laporan</a>
+  <a href="#tugas" data-v="tugas" class="urus-only"><svg class="ic"><use href="#i-key"/></svg>Pengawas</a>
   <a href="#akaun" data-v="akaun"><svg class="ic"><use href="#i-badge"/></svg>Akaun</a>
 </nav>
 
@@ -450,7 +462,7 @@ tbody tr:hover{background:var(--surface-2)}
 <section class="view" id="v-imbas">
   <ol class="steps" id="steps">
     <li id="st1"><span class="num">1</span><div style="min-width:0"><b>Pilih sidang</b><small id="st1t">Pilih di bahagian atas</small></div></li>
-    <li id="st2"><span class="num">2</span><div style="min-width:0"><b>Log masuk</b><small id="st2t">Nama anda direkod dalam laporan</small></div></li>
+    <li id="st2"><span class="num">2</span><div style="min-width:0;flex:1"><b>Sedia bertugas</b><small id="st2t">Tekan “Saya sedia” bila anda sudah di dewan</small></div><button class="btn sm primary" type="button" id="btnSedia" hidden>Saya sedia</button></li>
     <li id="st3"><span class="num">3</span><div style="min-width:0"><b>Buka kamera dan imbas</b><small>Satu demi satu, sambil pelajar masuk</small></div></li>
   </ol>
 
@@ -459,7 +471,7 @@ tbody tr:hover{background:var(--surface-2)}
       <div class="who" id="stripWho"></div>
       <div class="tally">
         <div class="ok"><b id="tHadir">0</b><span>Sudah hadir</span></div>
-        <div class="bad"><b id="tTidak">0</b><span>Tidak hadir</span></div>
+        <div class="bad"><b id="tTidak">0</b><span>Belum hadir</span></div>
         <div><b id="tJumlah">0</b><span>Jumlah pelajar</span></div>
       </div>
     </div>
@@ -525,7 +537,7 @@ tbody tr:hover{background:var(--surface-2)}
   <div class="kpis">
     <div class="panel kpi"><span class="k-ic"><svg class="ic"><use href="#i-users"/></svg></span><span class="label">Jumlah pelajar</span><b id="kJumlah">0</b><span class="faint" id="kSesi">—</span></div>
     <div class="panel kpi ok"><span class="k-ic"><svg class="ic"><use href="#i-check"/></svg></span><span class="label">Sudah hadir</span><b id="kHadir">0</b><span class="faint">kad telah diimbas</span></div>
-    <div class="panel kpi bad"><span class="k-ic"><svg class="ic"><use href="#i-x"/></svg></span><span class="label">Tidak hadir</span><b id="kTidak">0</b><span class="faint">belum diimbas</span></div>
+    <div class="panel kpi bad"><span class="k-ic"><svg class="ic"><use href="#i-x"/></svg></span><span class="label">Belum hadir</span><b id="kTidak">0</b><span class="faint">belum diimbas</span></div>
     <div class="panel kpi acc"><span class="k-ic"><svg class="ic"><use href="#i-pct"/></svg></span><span class="label">Peratus hadir</span><b id="kPeratus">0%</b><span class="faint" id="kTerakhir">—</span></div>
   </div>
   <div class="grid2">
@@ -623,8 +635,8 @@ tbody tr:hover{background:var(--surface-2)}
     </div>
   </div>
   <div class="panel">
-    <div class="panel-h"><h2><svg class="ic"><use href="#i-badge"/></svg>Pengawas bertugas</h2><span class="faint">Direkod automatik apabila pengawas menggunakan sistem</span></div>
-    <div class="tbl-wrap"><table><thead><tr><th>Nama pengawas</th><th>Mula guna</th><th>Aktif terakhir</th><th class="num">Bil. imbasan</th></tr></thead><tbody id="lPeng"></tbody></table></div>
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-badge"/></svg>Pengawas bertugas</h2><span class="faint">Direkod automatik apabila pengawas log masuk bagi sidang ini</span></div>
+    <div class="tbl-wrap"><table><thead><tr><th>Nama pengawas</th><th>Log masuk</th><th>Sedia pada</th><th>Aktif terakhir</th><th class="num">Bil. imbasan</th></tr></thead><tbody id="lPeng"></tbody></table></div>
   </div>
   <div class="panel">
     <div class="panel-h">
@@ -639,6 +651,27 @@ tbody tr:hover{background:var(--surface-2)}
       </div>
     </div>
     <div class="tbl-wrap"><table><thead><tr><th class="num">Bil</th><th>No. matrik</th><th>Nama</th><th>Kursus</th><th>Masa imbas</th><th>Pengawas</th><th>Status</th></tr></thead><tbody id="lTable"></tbody></table></div>
+  </div>
+</section>
+<!-- ============ LOG MASUK PENGAWAS ============ -->
+<section class="view" id="v-tugas" hidden>
+  <div class="panel">
+    <div class="panel-h">
+      <h2><svg class="ic"><use href="#i-key"/></svg>Log masuk pengawas</h2>
+      <select id="tSesi" style="width:auto;max-width:340px" aria-label="Pilih sidang"></select>
+    </div>
+    <div class="panel-b" id="tSummary"></div>
+  </div>
+  <div class="panel">
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-badge"/></svg>Status pengawas</h2><span class="faint">Dikemas kini automatik · “Dalam talian” = aktif dalam 3 minit terakhir</span></div>
+    <div class="tbl-wrap"><table><thead><tr><th>Pengawas</th><th>Status</th><th>Log masuk</th><th>Sedia pada</th><th>Aktif terakhir</th><th>Peranti</th><th class="num">Imbasan</th></tr></thead><tbody id="tTable"></tbody></table></div>
+  </div>
+  <div class="panel">
+    <div class="panel-h"><h2><svg class="ic"><use href="#i-users"/></svg>Akses sidang <span class="faint" id="tAksesCount" style="font-size:16px"></span></h2><button class="btn sm" type="button" id="tAllAkses">Benarkan semua</button></div>
+    <div class="panel-b" style="display:flex;flex-direction:column;gap:12px">
+      <p class="howto">Tandakan pengawas yang dibenarkan mengambil kehadiran bagi sidang ini. Pengawas hanya nampak dan boleh mengimbas bagi sidang yang dibenarkan.</p>
+      <div class="picks" id="tAkses"></div>
+    </div>
   </div>
 </section>
 <!-- ============ AKAUN ============ -->
@@ -664,8 +697,8 @@ tbody tr:hover{background:var(--surface-2)}
     <div class="panel-h"><h2 id="akFormTitle"><svg class="ic"><use href="#i-plus"/></svg>Tambah akaun</h2><button class="btn sm" type="button" id="akReset" hidden>Batal suntingan</button></div>
     <form class="panel-b form" id="fAkaun" autocomplete="off">
       <label>Nama penuh<input type="text" id="akNama" required placeholder="Nama"></label>
-      <label>Nama pengguna (untuk log masuk)<input type="text" id="akId" required autocapitalize="none" spellcheck="false" placeholder="cth: ali.ahmad" pattern="[a-zA-Z0-9._-]{3,30}" title="3-30 aksara: huruf, nombor, titik, sempang atau garis bawah, tanpa jarak"></label>
-      <label>Peranan<select id="akPeranan"><option value="pengawas">Pengawas</option><option value="admin">Admin</option></select></label>
+      <label>Nama pengguna (untuk log masuk)<input type="text" id="akId" required autocapitalize="none" spellcheck="false" placeholder="cth: ali.ahmad" pattern="[a-zA-Z0-9._\-]{3,30}" title="3-30 aksara: huruf, nombor, titik, sempang atau garis bawah, tanpa jarak"></label>
+      <label>Peranan<select id="akPeranan"><option value="pengawas">Pengawas</option><option value="ketua">Ketua Pengawas</option><option value="admin">Admin</option></select></label>
       <label><span id="akPwLabel">Kata laluan sementara</span><input type="text" id="akPw" autocomplete="off" placeholder="Sekurang-kurangnya 6 aksara"></label>
       <p class="howto full" style="margin:0" id="akHint">Berikan nama pengguna dan kata laluan sementara kepada pemilik akaun. Mereka akan diminta menukar kata laluan pada log masuk pertama.</p>
       <div class="full"><button class="btn primary" type="submit" id="akSubmit"><svg class="ic"><use href="#i-plus"/></svg>Cipta akaun</button></div>
@@ -678,18 +711,25 @@ tbody tr:hover{background:var(--surface-2)}
 
   <div class="panel">
     <div class="panel-h"><h2><svg class="ic"><use href="#i-users"/></svg>Siapa boleh buat apa?</h2></div>
-    <div class="panel-b grid2">
+    <div class="panel-b grid3">
       <div><h3 style="font-size:19px;margin-bottom:8px">Admin</h3><ul class="perms">
         <li><svg class="ic"><use href="#i-check"/></svg>Tambah, ubah dan padam sidang peperiksaan</li>
         <li><svg class="ic"><use href="#i-check"/></svg>Tambah, ubah, padam dan muat naik senarai pelajar (termasuk pelajar ulang)</li>
-        <li><svg class="ic"><use href="#i-check"/></svg>Cipta, ubah dan buang akaun admin dan pengawas</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Cipta, ubah dan buang akaun admin, ketua pengawas dan pengawas</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Tetapkan akses sidang dan lihat log masuk pengawas</li>
         <li><svg class="ic"><use href="#i-check"/></svg>Imbas, tanda hadir, batalkan rekod hadir, lihat ringkasan dan laporan</li></ul></div>
-      <div><h3 style="font-size:19px;margin-bottom:8px">Pengawas</h3><ul class="perms">
-        <li><svg class="ic"><use href="#i-check"/></svg>Pilih sidang dan imbas kad matrik</li>
-        <li><svg class="ic"><use href="#i-check"/></svg>Tanda hadir secara manual</li>
-        <li><svg class="ic"><use href="#i-check"/></svg>Lihat ringkasan dan muat turun laporan</li>
-        <li><svg class="ic"><use href="#i-check"/></svg>Tukar kata laluan sendiri</li>
+      <div><h3 style="font-size:19px;margin-bottom:8px">Ketua Pengawas</h3><ul class="perms">
+        <li><svg class="ic"><use href="#i-check"/></svg>Imbas dan tanda hadir bagi semua sidang</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Lihat ringkasan, laporan dan muat turun laporan</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Log masuk pengawas: lihat pengawas yang sudah sedia</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Tetapkan sidang yang boleh diakses oleh setiap pengawas</li>
         <li class="no"><svg class="ic"><use href="#i-x"/></svg>Tidak boleh ubah sidang, pelajar, akaun atau batalkan rekod hadir</li></ul></div>
+      <div><h3 style="font-size:19px;margin-bottom:8px">Pengawas</h3><ul class="perms">
+        <li><svg class="ic"><use href="#i-check"/></svg>Imbas kad matrik bagi sidang yang dibenarkan sahaja</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Tanda hadir secara manual</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Tekan “Saya sedia” supaya ketua pengawas tahu</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Lihat ringkasan dan tukar kata laluan sendiri</li>
+        <li class="no"><svg class="ic"><use href="#i-x"/></svg>Tidak boleh lihat laporan, ubah sidang, pelajar, akaun atau batalkan rekod hadir</li></ul></div>
     </div>
   </div>
 </section>
@@ -703,6 +743,9 @@ tbody tr:hover{background:var(--surface-2)}
 
 <script>
 /* ===== TETAPAN SAMBUNGAN =====
+   Tampal URL Web App Google Apps Script anda di antara tanda petik di bawah
+   (contoh: https://script.google.com/macros/s/AKfy.../exec).
+   Biarkan kosong untuk mod demo (data disimpan dalam peranti sahaja). */
 window.API_URL = "https://script.google.com/macros/s/AKfycbyvjdQ3lxldOPrLkXz9CFPGqYlZACI43HYBQWwNLAu8evOhXODGzUE2OsNq8YIh0_iK/exec";
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@zxing/library@0.21.3/umd/index.min.js"></script>
@@ -742,7 +785,7 @@ const initials = n => String(n || "?").replace(/\b(bin|binti|a\/l|a\/p)\b/gi, " 
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 2600); }
 
 /* ---------- storage: shared cloud db when published, localStorage when opened as a file ---------- */
-const COLS = ["pelajar", "sesi", "kehadiran", "pengawas", "pengguna"];
+const COLS = ["pelajar", "sesi", "kehadiran", "pengawas", "pengguna", "akses"];
 const hasGAS = () => !!(window.google && google.script && google.script.run);
 const API = () => String(window.API_URL || "").trim();
 const gs = (fn, ...args) => hasGAS()
@@ -752,7 +795,7 @@ const gs = (fn, ...args) => hasGAS()
       .then(j => { if (j && j.error) throw { code: "sheets", message: j.error }; return j.result; },
             e => { throw (e && e.code) ? e : { code: "sheets", message: "Jawapan pelayan tidak sah. Pastikan Web App dibuka kepada 'Anyone'." }; });
 const Store = {
-  mode: "init", db: null, data: { pelajar: {}, sesi: {}, kehadiran: {}, pengawas: {}, pengguna: {} }, loaded: {}, subs: [],
+  mode: "init", db: null, data: { pelajar: {}, sesi: {}, kehadiran: {}, pengawas: {}, pengguna: {}, akses: {} }, loaded: {}, subs: [],
   on(fn) { this.subs.push(fn); },
   emit() { this.subs.forEach(f => f()); },
   loadLocal() {
@@ -763,14 +806,19 @@ const Store = {
   saveLocal() { lsSet("kp.data", JSON.stringify(this.data)); },
   hash: null, seq: 0, pulling: false,
   async pull() {
-    if (this.pulling || !auth) return; this.pulling = true; const seq0 = this.seq;
+    if (this.pulling || !auth) return; this.pulling = true; const seq0 = this.seq, tok = auth.token;
     try {
-      const r = await gs("apiGetAll", auth.token, this.hash);
-      this.err = false; this.lastSync = Date.now();
-      if (seq0 === this.seq && !r.unchanged) { this.hash = r.hash; COLS.forEach(c => { this.data[c] = r.data[c] || {}; this.loaded[c] = true; }); this.emit(); }
+      const r = await gs("apiGetAll", tok, this.hash);
+      if (!auth || auth.token !== tok) return;           // pengguna telah log keluar / bertukar semasa menunggu
+      this.err = false; this.lastSync = Date.now(); this.connOk = true;
+      if (r.token) { auth.token = r.token; lsSet("kp.auth", JSON.stringify(auth)); }   // token diperbaharui
+      if (r.saya && r.saya.id === auth.id && (r.saya.peranan !== auth.role || r.saya.nama !== auth.nama)) {
+        auth.role = r.saya.peranan; auth.nama = r.saya.nama; pengawas = auth.nama; lsSet("kp.auth", JSON.stringify(auth)); applyRole();
+      }
+      if (seq0 === this.seq && !r.unchanged) { this.hash = r.hash; COLS.forEach(c => { this.data[c] = r.data[c] || {}; this.loaded[c] = true; }); this.emit(); logPengawasSoon(); }
       else { if (r.unchanged) this.hash = r.hash; renderChip(); }
     } catch (e) {
-      if (/SESI_TAMAT/.test(e.message)) { forceLogout(); return; }
+      if (/SESI_TAMAT/.test(e.message)) { forceLogout(e.message); return; }
       if (!this.err) toast("Tidak dapat membaca Google Sheets: " + e.message);
       this.err = true; renderChip();
     }
@@ -780,13 +828,16 @@ const Store = {
   async checkConn() {
     try { const r = await gs("apiLoginInfo"); this.connOk = true; this.connErr = ""; this.lalai = !!(r && r.lalai); }
     catch (e) { this.connOk = false; this.connErr = (e && e.message) || String(e); }
-    showConn();
+    try { showConn(); } catch {}
+    // Belum log masuk dan pelayan belum dapat dihubungi: cuba lagi secara automatik
+    clearTimeout(this._cc); if (this.connOk === false && !auth) this._cc = setTimeout(() => this.checkConn(), 5000);
   },
   async init() {
     if (hasGAS() || API()) {
       this.mode = "sheets"; this.emit();
+      // Log masuk yang tersimpan dalam peranti ini: terus sambung ke Google Sheets (tidak perlu log masuk semula)
+      if (auth) this.startSheets();
       await this.checkConn();
-      if (auth) await this.startSheets();
       return;
     }
     if (!(window.claude && typeof window.claude.use === "function")) { this.loadLocal(); this.emit(); return; }
@@ -803,16 +854,17 @@ const Store = {
   },
   started: false,
   async startSheets() {
-    if (this.started) return; this.started = true;
-    await this.pull();
+    if (this.started) { this.pull(); return; } this.started = true;
     setInterval(() => { if (document.visibilityState === "visible") this.pull(); }, 3000);
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") this.pull(); });
+    window.addEventListener("online", () => this.pull());
+    await this.pull();
   },
   localApply(ops) { ops.forEach(o => { const c = { ...this.data[o.col] }; if (o.op === "set") c[o.id] = o.obj; else delete c[o.id]; this.data[o.col] = c; }); this.emit(); },
   async sheetsWrite(fn, args, ops) {
     this.seq++; this.hash = null; this.localApply(ops);
     try { return await gs(fn, ...args); }
-    catch (e) { if (/SESI_TAMAT/.test(e.message)) forceLogout(); else toast("Tidak dapat disimpan: " + (e.message || "ralat tidak diketahui")); this.pull(); throw e; }
+    catch (e) { if (/SESI_TAMAT/.test(e.message)) forceLogout(e.message); else toast("Tidak dapat disimpan: " + (e.message || "ralat tidak diketahui")); this.pull(); throw e; }
     finally { this.seq++; setTimeout(() => this.pull(), 300); }
   },
   async set(col, id, obj) {
@@ -836,6 +888,19 @@ const Store = {
     }
   }
 };
+/* Status sambungan pada skrin log masuk */
+function showConn() {
+  const el = $("#lgConn"); if (!el) return;
+  if (Store.mode === "sheets") {
+    el.hidden = false;
+    if (Store.connOk === false) { el.className = "conn bad"; el.innerHTML = `<span class="dot"></span><div><b>Tidak dapat menyambung ke Google Sheets</b><span>${esc(Store.connErr)} Sistem akan cuba lagi secara automatik.</span></div>`; }
+    else if (Store.connOk) { el.className = "conn ok"; el.innerHTML = `<span class="dot"></span><div><b>Disambung ke Google Sheets</b></div>`; }
+    else { el.className = "conn warn"; el.innerHTML = `<span class="dot"></span><div><b>Menyambung ke Google Sheets…</b></div>`; }
+    if (Store.connOk) $("#lgLalai").hidden = !Store.lalai;
+  } else if (Store.mode === "local") {
+    el.hidden = false; el.className = "conn warn"; el.innerHTML = `<span class="dot"></span><div><b>Mod demo</b><span>Data disimpan dalam pelayar ini sahaja.</span></div>`;
+  } else el.hidden = true;
+}
 let downloadsP = null;
 function getDownloads() { if (!downloadsP) downloadsP = (window.claude && window.claude.use) ? window.claude.use("downloads").catch(() => null) : Promise.resolve(null); return downloadsP; }
 async function saveFile(filename, blob) {
@@ -852,12 +917,21 @@ async function saveFile(filename, blob) {
 /* ---------- domain ---------- */
 let activeSesi = lsGet("kp.sesi") || "";
 let auth = null;
-try { const a = JSON.parse(lsGet("kp.auth") || "null"); if (a && a.id && (a.role === "admin" || a.role === "pengawas") && a.nama) auth = a; } catch {}
+const PERANAN = ["admin", "ketua", "pengawas"];
+const LABEL_PERANAN = { admin: "Admin", ketua: "Ketua Pengawas", pengawas: "Pengawas" };
+const labelPeranan = r => LABEL_PERANAN[r] || "Pengawas";
+const pilPeranan = r => `<span class="pill peranan-${PERANAN.includes(r) ? r : "pengawas"}">${esc(labelPeranan(r))}</span>`;
+try { const a = JSON.parse(lsGet("kp.auth") || "null"); if (a && a.id && PERANAN.includes(a.role) && a.nama) auth = a; } catch {}
 let pengawas = auth ? auth.nama : "";
 const isAdmin = () => !!auth && auth.role === "admin";
-const sesiList = () => Object.entries(Store.data.sesi).map(([id, s]) => ({ id, ...s })).sort((a, b) => (b.tarikh + b.mula).localeCompare(a.tarikh + a.mula));
+const isKetua = () => !!auth && auth.role === "ketua";
+const bolehUrus = () => isAdmin() || isKetua();          // ketua pengawas atau admin
+const aksesId = (sesiId, uid) => sesiId + "__" + uid;
+/* Pengawas hanya boleh mengakses sidang yang dibenarkan oleh ketua pengawas / admin */
+const sesiDibenarkan = id => !auth || auth.role !== "pengawas" || !!Store.data.akses[aksesId(id, auth.id)];
+const sesiList = () => Object.entries(Store.data.sesi).filter(([id]) => sesiDibenarkan(id)).map(([id, s]) => ({ id, ...s })).sort((a, b) => (b.tarikh + b.mula).localeCompare(a.tarikh + a.mula));
 const pelajarList = () => Object.values(Store.data.pelajar).sort((a, b) => a.nama.localeCompare(b.nama));
-const getSesi = id => id && Store.data.sesi[id] ? { id, ...Store.data.sesi[id] } : null;
+const getSesi = id => id && Store.data.sesi[id] && sesiDibenarkan(id) ? { id, ...Store.data.sesi[id] } : null;
 const grpKey = p => String(p.kursus || "").trim() + " | Sem " + String(p.semester || "").trim();
 const bahagianOf = s => s && s.bahagian ? String(s.bahagian).split(" ; ").map(x => x.trim()).filter(Boolean) : null;   // format lama: "kursus | Sem n"
 const kursusOf = s => String((s && s.kursus) || "").split(" ; ").map(x => x.trim()).filter(Boolean);
@@ -928,7 +1002,7 @@ async function handleScan(raw) {
   const masa = new Date().toISOString();
   try {
     await Store.set("kehadiran", hadirId(sesi.id, p.noMatrik), { sesiId: sesi.id, noMatrik: p.noMatrik, masa, pengawas: pengawas || "—", kaedah: "imbasan" });
-    showResult("ok", "Berjaya! Hadir", p, "Direkod pada " + hhmmss(masa) + " · " + sesi.dewan); beep("ok"); logPengawas();
+    showResult("ok", "Berjaya! Hadir", p, "Direkod pada " + hhmmss(masa) + " · " + sesi.dewan); beep("ok"); logPengawas({ sedia: true });
   } catch (e) { showResult("bad", "Belum tersimpan", p, "Rekod tidak dapat disimpan. Semak internet dan imbas semula."); beep("bad"); }
   finally { busy = false; }
 }
@@ -946,7 +1020,7 @@ function showIdle() { showResult("idle", "Sedia untuk imbasan", null, "Hasil imb
 async function manualMark(matrik) {
   const sesi = getSesi(activeSesi); if (!sesi || rekod(sesi.id, matrik)) return;
   if (!auth) return;
-  logPengawas();
+  logPengawas({ sedia: true });
   const p = Store.data.pelajar[safeId(matrik)];
   await Store.set("kehadiran", hadirId(sesi.id, matrik), { sesiId: sesi.id, noMatrik: matrik, masa: new Date().toISOString(), pengawas: pengawas || "—", kaedah: "manual" });
   if (p) showResult("ok", "Berjaya! Hadir", p, "Ditanda hadir secara manual oleh pengawas.");
@@ -954,7 +1028,9 @@ async function manualMark(matrik) {
 async function undoMark(matrik) { if (!isAdmin()) return; const sesi = getSesi(activeSesi); if (sesi) await Store.del("kehadiran", hadirId(sesi.id, matrik)); }
 
 /* ---------- views ---------- */
-/* ---------- kamera: imbas barcode guna kamera telefon ---------- */
+/* ---------- kamera: imbas barcode guna kamera telefon ----------
+   Android Chrome: BarcodeDetector terbina dalam pelayar (pantas).
+   iPhone / lain-lain: ZXing, dibaca pada resolusi penuh kamera. */
 let camStream = null, camTimer = null, camOn = false, camWanted = false, camFacing = "environment", camBusy = false, torchOn = false;
 let detector = null, zx = null, decoderReady = false, detFails = 0, lastCode = "", lastAt = 0;
 const camCanvas = document.createElement("canvas");
@@ -997,7 +1073,7 @@ async function startCam() {
     try { await track.applyConstraints({ advanced: [{ focusMode: "continuous" }] }); } catch {}
     let caps = {}; try { caps = track.getCapabilities ? track.getCapabilities() : {}; } catch {}
     $("#camTorch").hidden = !caps.torch; torchOn = false; $("#camTorch").textContent = "Lampu";
-    camOn = true; scanFrame();
+    camOn = true; scanFrame(); logPengawas({ sedia: true });
   } catch (e) { stopTracks(); camMsg(camError(e), "sad"); camWanted = false; }
   finally { camBusy = false; camUI(); }
 }
@@ -1042,29 +1118,55 @@ $("#camTorch").addEventListener("click", async () => {
 });
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") { if (camOn) stopCam(true); } else if (camWanted && curView === "imbas" && auth) startCam(); });
 
-/* ---------- pengawas log: who used the system for each session ---------- */
+/* ---------- log masuk pengawas: siapa log masuk / sedia bagi setiap sidang ----------
+   Satu baris LOG PENGAWAS bagi setiap pengawas bagi setiap sidang. Dikemas kini apabila pengawas
+   log masuk / memilih sidang, menekan "Saya sedia", membuka kamera, mengimbas, dan setiap minit selagi web dibuka. */
 const pengId = (sesiId, nama) => sesiId + "__" + safeId(nama);
+const ST_MASUK = "LOG MASUK", ST_SEDIA = "SEDIA", ST_KELUAR = "LOG KELUAR";
 const pengLast = {};
-async function logPengawas() {
-  if (!auth) return;
+function peranti() {
+  const u = navigator.userAgent || "";
+  const os = /iPhone/.test(u) ? "iPhone" : /iPad/.test(u) ? "iPad" : /Android/.test(u) ? "Android" : /Windows/.test(u) ? "Windows" : /Mac OS X/.test(u) ? "Mac" : /Linux/.test(u) ? "Linux" : "Lain-lain";
+  const br = /Edg\//.test(u) ? "Edge" : /SamsungBrowser/.test(u) ? "Samsung Internet" : /CriOS|Chrome\//.test(u) ? "Chrome" : /FxiOS|Firefox\//.test(u) ? "Firefox" : /Safari\//.test(u) ? "Safari" : "Pelayar";
+  return os + " · " + br;
+}
+const logSaya = sesi => sesi && pengawas ? Store.data.pengawas[pengId(sesi.id, pengawas)] || null : null;
+const sudahSedia = log => !!(log && log.sedia && log.status !== ST_KELUAR);
+async function logPengawas(ubah) {   // ubah: { sedia: true } | { keluar: true }
+  if (!auth) return false;
   const sesi = getSesi(activeSesi); const nama = pengawas.trim();
-  if (!sesi || nama.length < 2 || !Store.loaded.pengawas) return;
+  if (!sesi || nama.length < 2 || !Store.loaded.pengawas) return false;
   const id = pengId(sesi.id, nama); const ada = Store.data.pengawas[id];
-  if (ada && pengLast[id] && Date.now() - pengLast[id] < 120000) return;
+  const keluar = !!(ubah && ubah.keluar), dahSedia = sudahSedia(ada), nakSedia = !!(ubah && ubah.sedia) && !dahSedia;
+  if (keluar && (!ada || ada.status === ST_KELUAR)) return false;
+  if (!ubah && !ada && auth.role !== "pengawas") return false;   // admin / ketua direkod hanya apabila benar-benar mengimbas
+  if (!keluar && !nakSedia && ada && ada.status !== ST_KELUAR && pengLast[id] && Date.now() - pengLast[id] < 55000) return true;
   pengLast[id] = Date.now(); const now = new Date().toISOString();
-  try { await Store.set("pengawas", id, { sesiId: sesi.id, nama, masuk: ada ? ada.masuk : now, terakhir: now }); } catch {}
+  const obj = { sesiId: sesi.id, nama, userId: auth.id, masuk: (ada && ada.masuk) || now, terakhir: now,
+    sedia: keluar ? "" : dahSedia ? ada.sedia : nakSedia ? now : "", peranti: peranti() };
+  obj.status = keluar ? ST_KELUAR : obj.sedia ? ST_SEDIA : ST_MASUK;
+  if (keluar && Store.mode === "sheets") { gs("apiSet", auth.token, "pengawas", id, obj).catch(() => {}); return true; }
+  try { await Store.set("pengawas", id, obj); return true; } catch { delete pengLast[id]; return false; }
 }
 let pengTimer = null;
 function logPengawasSoon() { clearTimeout(pengTimer); pengTimer = setTimeout(logPengawas, 1500); }
+setInterval(() => { if (auth && document.visibilityState === "visible") logPengawas(); }, 20000);
 function pengawasSesi(sesi) {
   const m = {};
-  Object.values(Store.data.pengawas).filter(x => x.sesiId === sesi.id).forEach(x => { m[safeId(x.nama)] = { nama: x.nama, masuk: x.masuk, terakhir: x.terakhir, imbas: 0 }; });
+  Object.values(Store.data.pengawas).filter(x => x.sesiId === sesi.id).forEach(x => { m[safeId(x.nama)] = { nama: x.nama, userId: x.userId || "", masuk: x.masuk, terakhir: x.terakhir, sedia: x.status === ST_KELUAR ? "" : x.sedia || "", status: x.status || "", peranti: x.peranti || "", imbas: 0, log: true }; });
   Object.values(Store.data.kehadiran).filter(r => r.sesiId === sesi.id && r.pengawas && r.pengawas !== "—").forEach(r => {
-    const k = safeId(r.pengawas); const e = m[k] = m[k] || { nama: r.pengawas, masuk: r.masa, terakhir: r.masa, imbas: 0 };
+    const k = safeId(r.pengawas); const e = m[k] = m[k] || { nama: r.pengawas, userId: "", masuk: r.masa, terakhir: r.masa, sedia: "", status: "", peranti: "", imbas: 0 };
     e.imbas++; if (r.masa < e.masuk) e.masuk = r.masa; if (r.masa > e.terakhir) e.terakhir = r.masa;
   });
   return Object.values(m).sort((a, b) => a.masuk.localeCompare(b.masuk));
 }
+$("#btnSedia").addEventListener("click", async () => {
+  if (!getSesi(activeSesi)) return toast("Pilih sidang dahulu");
+  if (!Store.loaded.pengawas) return toast("Sedang memuatkan data. Cuba lagi sebentar.");
+  const b = $("#btnSedia"); b.disabled = true;
+  try { if (await logPengawas({ sedia: true })) toast("Status anda: Sedia. Ketua pengawas boleh melihatnya."); }
+  finally { b.disabled = false; renderSteps(); }
+});
 
 /* ---------- light / dark ---------- */
 function curTheme() { const a = document.documentElement.getAttribute("data-theme"); return a || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); }
@@ -1073,13 +1175,14 @@ $("#themeBtn").addEventListener("click", () => { const t = curTheme() === "dark"
 applyTheme(lsGet("kp.theme"));
 try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => applyTheme()); } catch {}
 
-const VIEWS = ["imbas", "dashboard", "sesi", "pelajar", "laporan", "akaun"];
-const ADMIN_VIEWS = ["sesi", "pelajar"];
+const VIEWS = ["imbas", "dashboard", "sesi", "pelajar", "laporan", "tugas", "akaun"];
+const VIEW_PERANAN = { sesi: ["admin"], pelajar: ["admin"], laporan: ["admin", "ketua"], tugas: ["admin", "ketua"] };
+const bolehLihat = v => !VIEW_PERANAN[v] || (!!auth && VIEW_PERANAN[v].includes(auth.role));
 let curView = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "imbas";
 function go(v) { curView = VIEWS.includes(v) ? v : "imbas"; try { history.replaceState(null, "", "#" + curView); } catch {} route(); window.scrollTo(0, 0); }
 document.addEventListener("click", e => { const a = e.target.closest('a[href^="#"]'); if (!a) return; e.preventDefault(); go(a.getAttribute("href").slice(1)); });
 function route() {
-  if (!isAdmin() && ADMIN_VIEWS.includes(curView)) curView = "imbas";
+  if (!bolehLihat(curView)) curView = "imbas";
   const v = curView;
   VIEWS.forEach(x => { $("#v-" + x).hidden = x !== v; });
   document.querySelectorAll("nav.tabs a").forEach(a => { if (a.dataset.v === v) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
@@ -1101,18 +1204,20 @@ function renderChip() {
   chip.className = "chip" + (live ? " live" : "");
   chip.lastElementChild.textContent = Store.mode === "sheets" ? (Store.err ? "Google Sheets terputus" : Store.loaded.pelajar ? "Disambung ke Google Sheets" : "Membaca Google Sheets…") : Store.mode === "cloud" ? "Dalam talian" : Store.mode === "local" ? "Disimpan dalam peranti ini" : "Menyambung…";
   if (Store.mode === "sheets" && Store.lastSync) chip.lastElementChild.textContent = (Store.err ? "Terputus" : "Google Sheets") + " · " + new Date(Store.lastSync).toLocaleTimeString("ms-MY", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
-  chip.title = Store.mode === "local" ? "Data disimpan dalam pelayar ini sahaja" : Store.mode === "sheets" ? "Pangkalan data: Google Sheets (DATABASE PELAJAR, SIDANG PEPERIKSAAN, REKOD KEHADIRAN, LOG PENGAWAS, AKAUN PENGGUNA)" : "Data dikongsi antara semua peranti pengawas";
+  chip.title = Store.mode === "local" ? "Data disimpan dalam pelayar ini sahaja" : Store.mode === "sheets" ? "Pangkalan data: Google Sheets (DATABASE PELAJAR, SIDANG PEPERIKSAAN, REKOD KEHADIRAN, LOG PENGAWAS, AKAUN PENGGUNA, AKSES SIDANG)" : "Data dikongsi antara semua peranti pengawas";
   $("#lDrive").hidden = Store.mode !== "sheets";
 }
 function renderSesiOptions() {
   const list = sesiList();
-  if (activeSesi && !Store.data.sesi[activeSesi] && Store.loaded.sesi) activeSesi = "";
-  if (!activeSesi && list.length) { const t = list.find(s => s.tarikh === todayStr()) || list[0]; activeSesi = t.id; lsSet("kp.sesi", activeSesi); }
-  const opts = list.length ? list.map(s => `<option value="${esc(s.id)}">${esc(s.kod)} · ${esc(fmtTarikh(s.tarikh))} ${esc(s.mula)}</option>`).join("") : `<option value="">Tiada sidang lagi</option>`;
+  if (activeSesi && !getSesi(activeSesi) && Store.loaded.sesi) activeSesi = "";
+  if (!activeSesi && list.length) { const t = list.find(s => s.tarikh === todayStr()) || list[0]; activeSesi = t.id; lsSet("kp.sesi", activeSesi); logPengawasSoon(); }
+  const opts = list.length ? list.map(s => `<option value="${esc(s.id)}">${esc(s.kod)} · ${esc(fmtTarikh(s.tarikh))} ${esc(s.mula)}</option>`).join("") : `<option value="">${auth && auth.role === "pengawas" ? "Tiada sidang dibenarkan" : "Tiada sidang lagi"}</option>`;
   const sp = $("#sesiPick"), ls = $("#lSesi");
   if (sp._o !== opts) { sp.innerHTML = opts; sp._o = opts; } if (sp.value !== activeSesi) sp.value = activeSesi;
   const lv = lChosen ? ls.value : activeSesi;
   if (ls._o !== opts) { ls.innerHTML = opts; ls._o = opts; } const want = Store.data.sesi[lv] ? lv : activeSesi; if (ls.value !== want) ls.value = want;
+  const ts = $("#tSesi"), tv = tChosen ? ts.value : activeSesi;
+  if (ts._o !== opts) { ts.innerHTML = opts; ts._o = opts; } const tw = Store.data.sesi[tv] ? tv : activeSesi; if (ts.value !== tw) ts.value = tw;
 }
 
 let rosterF = "all";
@@ -1120,16 +1225,19 @@ function renderSteps() {
   const sesi = getSesi(activeSesi);
   $("#st1").className = sesi ? "done" : "now";
   $("#st1t").textContent = sesi ? sesi.kod + " · " + sesi.dewan : "Pilih di bahagian atas";
-  $("#st2").className = pengawas ? "done" : (sesi ? "now" : "");
-  $("#st2t").textContent = pengawas ? pengawas + " · direkod dalam laporan" : "Nama anda direkod dalam laporan";
-  $("#st3").className = sesi && pengawas ? "now" : "";
-  $("#steps").classList.toggle("alldone", !!(sesi && pengawas));
+  const log = logSaya(sesi), sedia = sudahSedia(log);
+  $("#st2").className = sedia ? "done" : (sesi ? "now" : "");
+  $("#st2t").textContent = sedia ? "Sedia sejak " + hhmm(log.sedia) + " · ketua pengawas boleh lihat" : sesi ? "Tekan “Saya sedia” bila anda sudah di dewan" : "Pilih sidang dahulu";
+  $("#btnSedia").hidden = !sesi || !auth || sedia;
+  $("#st3").className = sesi && sedia ? "now" : "";
+  $("#steps").classList.toggle("alldone", !!(sesi && sedia));
 }
 function renderImbas() {
   renderSteps();
   const sesi = getSesi(activeSesi);
   if (!sesi) {
-    $("#stripWho").innerHTML = `<div class="row" style="gap:14px;flex-wrap:nowrap">${mascot("wave", 70)}<div><h2 style="font-size:24px">Belum ada sidang dipilih</h2><div class="meta"><a href="#sesi">Pergi ke halaman Sidang untuk cipta atau pilih sidang</a></div></div></div>`;
+    const tiadaAkses = auth && auth.role === "pengawas" && Store.loaded.sesi && !sesiList().length;
+    $("#stripWho").innerHTML = `<div class="row" style="gap:14px;flex-wrap:nowrap">${mascot("wave", 70)}<div><h2 style="font-size:24px">${tiadaAkses ? "Belum ada sidang untuk anda" : "Belum ada sidang dipilih"}</h2><div class="meta">${tiadaAkses ? "Ketua pengawas atau admin perlu memberi anda akses kepada sidang peperiksaan. Halaman ini akan dikemas kini sendiri." : isAdmin() ? '<a href="#sesi">Pergi ke halaman Sidang untuk cipta atau pilih sidang</a>' : "Pilih sidang di bahagian atas."}</div></div></div>`;
     ["#tHadir", "#tTidak", "#tJumlah"].forEach(s => $(s).textContent = "0"); $("#tMeter").style.width = "0"; $("#tPct").textContent = "0%";
     $("#roster").innerHTML = `<li class="empty" style="display:flex">${mascot("wave", 72)}<b>Senarai pelajar akan muncul di sini</b>Pilih sidang dahulu.</li>`;
     $("#feed").innerHTML = ""; $("#feedCount").textContent = ""; return;
@@ -1250,7 +1358,7 @@ function renderLaporan() {
   const sesi = getSesi($("#lSesi").value);
   if (!sesi) { $("#lSummary").innerHTML = `<p class="faint" style="margin:0">Tiada sidang untuk dilaporkan.</p>`; $("#lTable").innerHTML = ""; $("#lPeng").innerHTML = ""; return; }
   const pg = pengawasSesi(sesi);
-  $("#lPeng").innerHTML = pg.length ? pg.map(x => `<tr><td style="font-weight:700">${esc(x.nama)}</td><td class="mono">${hhmm(x.masuk)}</td><td class="mono">${hhmm(x.terakhir)}</td><td class="num">${x.imbas}</td></tr>`).join("") : `<tr><td colspan="4" class="faint">Belum ada pengawas yang menggunakan sistem untuk sidang ini.</td></tr>`;
+  $("#lPeng").innerHTML = pg.length ? pg.map(x => `<tr><td style="font-weight:700">${esc(x.nama)}</td><td class="mono">${hhmm(x.masuk)}</td><td class="mono">${x.sedia ? hhmm(x.sedia) : "—"}</td><td class="mono">${hhmm(x.terakhir)}</td><td class="num">${x.imbas}</td></tr>`).join("") : `<tr><td colspan="5" class="faint">Belum ada pengawas yang log masuk bagi sidang ini.</td></tr>`;
   const st = sesiStats(sesi);
   $("#lSummary").innerHTML = `<div class="row" style="gap:28px;align-items:flex-start"><div style="min-width:0;flex:1 1 260px"><div class="label">Subjek</div><div style="font-weight:800;font-size:18px">${esc(sesi.kod)} · ${esc(sesi.nama)}</div><div class="muted" style="font-size:13.5px">${esc(sesi.dewan)} · ${esc(fmtTarikh(sesi.tarikh))} · <span class="mono">${esc(sesi.mula)}–${esc(sesi.tamat)}</span></div></div><div class="tally"><div class="ok"><b>${st.hadir}</b><span>Hadir</span></div><div class="bad"><b>${st.tidak}</b><span>Tidak hadir</span></div><div><b>${st.pct}%</b><span>Peratus</span></div></div></div>`;
   const q = $("#lQ").value.trim().toLowerCase();
@@ -1261,9 +1369,69 @@ function renderLaporan() {
   $("#lTable").innerHTML = rows.length ? rows.map(({ p, r, i }) => (grp !== !!p.ulang && (grp = !!p.ulang, true) && (p.ulang || rows.some(x => x.p.ulang)) ? `<tr><td colspan="7" style="background:${p.ulang ? "var(--warn-soft)" : "var(--surface-2)"};font-weight:800">${p.ulang ? "Pelajar ulang" : "Pelajar biasa"}</td></tr>` : "") + `<tr><td class="num">${i}</td><td class="mono">${esc(p.noMatrik)}</td><td>${esc(p.nama)}${p.ulang ? ' <span class="pill ulang">Ulang</span>' : ""}</td><td>${esc(p.kursus)}${p.semester ? " · Sem " + esc(p.semester) : ""}</td><td class="mono">${r ? hhmmss(r.masa) + (r.kaedah === "manual" ? " (M)" : "") : "—"}</td><td>${esc(r ? r.pengawas : "—")}</td><td>${r ? '<span class="pill ok">Hadir</span>' : '<span class="pill bad">Tidak hadir</span>'}</td></tr>`).join("") : `<tr><td colspan="7" class="faint">Tiada rekod sepadan.</td></tr>`;
 }
 
+/* ---------- log masuk pengawas (ketua pengawas / admin) ---------- */
+let tChosen = false;
+const relMasa = iso => { if (!iso) return "—"; const s = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 1000)); return s < 60 ? "baru sahaja" : s < 3600 ? Math.floor(s / 60) + " min lalu" : s < 86400 ? Math.floor(s / 3600) + " jam lalu" : fmtTarikh(iso.slice(0, 10)); };
+function statusPengawas(x) {
+  if (!x || !x.log && !x.imbas) return { k: 4, label: "Belum log masuk", cls: "bad" };
+  if (x.status === ST_KELUAR) return { k: 3, label: "Log keluar", cls: "bad" };
+  if (x.sedia) return { k: 0, label: "Sedia", cls: "ok" };
+  if (x.imbas) return { k: 1, label: "Sedang mengimbas", cls: "ok" };
+  return { k: 2, label: "Log masuk · belum sedia", cls: "warn" };
+}
+function renderTugas() {
+  if (!bolehUrus()) return;
+  const sesi = getSesi($("#tSesi").value);
+  if (!sesi) { $("#tSummary").innerHTML = `<p class="faint" style="margin:0">Belum ada sidang. Admin perlu mencipta sidang dahulu.</p>`; $("#tTable").innerHTML = ""; $("#tAkses").innerHTML = ""; $("#tAksesCount").textContent = ""; return; }
+  const akaun = Store.data.pengguna || {};
+  const calon = Object.entries(akaun).filter(([, a]) => (a.peranan || "pengawas") === "pengawas").map(([id, a]) => ({ id, nama: a.nama || id })).sort((a, b) => a.nama.localeCompare(b.nama));
+  const dibenar = calon.filter(c => Store.data.akses[aksesId(sesi.id, c.id)]);
+  // gabungkan: pengawas yang dibenarkan + sesiapa yang sudah log masuk / mengimbas bagi sidang ini
+  const m = {};
+  dibenar.forEach(c => { m[safeId(c.nama)] = { nama: c.nama, userId: c.id, imbas: 0, akses: true }; });
+  pengawasSesi(sesi).forEach(x => { const k = safeId(x.nama); m[k] = { ...(m[k] || {}), ...x, userId: x.userId || (m[k] && m[k].userId) || "", akses: !!(m[k] && m[k].akses) }; });
+  const rows = Object.values(m).map(x => ({ ...x, st: statusPengawas(x) })).sort((a, b) => a.st.k - b.st.k || a.nama.localeCompare(b.nama));
+  const n = k => rows.filter(x => x.st.k === k).length;
+  const sedia = n(0) + n(1), masuk = n(2), belum = n(4) + n(3);
+  $("#tSummary").innerHTML = `<div class="row" style="gap:28px;align-items:flex-start"><div style="min-width:0;flex:1 1 260px"><div class="label">Sidang</div><div style="font-weight:800;font-size:18px">${esc(sesi.kod)} · ${esc(sesi.nama)}</div><div class="muted" style="font-size:13.5px">${esc(sesi.dewan)} · ${esc(fmtTarikh(sesi.tarikh))} · <span class="mono">${esc(sesi.mula)}–${esc(sesi.tamat)}</span></div><div class="muted" style="font-size:13.5px;margin-top:4px">${dibenar.length} pengawas dibenarkan bagi sidang ini</div></div><div class="tally"><div class="ok"><b>${sedia}</b><span>Sedia</span></div><div><b>${masuk}</b><span>Log masuk, belum sedia</span></div><div class="bad"><b>${belum}</b><span>Belum log masuk / keluar</span></div></div></div>`;
+  $("#tTable").innerHTML = rows.length ? rows.map(x => { const on = x.terakhir && x.st.k < 3 && Date.now() - new Date(x.terakhir).getTime() < 180000; const ak = akaun[x.userId];
+    return `<tr><td><div style="font-weight:700">${esc(x.nama)}</div><div class="faint" style="font-size:13px">${x.userId ? '<span class="mono">' + esc(x.userId) + "</span>" : ""}${ak && ak.peranan && ak.peranan !== "pengawas" ? " " + pilPeranan(ak.peranan) : ""}${!x.akses && ak && (ak.peranan || "pengawas") === "pengawas" ? ' <span class="pill warn">Tiada akses</span>' : ""}</div></td>
+      <td><span class="pill ${x.st.cls}">${esc(x.st.label)}</span></td><td class="mono">${x.masuk ? hhmm(x.masuk) : "—"}</td><td class="mono">${x.sedia ? hhmm(x.sedia) : "—"}</td>
+      <td>${x.terakhir ? `<span class="online${on ? " on" : ""}"><i></i>${on ? "Dalam talian" : esc(relMasa(x.terakhir))}</span>` : '<span class="faint">—</span>'}</td><td style="font-size:13.5px">${esc(x.peranti || "—")}</td><td class="num">${x.imbas || 0}</td></tr>`; }).join("")
+    : `<tr><td colspan="7"><div class="empty">${mascot("wave", 72)}<b>Belum ada pengawas bagi sidang ini</b>Benarkan pengawas di bahagian “Akses sidang” di bawah.</div></td></tr>`;
+  $("#tAksesCount").textContent = "(" + dibenar.length + " / " + calon.length + ")";
+  $("#tAllAkses").hidden = !calon.length; $("#tAllAkses").textContent = calon.length && dibenar.length === calon.length ? "Buang semua" : "Benarkan semua";
+  const h = calon.length ? calon.map(c => `<label class="pick"><input type="checkbox" data-akses="${esc(c.id)}" ${Store.data.akses[aksesId(sesi.id, c.id)] ? "checked" : ""}>${esc(c.nama)} <small class="mono">${esc(c.id)}</small></label>`).join("")
+    : `<span class="faint">Belum ada akaun pengawas. ${isAdmin() ? "Cipta akaun di halaman Akaun." : "Minta admin mencipta akaun pengawas."}</span>`;
+  if ($("#tAkses")._h !== h) { $("#tAkses").innerHTML = h; $("#tAkses")._h = h; }
+}
+async function setAkses(sesiId, uid, boleh) {
+  const id = aksesId(sesiId, uid);
+  if (boleh) await Store.set("akses", id, { sesiId, userId: uid, oleh: auth.nama, masa: new Date().toISOString() });
+  else await Store.del("akses", id);
+}
+$("#tSesi").addEventListener("change", () => { tChosen = true; renderTugas(); });
+$("#tAkses").addEventListener("change", async e => {
+  const c = e.target.closest("[data-akses]"); if (!c || !bolehUrus()) return;
+  const sesi = getSesi($("#tSesi").value); if (!sesi) return;
+  const nama = (Store.data.pengguna[c.dataset.akses] || {}).nama || c.dataset.akses;
+  try { await setAkses(sesi.id, c.dataset.akses, c.checked); toast(nama + (c.checked ? " dibenarkan bagi " : " tidak lagi dibenarkan bagi ") + sesi.kod); }
+  catch { c.checked = !c.checked; }
+});
+$("#tAllAkses").addEventListener("click", async () => {
+  const sesi = getSesi($("#tSesi").value); if (!sesi || !bolehUrus()) return;
+  const calon = Object.entries(Store.data.pengguna || {}).filter(([, a]) => (a.peranan || "pengawas") === "pengawas").map(([id]) => id);
+  const semua = calon.every(id => Store.data.akses[aksesId(sesi.id, id)]);
+  const ops = calon.filter(id => !!Store.data.akses[aksesId(sesi.id, id)] === semua).map(id => semua ? { op: "del", col: "akses", id: aksesId(sesi.id, id) }
+    : { op: "set", col: "akses", id: aksesId(sesi.id, id), obj: { sesiId: sesi.id, userId: id, oleh: auth.nama, masa: new Date().toISOString() } });
+  if (!ops.length) return;
+  try { await Store.bulk(ops); toast(semua ? "Semua akses bagi " + sesi.kod + " dibuang" : "Semua pengawas dibenarkan bagi " + sesi.kod); } catch {}
+});
+setInterval(() => { if (curView === "tugas" && auth && document.visibilityState === "visible") renderTugas(); }, 15000);
+
 function renderAll() {
   if (auth && Store.mode !== "sheets" && Store.loaded.pengguna && !Store.data.pengguna[auth.id]) { forceLogout(); return; }
-  renderAkaun(); renderHeader(); renderImbas(); renderDashboard(); renderSesi(); renderPelajar(); renderLaporan(); }
+  renderAkaun(); renderHeader(); renderImbas(); renderDashboard(); renderSesi(); renderPelajar(); renderLaporan(); renderTugas(); }
 
 /* ---------- exports ---------- */
 function reportData(sesi) {
@@ -1280,8 +1448,8 @@ async function exportXlsx() {
   const ws = XLSX.utils.aoa_to_sheet(aoa);
   ws["!cols"] = [{ wch: 5 }, { wch: 13 }, { wch: 34 }, { wch: 16 }, { wch: 36 }, { wch: 11 }, { wch: 20 }, { wch: 16 }];
   const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "Kehadiran");
-  const ws2 = XLSX.utils.aoa_to_sheet([["PENGAWAS BERTUGAS", sesi.kod + " " + sesi.nama], [], ["Bil", "Nama Pengawas", "Mula Guna", "Aktif Terakhir", "Bil. Imbasan"], ...pengawasSesi(sesi).map((x, i) => [i + 1, x.nama, hhmmss(x.masuk), hhmmss(x.terakhir), x.imbas])]);
-  ws2["!cols"] = [{ wch: 5 }, { wch: 30 }, { wch: 12 }, { wch: 14 }, { wch: 13 }];
+  const ws2 = XLSX.utils.aoa_to_sheet([["PENGAWAS BERTUGAS", sesi.kod + " " + sesi.nama], [], ["Bil", "Nama Pengawas", "Log Masuk", "Sedia Pada", "Aktif Terakhir", "Bil. Imbasan"], ...pengawasSesi(sesi).map((x, i) => [i + 1, x.nama, hhmmss(x.masuk), x.sedia ? hhmmss(x.sedia) : "", hhmmss(x.terakhir), x.imbas])]);
+  ws2["!cols"] = [{ wch: 5 }, { wch: 30 }, { wch: 12 }, { wch: 12 }, { wch: 14 }, { wch: 13 }];
   XLSX.utils.book_append_sheet(wb, ws2, "Pengawas");
   const buf = XLSX.write(wb, { bookType: "xlsx", type: "array" });
   await saveFile(fileBase(sesi) + ".xlsx", new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
@@ -1301,8 +1469,8 @@ async function exportPdf() {
   const pg = pengawasSesi(sesi);
   let y = doc.lastAutoTable.finalY + 10; if (y > 160) { doc.addPage(); y = 18; }
   doc.setFont("helvetica", "bold"); doc.setFontSize(11.5); doc.setTextColor(0); doc.text("PENGAWAS BERTUGAS", 14, y);
-  doc.autoTable({ head: [["Bil", "Nama Pengawas", "Mula Guna", "Aktif Terakhir", "Bil. Imbasan", "Tandatangan"]], body: pg.length ? pg.map((x, i) => [i + 1, x.nama, hhmmss(x.masuk), hhmmss(x.terakhir), x.imbas, ""]) : [["-", "Tiada rekod", "", "", "", ""]],
-    startY: y + 3, styles: { fontSize: 9.5, cellPadding: 3, minCellHeight: 10 }, headStyles: { fillColor: [45, 35, 80] }, columnStyles: { 0: { cellWidth: 12 }, 1: { cellWidth: 70 }, 5: { cellWidth: 60 } } });
+  doc.autoTable({ head: [["Bil", "Nama Pengawas", "Log Masuk", "Sedia Pada", "Aktif Terakhir", "Bil. Imbasan", "Tandatangan"]], body: pg.length ? pg.map((x, i) => [i + 1, x.nama, hhmmss(x.masuk), x.sedia ? hhmmss(x.sedia) : "-", hhmmss(x.terakhir), x.imbas, ""]) : [["-", "Tiada rekod", "", "", "", "", ""]],
+    startY: y + 3, styles: { fontSize: 9.5, cellPadding: 3, minCellHeight: 10 }, headStyles: { fillColor: [45, 35, 80] }, columnStyles: { 0: { cellWidth: 12 }, 1: { cellWidth: 70 }, 6: { cellWidth: 55 } } });
   doc.setFontSize(8); doc.setTextColor(120); doc.text("Dijana pada " + new Date().toLocaleString("ms-MY") + (pengawas ? " oleh " + pengawas : ""), 283, 200, { align: "right" });
   await saveFile(fileBase(sesi) + ".pdf", doc.output("blob"));
 }
@@ -1377,24 +1545,30 @@ $("#loginForm").addEventListener("submit", async e => {
   const btn = $("#lgBtn"); btn.disabled = true; btn.textContent = "Menyemak…"; $("#lgErr").textContent = "";
   try {
     const r = Store.mode === "sheets" ? await gs("apiLogin", id, pw) : await loginLocal(id, pw);
-    auth = { id: r.id, role: r.peranan, nama: r.nama, token: r.token || null, t: Date.now() };
+    auth = { id: r.id, role: PERANAN.includes(r.peranan) ? r.peranan : "pengawas", nama: r.nama, token: r.token || null, t: Date.now() };
     lsSet("kp.auth", JSON.stringify(auth));
-    pengawas = auth.nama; $("#lgPw").value = "";
+    pengawas = auth.nama; $("#lgPw").value = ""; Store.hash = null; clearTimeout(Store._cc);
     applyRole(); if (Store.mode === "sheets") await Store.startSheets();
     renderAll(); logPengawasSoon();
     if (r.ubah) paksaTukar(pw); else toast("Selamat datang, " + auth.nama + "!");
   } catch (err) { $("#lgErr").textContent = String(err.message || err).replace(/^Error: /, ""); }
   finally { btn.disabled = false; btn.textContent = "Masuk"; }
 });
-function doLogout() { stopCam(); auth = null; pengawas = ""; lsSet("kp.auth", ""); applyRole(); }
-function forceLogout() { if (!auth) return; doLogout(); toast("Sesi log masuk tamat. Sila log masuk semula."); }
+function doLogout(senyap) {
+  if (auth && !senyap) logPengawas({ keluar: true });   // rekod "LOG KELUAR" dalam LOG PENGAWAS
+  stopCam(); auth = null; pengawas = ""; lsSet("kp.auth", "");
+  if (Store.mode === "sheets") { Store.seq++; Store.hash = null; COLS.forEach(c => { Store.data[c] = {}; Store.loaded[c] = false; }); }
+  applyRole(); renderAll();
+}
+function forceLogout(msg) { if (!auth) return; doLogout(true); toast(String(msg || "").replace(/^SESI_TAMAT:\s*/, "") || "Sesi log masuk tamat. Sila log masuk semula."); }
 $("#logoutBtn").addEventListener("click", () => confirmBox("Log keluar?", `<p class="muted">Anda perlu log masuk semula untuk menggunakan sistem.</p>`, "Log keluar", doLogout));
 async function applyRole() {
   document.body.classList.toggle("logged-out", !auth);
   document.body.classList.toggle("role-admin", isAdmin());
-  document.body.classList.toggle("role-pengawas", !!auth && !isAdmin());
+  document.body.classList.toggle("role-ketua", isKetua());
+  document.body.classList.toggle("role-pengawas", !!auth && !isAdmin() && !isKetua());
   $("#userName").textContent = auth ? auth.nama : "";
-  $("#rolePill").textContent = isAdmin() ? "Admin" : "Pengawas";
+  $("#rolePill").textContent = auth ? labelPeranan(auth.role) : "Pengawas";
   route(); renderSteps && renderSteps();
   if (!auth) { $("#lgNama").value = ""; try { localStorage.removeItem("kp.lastName"); } catch {} setTimeout(() => $("#lgNama").focus(), 50); $("#lgLalai").hidden = !(await usingDefaults()); }
 }
@@ -1402,7 +1576,7 @@ async function applyRole() {
 /* tukar kata laluan sendiri */
 async function tukarKataLaluan(lama, baru) {
   if (baru.length < 6) throw new Error("Kata laluan baharu mesti sekurang-kurangnya 6 aksara.");
-  if (Store.mode === "sheets") { await gs("apiTukarKataLaluanSendiri", auth.token, lama, baru); Store.pull(); return; }
+  if (Store.mode === "sheets") { const r = await gs("apiTukarKataLaluanSendiri", auth.token, lama, baru); if (r && r.token) { auth.token = r.token; lsSet("kp.auth", JSON.stringify(auth)); } Store.pull(); return; }
   const a = Store.data.pengguna[auth.id];
   if (!a || a.hash !== await hashAkaun(auth.id, lama)) throw new Error("Kata laluan semasa salah.");
   await Store.set("pengguna", auth.id, { ...a, hash: await hashAkaun(auth.id, baru), ubah: false });
@@ -1433,7 +1607,7 @@ function paksaTukar(lama) {
 /* admin: urus akaun */
 let editAkaun = null;
 async function simpanAkaun(a) {
-  if (Store.mode === "sheets") { await gs("apiAkaunSimpan", auth.token, a); Store.pull(); return; }
+  if (Store.mode === "sheets") { const r = await gs("apiAkaunSimpan", auth.token, a); if (r && r.token) { auth.token = r.token; lsSet("kp.auth", JSON.stringify(auth)); } Store.pull(); return; }
   const id = idPengguna(a.id);
   if (!/^[a-z0-9._-]{3,30}$/.test(id)) throw new Error("Nama pengguna mesti 3-30 aksara: huruf kecil, nombor, titik, sempang atau garis bawah, tanpa jarak.");
   const ada = Store.data.pengguna[id];
@@ -1441,7 +1615,7 @@ async function simpanAkaun(a) {
   if (!ada && (a.kataLaluan || "").length < 6) throw new Error("Kata laluan sementara mesti sekurang-kurangnya 6 aksara.");
   if (a.kataLaluan && a.kataLaluan.length < 6) throw new Error("Kata laluan mesti sekurang-kurangnya 6 aksara.");
   if (ada && id === auth.id && a.peranan !== "admin") throw new Error("Anda tidak boleh membuang peranan admin anda sendiri.");
-  const r = { ...(ada || { dicipta: new Date().toISOString() }), nama: a.nama.trim(), peranan: a.peranan };
+  const r = { ...(ada || { dicipta: new Date().toISOString() }), nama: a.nama.trim(), peranan: PERANAN.includes(a.peranan) ? a.peranan : "pengawas" };
   if (a.kataLaluan) { r.hash = await hashAkaun(id, a.kataLaluan); r.ubah = true; }
   await Store.set("pengguna", id, r);
 }
@@ -1450,7 +1624,7 @@ async function padamAkaun(id) {
   if (Store.mode === "sheets") { await gs("apiAkaunPadam", auth.token, id); Store.pull(); return; }
   const semua = Store.data.pengguna;
   if (semua[id] && semua[id].peranan === "admin" && Object.values(semua).filter(x => x.peranan === "admin").length <= 1) throw new Error("Mesti ada sekurang-kurangnya satu admin.");
-  await Store.del("pengguna", id);
+  await Store.bulk([{ op: "del", col: "pengguna", id }, ...Object.entries(Store.data.akses).filter(([, x]) => x.userId === id).map(([k]) => ({ op: "del", col: "akses", id: k }))]);
 }
 function resetAkForm() {
   editAkaun = null; $("#fAkaun").reset(); $("#akId").disabled = false;
@@ -1467,12 +1641,12 @@ $("#fAkaun").addEventListener("submit", async e => {
 function renderAkaun() {
   if (!auth) return;
   $("#akSaya").innerHTML = `<div class="row" style="gap:16px;flex-wrap:nowrap">${mascot("happy", 64)}<div style="min-width:0"><div style="font-family:var(--f-display);font-size:22px;font-weight:800">${esc(auth.nama)}</div>
-    <div class="muted" style="font-weight:700">Nama pengguna: <span class="mono">${esc(auth.id)}</span></div><div style="margin-top:6px"><span class="pill ${isAdmin() ? "info" : "ok"}">${isAdmin() ? "Admin" : "Pengawas"}</span></div></div></div>`;
+    <div class="muted" style="font-weight:700">Nama pengguna: <span class="mono">${esc(auth.id)}</span></div><div style="margin-top:6px">${pilPeranan(auth.role)}</div></div></div>`;
   if (!isAdmin()) return;
-  const list = Object.entries(Store.data.pengguna || {}).map(([id, a]) => ({ id, ...a })).sort((x, y) => (x.peranan === y.peranan ? x.nama.localeCompare(y.nama) : x.peranan === "admin" ? -1 : 1));
+  const list = Object.entries(Store.data.pengguna || {}).map(([id, a]) => ({ id, ...a })).sort((x, y) => (PERANAN.indexOf(x.peranan) - PERANAN.indexOf(y.peranan)) || x.nama.localeCompare(y.nama));
   $("#akCount").textContent = "(" + list.length + ")";
   $("#akTable").innerHTML = list.length ? list.map(a => `<tr><td style="font-weight:700">${esc(a.nama)}${a.id === auth.id ? ' <span class="pill info">Anda</span>' : ""}</td><td class="mono">${esc(a.id)}</td>
-    <td><span class="pill ${a.peranan === "admin" ? "info" : "ok"}">${a.peranan === "admin" ? "Admin" : "Pengawas"}</span></td>
+    <td>${pilPeranan(a.peranan)}</td>
     <td>${a.ubah ? '<span class="pill warn">Belum tukar kata laluan</span>' : '<span class="faint">Aktif</span>'}</td>
     <td style="white-space:nowrap;text-align:right"><button class="btn sm" data-ak-edit="${esc(a.id)}">Ubah / set semula</button> ${a.id === auth.id ? "" : `<button class="btn sm danger" data-ak-del="${esc(a.id)}">Buang</button>`}</td></tr>`).join("")
     : `<tr><td colspan="5" class="faint">Belum ada akaun.</td></tr>`;
@@ -1481,7 +1655,7 @@ document.addEventListener("click", e => {
   const b = e.target.closest("[data-ak-edit],[data-ak-del]"); if (!b || !isAdmin()) return;
   if (b.dataset.akEdit) {
     const id = b.dataset.akEdit, a = Store.data.pengguna[id]; if (!a) return; editAkaun = id;
-    $("#akNama").value = a.nama; $("#akId").value = id; $("#akId").disabled = true; $("#akPeranan").value = a.peranan; $("#akPw").value = "";
+    $("#akNama").value = a.nama; $("#akId").value = id; $("#akId").disabled = true; $("#akPeranan").value = PERANAN.includes(a.peranan) ? a.peranan : "pengawas"; $("#akPw").value = "";
     $("#akFormTitle").textContent = "Ubah akaun " + id; $("#akSubmit").textContent = "Simpan perubahan";
     $("#akPwLabel").textContent = "Kata laluan baharu (kosongkan jika tidak mahu set semula)"; $("#akPw").placeholder = "Kosongkan untuk kekalkan kata laluan"; $("#akReset").hidden = false;
     $("#fAkaun").scrollIntoView({ behavior: "smooth", block: "center" });
@@ -1555,7 +1729,7 @@ document.addEventListener("click", async e => {
   if (d.editSesi) { const s = Store.data.sesi[d.editSesi]; editSesi = d.editSesi; $("#sKod").value = s.kod; $("#sNama").value = s.nama; $("#sDewan").value = s.dewan; $("#sTarikh").value = s.tarikh; $("#sMula").value = s.mula; $("#sTamat").value = s.tamat; { const reg = registered(s).filter(p => !p.ulang); const bl = bahagianOf(s);
     pickBhg = new Set(bl ? bl.map(x => x.split(" | Sem ")[0].trim()) : kursusOf(s).length ? kursusOf(s) : reg.map(p => String(p.kursus).trim()));
     pickSem = new Set(bl ? bl.map(x => (x.split(" | Sem ")[1] || "").trim()).filter(Boolean) : semOf(s).length ? semOf(s) : reg.map(p => String(p.semester).trim()).filter(Boolean)); } pickUlang = new Set(ulangOf(s)); renderSesiPicks(); $("#sesiFormTitle").textContent = "Ubah sidang " + s.kod; $("#sesiSubmit").textContent = "Simpan perubahan"; $("#sesiReset").hidden = false; updateSesiHint(); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
-  if (d.delSesi) { const s = Store.data.sesi[d.delSesi]; return confirmBox("Padam sidang " + s.kod + "?", `<p class="muted">Sidang dan semua rekod kehadirannya akan dipadam.</p>`, "Padam", async () => { const ops = Object.entries(Store.data.kehadiran).filter(([, r]) => r.sesiId === d.delSesi).map(([id]) => ({ op: "del", col: "kehadiran", id })); Object.entries(Store.data.pengawas).filter(([, r]) => r.sesiId === d.delSesi).forEach(([id]) => ops.push({ op: "del", col: "pengawas", id })); ops.push({ op: "del", col: "sesi", id: d.delSesi }); await Store.bulk(ops); toast("Sidang dipadam"); }); }
+  if (d.delSesi) { const s = Store.data.sesi[d.delSesi]; return confirmBox("Padam sidang " + s.kod + "?", `<p class="muted">Sidang dan semua rekod kehadirannya akan dipadam.</p>`, "Padam", async () => { const ops = Object.entries(Store.data.kehadiran).filter(([, r]) => r.sesiId === d.delSesi).map(([id]) => ({ op: "del", col: "kehadiran", id })); Object.entries(Store.data.pengawas).filter(([, r]) => r.sesiId === d.delSesi).forEach(([id]) => ops.push({ op: "del", col: "pengawas", id })); Object.entries(Store.data.akses).filter(([, r]) => r.sesiId === d.delSesi).forEach(([id]) => ops.push({ op: "del", col: "akses", id })); ops.push({ op: "del", col: "sesi", id: d.delSesi }); await Store.bulk(ops); toast("Sidang dipadam"); }); }
   if (d.editP) { const p = Store.data.pelajar[safeId(d.editP)]; editPelajar = p.noMatrik; $("#pMatrik").value = p.noMatrik; $("#pNama").value = p.nama; $("#pIC").value = p.noIC || ""; $("#pKursus").value = p.kursus; $("#pSem").value = p.semester; $("#pUlang").checked = !!p.ulang; $("#pFormTitle").textContent = "Ubah maklumat " + p.nama; $("#pSubmit").textContent = "Simpan perubahan"; $("#pReset").hidden = false; $("#pForm").scrollIntoView({ behavior: "smooth", block: "center" }); return; window.scrollTo({ top: 0, behavior: "smooth" }); return; }
   if (d.delP) return confirmBox("Padam pelajar?", `<p class="muted">${esc(Store.data.pelajar[safeId(d.delP)]?.nama)} (<span class="mono">${esc(d.delP)}</span>) akan dipadam daripada pangkalan data.</p>`, "Padam", async () => { await Store.del("pelajar", safeId(d.delP)); toast("Pelajar dipadam"); });
   if (d.bc) { const p = Store.data.pelajar[safeId(d.bc)]; if (icDigits(p.noIC).length !== 12) return toast("Pelajar ini tiada No. IC yang sah"); return confirmBox(p.nama, `<div class="bcbox">${barcodeSVG(icDigits(p.noIC), { h: 80, w: 2.2, fs: 16 })}</div><p class="faint" style="font-size:13px;margin:8px 0 0">Barcode No. IC pelajar ini. Imbas terus dari skrin dengan kamera telefon untuk menguji sistem.</p>`, null); }
@@ -1566,6 +1740,7 @@ $("#padamContoh").addEventListener("click", () => confirmBox("Padam semua data c
   Object.entries(Store.data.kehadiran).filter(([, r]) => r.sesiId.startsWith("S-CONTOH")).forEach(([id]) => ops.push({ op: "del", col: "kehadiran", id }));
   Object.keys(Store.data.sesi).filter(id => id.startsWith("S-CONTOH")).forEach(id => ops.push({ op: "del", col: "sesi", id }));
   Object.entries(Store.data.pengawas).filter(([, r]) => r.sesiId.startsWith("S-CONTOH")).forEach(([id]) => ops.push({ op: "del", col: "pengawas", id }));
+  Object.entries(Store.data.akses).filter(([, r]) => String(r.sesiId).startsWith("S-CONTOH")).forEach(([id]) => ops.push({ op: "del", col: "akses", id }));
   await Store.bulk(ops); toast("Data contoh dipadam");
 }));
 
@@ -1575,7 +1750,7 @@ Store.on(renderAll);
 $("#sTarikh").value = todayStr();
 $("#logoMascot").innerHTML = mascot("happy", 48); $("#loginMascot").innerHTML = mascot("wave", 76); $("#camMascot").innerHTML = mascot("wave", 80); showIdle();
 applyRole(); renderAll();
-Store.init().then(() => { if (Store.mode !== "sheets") showConn(); applyRole(); renderAll(); getDownloads(); setTimeout(logPengawas, 2500); });
+Store.init().catch(e => console.error(e)).then(() => { if (Store.mode !== "sheets") showConn(); applyRole(); renderAll(); getDownloads(); logPengawasSoon(); });
 </script>
 
 </body>
